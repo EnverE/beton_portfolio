@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolio';
 import { brutalistAudio } from '../utils/audio';
-import { Send, Copy, Check } from 'lucide-react';
+import { Send, Copy, Check, Mail } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
 
@@ -21,6 +21,14 @@ export const DispatchSection: React.FC = () => {
     setTimeout(() => setCopiedKey(null), 2500);
   };
 
+  const handleMailtoFallback = () => {
+    const subject = encodeURIComponent(`[Commission] Project Inquiry from ${formData.name || 'Client'}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.channel}\n\nProject Scope:\n${formData.payload}`
+    );
+    window.location.href = `mailto:${PORTFOLIO_DATA.contactTelemetry.email}?subject=${subject}&body=${body}`;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.payload) return;
@@ -38,12 +46,16 @@ export const DispatchSection: React.FC = () => {
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
         body: JSON.stringify({
           access_key: accessKey,
           name: formData.name,
           email: formData.channel,
           message: formData.payload,
+          from_name: formData.name,
           subject: `New dispatch from ${formData.name} via betonportfolio.vercel.app`,
         }),
       });
@@ -52,8 +64,9 @@ export const DispatchSection: React.FC = () => {
       if (data.success) {
         brutalistAudio.playConcreteThud();
         setTransmitted(true);
+        setFormData({ name: '', channel: '', payload: '' });
       } else {
-        setError(t.dispatch.errorGeneric);
+        setError(data.message || t.dispatch.errorGeneric);
       }
     } catch {
       setError(t.dispatch.errorGeneric);
@@ -132,6 +145,9 @@ export const DispatchSection: React.FC = () => {
                 />
               </div>
 
+              {/* Botcheck Honeypot for Web3Forms spam prevention */}
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+
               <button
                 type="submit"
                 disabled={isTransmitting}
@@ -142,7 +158,17 @@ export const DispatchSection: React.FC = () => {
               </button>
 
               {error && (
-                <p className="text-red-400 text-[11px] text-center">{error}</p>
+                <div className="p-3 bg-red-950/40 border border-red-800/80 text-red-300 text-[11px] space-y-2">
+                  <p className="text-center">{error}</p>
+                  <button
+                    type="button"
+                    onClick={handleMailtoFallback}
+                    className="w-full flex items-center justify-center gap-2 p-2 bg-zinc-900 hover:bg-white text-zinc-300 hover:text-black font-bold uppercase transition-colors border border-zinc-700 hover:border-white cursor-pointer text-[10px]"
+                  >
+                    <Mail className="w-3 h-3" />
+                    <span>{t.dispatch.btnOpenMailClient}</span>
+                  </button>
+                </div>
               )}
             </form>
           )}

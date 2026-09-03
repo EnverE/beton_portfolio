@@ -103,6 +103,7 @@ export const TRANSLATIONS = {
       statusVal: 'OPEN TO NEW PROJECTS, LIMITED HOURS AROUND SCHOOL',
       errorGeneric: "Something didn't go through. Email me directly instead.",
       errorNotConfigured: 'Form is still being wired up. Email me directly for now.',
+      btnOpenMailClient: 'LAUNCH EMAIL CLIENT WITH PRE-FILLED MESSAGE',
     },
     footer: {
       portfolioTag: 'PORTFOLIO',
@@ -279,6 +280,7 @@ export const TRANSLATIONS = {
       statusVal: 'YENİ PROJELERE AÇIĞIM, OKUL YÜZÜNDEN VAKTİM SINIRLI',
       errorGeneric: 'Bir şeyler ters gitti. Bunun yerine bana doğrudan e-posta at.',
       errorNotConfigured: 'Form henüz tam bağlanmadı. Şimdilik bana doğrudan e-posta at.',
+      btnOpenMailClient: 'MESAJLA E-POSTA İSTEMCİSİNİ AÇ',
     },
     footer: {
       portfolioTag: 'PORTFOLYO',
