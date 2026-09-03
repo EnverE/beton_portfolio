@@ -105,9 +105,9 @@ export const ArsenalSection: React.FC = () => {
             </div>
           </div>
           <div className="bg-zinc-950 p-3 border border-zinc-800">
-            <div className="text-zinc-500 text-[10px]">CUMULATIVE LAYOUT SHIFT</div>
-            <div className="text-emerald-400 font-bold text-sm mt-0.5">
-              0.000 CLS
+            <div className="text-zinc-500 text-[10px]">LAYOUT SHIFT</div>
+            <div className="text-zinc-300 font-bold text-sm mt-0.5">
+              NOT MEASURED YET
             </div>
           </div>
           <div className="bg-zinc-950 p-3 border border-zinc-800">
@@ -117,9 +117,9 @@ export const ArsenalSection: React.FC = () => {
             </div>
           </div>
           <div className="bg-zinc-950 p-3 border border-zinc-800">
-            <div className="text-zinc-500 text-[10px]">CONTRAST COMPLIANCE</div>
-            <div className="text-white font-bold text-sm mt-0.5">
-              14:1 (WCAG AAA)
+            <div className="text-zinc-500 text-[10px]">CONTRAST</div>
+            <div className="text-zinc-300 font-bold text-sm mt-0.5">
+              NOT AUDITED YET
             </div>
           </div>
         </div>
@@ -159,8 +159,7 @@ export const ArsenalSection: React.FC = () => {
                       </div>
 
                       <div className="flex justify-between text-[9px] text-zinc-500 mt-1">
-                        <span>PROFICIENCY: {skill.loadCapacity}%</span>
-                        <span>PRODUCTION READY</span>
+                        <span>SELF-RATED: {skill.loadCapacity}%</span>
                       </div>
                     </div>
                   );
@@ -169,8 +168,8 @@ export const ArsenalSection: React.FC = () => {
             </div>
 
             <div className="pt-4 border-t border-zinc-800 text-[10px] font-mono text-zinc-500 flex items-center justify-between">
-              <span>STANDARDS: WCAG AAA</span>
-              <span className="text-white font-bold">VERIFIED</span>
+              <span>NOTE</span>
+              <span className="text-white font-bold">SELF-RATED, NOT AUDITED</span>
             </div>
           </div>
         ))}

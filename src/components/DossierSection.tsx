@@ -12,21 +12,21 @@ export const DossierSection: React.FC = () => {
             LEVEL 04
           </span>
           <span className="text-zinc-300 font-bold tracking-wider uppercase">
-            CAREER TRAJECTORY & EXPERIENCE LOG
+            BACKGROUND & CURRENT FOCUS
           </span>
         </div>
         <div className="flex items-center gap-4">
-          <span>EXPERIENCE CHRONOLOGY // 2020 — PRESENT</span>
+          <span>STATUS // ONGOING</span>
         </div>
       </div>
 
       {/* Section Title */}
       <div className="mb-12">
         <h2 className="font-display font-black text-3xl sm:text-5xl text-white tracking-tighter uppercase mb-3">
-          EXPERIENCE DOSSIER
+          BACKGROUND
         </h2>
         <p className="font-sans text-sm text-zinc-400 max-w-3xl">
-          Tracing creative progression from early frontend prototypes to lead visual direction and high-scale design systems.
+          What I'm actually doing right now and how I got here. No invented job titles, just what's true.
         </p>
       </div>
 
@@ -78,7 +78,7 @@ export const DossierSection: React.FC = () => {
             {/* Key Deliverables / Structural Outputs */}
             <div className="bg-zinc-950/80 p-4 border border-zinc-800/80 font-mono text-xs">
               <div className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider mb-2">
-                DELIVERABLES & ACHIEVEMENTS:
+                WHAT THIS ACTUALLY LOOKS LIKE:
               </div>
               <ul className="space-y-1.5">
                 {item.structuralOutput.map((output, oIdx) => (

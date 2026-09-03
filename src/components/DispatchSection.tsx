@@ -12,6 +12,7 @@ export const DispatchSection: React.FC = () => {
   const [isTransmitting, setIsTransmitting] = useState(false);
   const [transmitted, setTransmitted] = useState(false);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleCopy = (text: string, key: string) => {
     navigator.clipboard.writeText(text);
@@ -20,18 +21,45 @@ export const DispatchSection: React.FC = () => {
     setTimeout(() => setCopiedKey(null), 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.payload) return;
 
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
+    if (!accessKey) {
+      setError(t.dispatch.errorNotConfigured);
+      return;
+    }
+
+    setError(null);
     brutalistAudio.playHydraulicHiss();
     setIsTransmitting(true);
 
-    setTimeout(() => {
-      brutalistAudio.playConcreteThud();
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.channel,
+          message: formData.payload,
+          subject: `New dispatch from ${formData.name} via betonportfolio.vercel.app`,
+        }),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        brutalistAudio.playConcreteThud();
+        setTransmitted(true);
+      } else {
+        setError(t.dispatch.errorGeneric);
+      }
+    } catch {
+      setError(t.dispatch.errorGeneric);
+    } finally {
       setIsTransmitting(false);
-      setTransmitted(true);
-    }, 1000);
+    }
   };
 
   return (
@@ -112,6 +140,10 @@ export const DispatchSection: React.FC = () => {
                 <Send className="w-3.5 h-3.5" />
                 <span>{isTransmitting ? t.dispatch.btnTransmitting : t.dispatch.btnTransmit}</span>
               </button>
+
+              {error && (
+                <p className="text-red-400 text-[11px] text-center">{error}</p>
+              )}
             </form>
           )}
         </div>

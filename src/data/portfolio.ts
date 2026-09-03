@@ -224,76 +224,64 @@ export const PORTFOLIO_DATA = {
   skillsArsenal: [
     {
       category: 'VISUAL & INTERACTION DESIGN',
-      specs: 'AESTHETIC & SPATIAL MASTERY',
+      specs: 'STILL SHARPENING',
       skills: [
-        { name: 'Creative Web Design & Direction', loadCapacity: 98, grade: 'EXEMPLARY' },
-        { name: 'UI/UX Architecture & Prototyping', loadCapacity: 96, grade: 'REFINED' },
-        { name: 'Figma & Design Systems Tokens', loadCapacity: 97, grade: 'PRECISION' },
-        { name: 'Architectural Typography & Grids', loadCapacity: 99, grade: 'MASTERY' },
-        { name: 'Motion Design & Micro-Interactions', loadCapacity: 94, grade: 'PHYSICS-BASED' }
+        { name: 'Creative Web Design & Direction', loadCapacity: 78, grade: 'GETTING THERE' },
+        { name: 'UI/UX Architecture & Prototyping', loadCapacity: 75, grade: 'COMFORTABLE' },
+        { name: 'Figma & Design Systems Tokens', loadCapacity: 70, grade: 'COMFORTABLE' },
+        { name: 'Architectural Typography & Grids', loadCapacity: 80, grade: 'SOLID' },
+        { name: 'Motion Design & Micro-Interactions', loadCapacity: 82, grade: 'ENJOY THIS PART' }
       ]
     },
     {
       category: 'CREATIVE FRONTEND & MOTION',
-      specs: 'PRODUCTION EXECUTION',
+      specs: 'DAILY DRIVER STACK',
       skills: [
-        { name: 'React 19 & Next.js Ecosystem', loadCapacity: 96, grade: 'PRODUCTION' },
-        { name: 'Three.js / WebGL / Spatial Canvas', loadCapacity: 91, grade: 'REAL-TIME 3D' },
-        { name: 'Tailwind CSS & Modern CSS Layouts', loadCapacity: 99, grade: 'FLUID GRIDS' },
-        { name: 'Framer Motion & Spring Mechanics', loadCapacity: 95, grade: 'ORGANIC SPRING' },
-        { name: 'Web Audio API Acoustic Feedback', loadCapacity: 90, grade: 'DSP SYNTHESIS' }
+        { name: 'React & Next.js', loadCapacity: 88, grade: 'DAILY DRIVER' },
+        { name: 'Three.js / WebGL', loadCapacity: 72, grade: 'LEARNING BY DOING' },
+        { name: 'Tailwind CSS & Modern CSS', loadCapacity: 85, grade: 'COMFORTABLE' },
+        { name: 'GSAP & Motion Libraries', loadCapacity: 78, grade: 'GETTING THERE' },
+        { name: 'Web Audio API', loadCapacity: 60, grade: 'STILL EXPERIMENTING' }
       ]
     },
     {
-      category: 'ENGINEERING & PERFORMANCE',
-      specs: 'LIGHTWEIGHT RUNTIMES',
+      category: 'ENGINEERING FUNDAMENTALS',
+      specs: 'DEGREE + PRACTICE',
       skills: [
-        { name: 'TypeScript & Architecture Cleanliness', loadCapacity: 95, grade: 'TYPE-SAFE' },
-        { name: 'Responsive Ergonomics & Mobile UX', loadCapacity: 98, grade: 'ADAPTIVE' },
-        { name: 'Core Web Vitals & Frame Rate Tuning', loadCapacity: 96, grade: '120 FPS P99' },
-        { name: 'Accessibility (WCAG AAA Standards)', loadCapacity: 94, grade: 'INCLUSIVE' },
-        { name: 'Git & Production Deployment CI/CD', loadCapacity: 92, grade: 'IMMUTABLE' }
+        { name: 'TypeScript', loadCapacity: 85, grade: 'COMFORTABLE' },
+        { name: 'Responsive & Mobile UX', loadCapacity: 80, grade: 'SOLID' },
+        { name: 'Performance Tuning', loadCapacity: 65, grade: 'LEARNING' },
+        { name: 'Accessibility Basics', loadCapacity: 60, grade: 'STILL LEARNING' },
+        { name: 'Git & Deployment', loadCapacity: 82, grade: 'COMFORTABLE' }
       ]
     }
   ],
 
   constructionTimeline: [
     {
-      era: '2024 - PRESENT',
-      elevation: 'LEVEL 03 // SENIOR CREATIVE',
-      role: 'LEAD CREATIVE WEB DESIGNER & FRONTEND ENGINEER',
-      organization: 'INDEPENDENT STUDIO & COMMISSIONS',
-      location: 'GLOBAL // REMOTE',
-      summary: 'Designing high-impact digital experiences, bespoke web flagships, and interaction design systems for international brands, technology pioneers, and creative studios.',
+      era: '2026 — PRESENT',
+      elevation: 'NOW',
+      role: 'SENIOR SOFTWARE ENGINEERING STUDENT',
+      organization: 'METU (ODTÜ)',
+      location: 'ANKARA / ISTANBUL, TÜRKİYE',
+      summary: "Finishing my degree while building things on the side, this site included. Most of my focus right now is web and interaction design, with hardware and music as the stuff I do to reset my brain.",
       structuralOutput: [
-        'Designed and delivered bespoke luxury flagship websites winning industry acclaim',
-        'Engineered custom interactive WebGL spatial components running smoothly at 120 FPS',
-        'Standardized brutalist token design systems reducing client iteration cycles by 40%'
+        'Building this portfolio and the MadCat Collective site',
+        'Taking on freelance frontend and web design work',
+        'Side projects in PCB design and game dev'
       ]
     },
     {
-      era: '2022 - 2024',
-      elevation: 'LEVEL 02 // DIGITAL CRAFT',
-      role: 'SENIOR UI/UX & INTERACTION DESIGNER',
-      organization: 'APEX CREATIVE LABS',
-      location: 'ISTANBUL',
-      summary: 'Led the visual identity and interface design for enterprise SaaS products, digital publications, and design tooling.',
+      era: 'BEFORE THAT',
+      elevation: 'FOUNDATION',
+      role: 'LEARNING BY BUILDING',
+      organization: 'SELF-DIRECTED',
+      location: 'TÜRKİYE',
+      summary: 'No bootcamp, no formal design job, just a lot of side projects across web, hardware, and game dev while working through my degree.',
       structuralOutput: [
-        'Created cohesive design token libraries spanning over 120 web components',
-        'Pioneered tactile micro-interaction patterns resulting in 28% higher task completion rate',
-        'Conducted deep typography and accessibility audits achieving full WCAG AAA contrast'
-      ]
-    },
-    {
-      era: '2020 - 2022',
-      elevation: 'LEVEL 01 // FOUNDATION',
-      role: 'WEB DESIGNER & FRONTEND DEVELOPER',
-      organization: 'STUDIO MONOLITH',
-      location: 'ISTANBUL',
-      summary: 'Crafted responsive websites, editorial layouts, and interactive brand presentations with heavy emphasis on typography and visual restraint.',
-      structuralOutput: [
-        'Built over 25 bespoke responsive web experiences with zero layout shifts',
-        'Authored reusable animation presets and custom cursor interaction systems'
+        'Picked up React, Three.js, and GSAP through personal projects',
+        'Learned PCB design and CAD work in Fusion 360',
+        'Built small games and audio tools for fun'
       ]
     }
   ] as CareerMilestone[],
@@ -303,7 +291,7 @@ export const PORTFOLIO_DATA = {
     email: 'tatlidil.eren@gmail.com',
     github: 'https://github.com/EnverE',
     linkedin: 'https://www.linkedin.com/in/enver-eren-tatl%C4%B1dil-573a53219',
-    locationCoordinate: 'ISTANBUL // 41°00\'49"N  28°57\'18"E',
+    locationCoordinate: 'ISTANBUL // TÜRKİYE',
     commissionStatus: 'OPEN TO NEW PROJECTS, LIMITED HOURS AROUND SCHOOL'
   }
 };

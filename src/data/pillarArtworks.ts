@@ -118,7 +118,7 @@ export const PILLAR_GRAFFITI_ARTWORKS: PillarGraffitiConfig[] = [
   // Level 03 / Bottom Zone (Y: -8.8 to -14.2)
   { id: 'graf-13', text: 'HARDWARE & CODE', elevationY: -8.8, angleRad: -2.1, scale: 1.15, color: '#38bdf8', style: 'chisel-marker', hasUnderline: true, hasDrips: true, rotation: -0.07 },
   { id: 'graf-14', text: 'tatlidil.eren', elevationY: -11.5, angleRad: 2.2, scale: 1.2, color: '#00f0ff', style: 'subway-handstyle', hasUnderline: true, hasDrips: true, rotation: 0.06 },
-  { id: 'graf-15', text: '41°00\'N 28°58\'E', elevationY: -14.2, angleRad: -2.0, scale: 1.25, color: '#f59e0b', style: 'eroded-stencil', hasUnderline: false, hasDrips: false, rotation: 0.06 }
+  { id: 'graf-15', text: 'TÜRKİYE // NO GPS', elevationY: -14.2, angleRad: -2.0, scale: 1.25, color: '#f59e0b', style: 'eroded-stencil', hasUnderline: false, hasDrips: false, rotation: 0.06 }
 ];
 
 // Alias for backwards compatibility
