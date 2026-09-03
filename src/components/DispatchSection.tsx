@@ -33,40 +33,32 @@ export const DispatchSection: React.FC = () => {
     e.preventDefault();
     if (!formData.name || !formData.payload) return;
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
-    if (!accessKey) {
-      setError(t.dispatch.errorNotConfigured);
-      return;
-    }
-
     setError(null);
     brutalistAudio.playHydraulicHiss();
     setIsTransmitting(true);
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('/api/dispatch', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          access_key: accessKey,
           name: formData.name,
           email: formData.channel,
           message: formData.payload,
-          from_name: formData.name,
-          subject: `New dispatch from ${formData.name} via betonportfolio.vercel.app`,
         }),
       });
-      const data = await res.json();
 
-      if (data.success) {
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data.success) {
         brutalistAudio.playConcreteThud();
         setTransmitted(true);
         setFormData({ name: '', channel: '', payload: '' });
       } else {
-        setError(data.message || t.dispatch.errorGeneric);
+        setError(data.error || data.message || t.dispatch.errorGeneric);
       }
     } catch {
       setError(t.dispatch.errorGeneric);
