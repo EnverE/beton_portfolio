@@ -75,18 +75,18 @@ export const ArchitecturalWallBackground: React.FC<ArchitecturalWallBackgroundPr
     }
   };
 
-  const seamColor = isNight ? 'rgba(255, 255, 255, 0.04)' : 'rgba(0, 0, 0, 0.07)';
-  const seamHighlight = isNight ? 'rgba(0, 0, 0, 0.25)' : 'rgba(255, 255, 255, 0.25)';
-  const tieHoleOuter = isNight ? '#0b0b0e' : '#a8a69e';
-  const tieHoleInner = isNight ? '#040406' : '#6b6962';
-  const tieHoleBevel = isNight ? 'rgba(255, 255, 255, 0.06)' : 'rgba(255, 255, 255, 0.40)';
-  const crosshairColor = isNight ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.12)';
+  const seamColor = isNight ? 'rgba(255, 255, 255, 0.09)' : 'rgba(0, 0, 0, 0.22)';
+  const seamHighlight = isNight ? 'rgba(0, 0, 0, 0.45)' : 'rgba(255, 255, 255, 0.65)';
+  const tieHoleOuter = isNight ? '#0b0b0e' : '#78756d';
+  const tieHoleInner = isNight ? '#040406' : '#3f3e39';
+  const tieHoleBevel = isNight ? 'rgba(255, 255, 255, 0.08)' : 'rgba(255, 255, 255, 0.70)';
+  const crosshairColor = isNight ? 'rgba(255, 255, 255, 0.14)' : 'rgba(0, 0, 0, 0.28)';
 
   return (
     <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden select-none">
       {/* 1. Full-Bleed Architectural Concrete Formwork Grid (Seamless Infinite Scroll & Parallax) */}
       <svg
-        className="absolute inset-0 w-full h-full opacity-70"
+        className="absolute inset-0 w-full h-full opacity-100"
         xmlns="http://www.w3.org/2000/svg"
         width="100%"
         height="100%"
@@ -100,16 +100,16 @@ export const ArchitecturalWallBackground: React.FC<ArchitecturalWallBackgroundPr
             patternTransform={`translate(${smoothX.toFixed(2)}, ${smoothY.toFixed(2)})`}
           >
             {/* Panel Formwork Joint Grooves (Beveled Seams) */}
-            <line x1="0" y1="0" x2="480" y2="0" stroke={seamColor} strokeWidth="1" />
-            <line x1="0" y1="1" x2="480" y2="1" stroke={seamHighlight} strokeWidth="0.5" />
+            <line x1="0" y1="0" x2="480" y2="0" stroke={seamColor} strokeWidth="1.5" />
+            <line x1="0" y1="1.5" x2="480" y2="1.5" stroke={seamHighlight} strokeWidth="1" />
             
-            <line x1="0" y1="0" x2="0" y2="260" stroke={seamColor} strokeWidth="1" />
-            <line x1="1" y1="0" x2="1" y2="260" stroke={seamHighlight} strokeWidth="0.5" />
+            <line x1="0" y1="0" x2="0" y2="260" stroke={seamColor} strokeWidth="1.5" />
+            <line x1="1.5" y1="0" x2="1.5" y2="260" stroke={seamHighlight} strokeWidth="1" />
 
             {/* Architectural Registration Crosshairs (+) at Panel Intersections */}
-            <g stroke={crosshairColor} strokeWidth="1">
-              <line x1="-5" y1="0" x2="5" y2="0" />
-              <line x1="0" y1="-5" x2="0" y2="5" />
+            <g stroke={crosshairColor} strokeWidth="1.2">
+              <line x1="-7" y1="0" x2="7" y2="0" />
+              <line x1="0" y1="-7" x2="0" y2="7" />
             </g>
 
             {/* Tie-Rod Holes (Paterae) - 4 corner formwork anchors per panel */}
@@ -121,7 +121,7 @@ export const ArchitecturalWallBackground: React.FC<ArchitecturalWallBackgroundPr
             ].map((hole, idx) => (
               <g key={idx}>
                 {/* Outer Bevel Rim */}
-                <circle cx={hole.cx} cy={hole.cy} r="6.5" fill={tieHoleBevel} />
+                <circle cx={hole.cx} cy={hole.cy} r="7" fill={tieHoleBevel} />
                 {/* Recessed Cavity */}
                 <circle cx={hole.cx} cy={hole.cy} r="5.5" fill={tieHoleOuter} />
                 {/* Deep Center Core */}
@@ -134,10 +134,11 @@ export const ArchitecturalWallBackground: React.FC<ArchitecturalWallBackgroundPr
               x="55"
               y="42"
               fill={crosshairColor}
-              fontSize="8"
+              fontSize="9"
               fontFamily="monospace"
-              letterSpacing="0.1em"
-              className="opacity-50"
+              fontWeight="bold"
+              letterSpacing="0.12em"
+              className="opacity-70"
             >
               MOD. 480×260 // EET-BRUT
             </text>
