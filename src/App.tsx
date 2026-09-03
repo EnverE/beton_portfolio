@@ -290,7 +290,7 @@ export function App() {
             <button
               key={lvl.num}
               onClick={() => handleElevatorClick(lvl.id)}
-              className={`px-1.5 py-0.5 transition-all cursor-pointer border ${
+              className={`px-2 py-1 min-h-[36px] min-w-[32px] flex items-center justify-center transition-all cursor-pointer border ${
                 isActive
                   ? isDayMode
                     ? 'bg-black text-white border-black shadow-[1px_1px_0_rgba(0,0,0,0.2)]'

@@ -87,6 +87,7 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
     renderer.shadowMap.type = THREE.PCFShadowMap;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.05; // Richer, moodier exposure (not overexposed/bright)
+    renderer.domElement.style.touchAction = 'pan-y';
     container.appendChild(renderer.domElement);
 
     // 3. Ultra-Photorealistic Architectural Concrete Procedural Textures (Diffuse + Normal + Roughness + AO)
@@ -1156,7 +1157,7 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
   return (
     <div
       ref={mountRef}
-      className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden"
+      className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden touch-pan-y"
     />
   );
 };

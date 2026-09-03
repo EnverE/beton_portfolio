@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Globe } from 'lucide-react';
 
@@ -25,7 +25,7 @@ export const LanguageToggle: React.FC<LanguageToggleProps> = ({ isDayMode = true
 
       <button
         onClick={() => setLanguage('EN')}
-        className={`px-2 py-1 transition-all cursor-pointer border ${
+        className={`px-2.5 py-1 min-h-[34px] min-w-[34px] flex items-center justify-center transition-all cursor-pointer border ${
           language === 'EN'
             ? isDayMode
               ? 'bg-black text-white border-black shadow-[1px_1px_0_rgba(0,0,0,0.2)]'
@@ -44,7 +44,7 @@ export const LanguageToggle: React.FC<LanguageToggleProps> = ({ isDayMode = true
 
       <button
         onClick={() => setLanguage('TR')}
-        className={`px-2 py-1 transition-all cursor-pointer border ${
+        className={`px-2.5 py-1 min-h-[34px] min-w-[34px] flex items-center justify-center transition-all cursor-pointer border ${
           language === 'TR'
             ? isDayMode
               ? 'bg-black text-white border-black shadow-[1px_1px_0_rgba(0,0,0,0.2)]'
