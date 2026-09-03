@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-concrete-50: #fafafa;
+  --color-concrete-100: #f4f4f5;
+  --color-concrete-200: #e4e4e7;
+  --color-concrete-300: #d4d4d8;
+  --color-concrete-400: #a1a1aa;
+  --color-concrete-500: #71717a;
+  --color-concrete-600: #52525b;
+  --color-concrete-700: #3f3f46;
+  --color-concrete-800: #27272a;
+  --color-concrete-900: #18181b;
+  --color-concrete-950: #0f0f11;
+
+  --color-cad-cyan: #38bdf8;
+  --color-cad-blue: #0284c7;
+  --color-accent-white: #ffffff;
+}
+
+/* Base brutalist typography & background synchronization */
+html, body {
+  background-color: #dedbd3;
+  color: #18181b;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease-out;
+}
+
+@media (pointer: fine) {
+  html, body, a, button, input, textarea, select, [role="button"], .cursor-pointer {
+    cursor: crosshair;
+  }
+}
+
+body {
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono), monospace;
+}
+
+/* Concrete surface noise & texture overlay (ultra-fine architectural aggregate) */
+.concrete-surface {
+  background-color: #121215;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015), rgba(0, 0, 0, 0.06));
+  background-size: 6px 6px, 100% 100%;
+}
+
+.concrete-slab-dark {
+  background-color: #141417;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(180deg, #18181c 0%, #101013 100%);
+  background-size: 5px 5px, 100% 100%;
+  border: 1px solid #2a2a30;
+  box-shadow: 
+    inset 1px 1px 0 rgba(255, 255, 255, 0.05),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.4),
+    4px 4px 0 #070709;
+}
+
+.concrete-slab-light {
+  background-color: #1e1e23;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(180deg, #232329 0%, #18181c 100%);
+  background-size: 5px 5px, 100% 100%;
+  border: 1px solid #383842;
+  box-shadow: 
+    inset 1px 1px 0 rgba(255, 255, 255, 0.08),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.5),
+    6px 6px 0 #08080a;
+}
+
+/* Subtle architectural board-formed plank seams */
+.board-formed-seams {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 88px,
+    rgba(0, 0, 0, 0.3) 89px,
+    rgba(255, 255, 255, 0.02) 90px
+  );
+}
+
+/* Refined Architectural Tie-Rod Anchor Pin */
+.tie-rod {
+  position: relative;
+}
+.tie-rod::before,
+.tie-rod::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #2e2e34 0%, #0c0c0e 75%);
+  border: 1px solid #454550;
+  box-shadow: inset 1px 1px 2px #000, 0 1px 1px rgba(255,255,255,0.06);
+  pointer-events: none;
+  z-index: 10;
+}
+.tie-rod-tl-tr::before { top: 12px; left: 12px; }
+.tie-rod-tl-tr::after { top: 12px; right: 12px; }
+.tie-rod-bl-br::before { bottom: 12px; left: 12px; }
+.tie-rod-bl-br::after { bottom: 12px; right: 12px; }
+
+/* Inset chiseled text & grooves */
+.chiseled-text {
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.8), 1px 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.concrete-bevel-active:active {
+  transform: translate(2px, 2px);
+  box-shadow: 
+    inset 1px 1px 2px rgba(0, 0, 0, 0.7),
+    1px 1px 0 #050505 !important;
+}
+
+/* Architectural CAD Grid Blueprint Mode */
+.blueprint-mode {
+  background-color: #040d1a !important;
+  color: #bae6fd !important;
+}
+
+.blueprint-mode .concrete-surface {
+  background-color: #051426 !important;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.08) 1px, transparent 1px) !important;
+  background-size: 24px 24px !important;
+}
+
+.blueprint-mode .concrete-slab-dark,
+.blueprint-mode .concrete-slab-light {
+  background-color: #081d38 !important;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.12) 1px, transparent 1px) !important;
+  background-size: 20px 20px !important;
+  border-color: #0284c7 !important;
+  box-shadow: 
+    inset 1px 1px 0 rgba(56, 189, 248, 0.2),
+    inset -1px -1px 0 rgba(2, 44, 80, 0.8),
+    4px 4px 0 #020914 !important;
+}
+
+/* Custom Refined Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Section Monolithic Stack Elevation */
+.slab-section {
+  position: relative;
+  will-change: transform, opacity;
+}
+
