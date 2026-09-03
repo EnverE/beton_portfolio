@@ -552,11 +552,13 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
     pillarGroup.add(mainPillar);
 
     // 5b. Helper: compute the exact concrete surface radius for any angle & vertical position Y
-    const getPillarRadiusAt = (angle: number, y: number): number => {
-      const distToJoint = Math.abs(((y % jointSpacing) + jointSpacing * 1.5) % jointSpacing - jointSpacing * 0.5);
+    const getPillarRadiusAt = (angle: number, y: number, includeGroove: boolean = true): number => {
       let jointDent = 0;
-      if (distToJoint < 0.26) {
-        jointDent = -0.045 * Math.cos((distToJoint / 0.26) * (Math.PI / 2));
+      if (includeGroove) {
+        const distToJoint = Math.abs(((y % jointSpacing) + jointSpacing * 1.5) % jointSpacing - jointSpacing * 0.5);
+        if (distToJoint < 0.26) {
+          jointDent = -0.045 * Math.cos((distToJoint / 0.26) * (Math.PI / 2));
+        }
       }
 
       const castingWaviness =
@@ -571,7 +573,8 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
     const conformToPillarSurface = (
       geo: THREE.BufferGeometry,
       elevationY: number,
-      radialClearance: number
+      radialClearance: number,
+      includeGroove: boolean = true
     ) => {
       const pos = geo.attributes.position;
       for (let i = 0; i < pos.count; i++) {
@@ -580,7 +583,7 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
         const z = pos.getZ(i);
         const angle = Math.atan2(x, z);
         const yWorld = y + elevationY;
-        const targetR = getPillarRadiusAt(angle, yWorld) + radialClearance;
+        const targetR = getPillarRadiusAt(angle, yWorld, includeGroove) + radialClearance;
 
         pos.setX(i, Math.sin(angle) * targetR);
         pos.setZ(i, Math.cos(angle) * targetR);
@@ -695,8 +698,8 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
         grafDeltaTheta
       );
 
-      // Tight physical clearance to eradicate floatiness: flush against concrete
-      conformToPillarSurface(grafGeo, graf.elevationY, 0.015);
+      // Conforms to organic casting waviness without dipping below concrete faces at joint lines
+      conformToPillarSurface(grafGeo, graf.elevationY, 0.042, false);
 
       const grafMat = new THREE.MeshStandardMaterial({
         map: grafTex,
@@ -707,8 +710,8 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
         depthWrite: false,
         depthTest: true,
         polygonOffset: true,
-        polygonOffsetFactor: -3,
-        polygonOffsetUnits: -6,
+        polygonOffsetFactor: -6,
+        polygonOffsetUnits: -12,
         side: THREE.FrontSide,
       });
 

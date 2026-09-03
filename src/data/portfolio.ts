@@ -368,9 +368,8 @@ export const PORTFOLIO_DATA = {
     transmissionFrequency: 'STUDIO DISPATCH // OPEN',
     email: 'tatlidil.eren@gmail.com',
     github: 'https://github.com/EnverE',
-    linkedin: 'https://linkedin.com',
-    xTwitter: 'https://x.com',
+    linkedin: 'https://www.linkedin.com/in/enver-eren-tatl%C4%B1dil-573a53219',
     locationCoordinate: 'ISTANBUL // 41°00\'49"N  28°57\'18"E',
-    commissionStatus: 'NOW SCHEDULING COMMISSIONS & WEB DESIGN PROJECTS FOR 2025/2026'
+    commissionStatus: 'OPEN TO NEW PROJECTS, LIMITED HOURS AROUND SCHOOL'
   }
 };

@@ -133,12 +133,12 @@ export const DispatchSection: React.FC = () => {
               </button>
             </div>
 
-            <div className="grid grid-cols-3 gap-1.5 pt-2">
+            <div className="grid grid-cols-2 gap-2 pt-2">
               <a
                 href={PORTFOLIO_DATA.contactTelemetry.github}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 bg-zinc-900 hover:bg-white text-center border border-zinc-800 text-zinc-300 hover:text-black font-bold text-[11px] transition-colors"
+                className="p-2.5 bg-zinc-900 hover:bg-white text-center border border-zinc-800 text-zinc-300 hover:text-black font-bold text-[11px] transition-colors"
               >
                 GITHUB
               </a>
@@ -146,17 +146,9 @@ export const DispatchSection: React.FC = () => {
                 href={PORTFOLIO_DATA.contactTelemetry.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 bg-zinc-900 hover:bg-white text-center border border-zinc-800 text-zinc-300 hover:text-black font-bold text-[11px] transition-colors"
+                className="p-2.5 bg-zinc-900 hover:bg-white text-center border border-zinc-800 text-zinc-300 hover:text-black font-bold text-[11px] transition-colors"
               >
                 LINKEDIN
-              </a>
-              <a
-                href={PORTFOLIO_DATA.contactTelemetry.xTwitter}
-                target="_blank"
-                rel="noreferrer"
-                className="p-2 bg-zinc-900 hover:bg-white text-center border border-zinc-800 text-zinc-300 hover:text-black font-bold text-[11px] transition-colors"
-              >
-                X / TWTR
               </a>
             </div>
           </div>
