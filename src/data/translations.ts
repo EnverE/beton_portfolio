@@ -112,14 +112,14 @@ export const TRANSLATIONS = {
     },
     projects: {
       'aura-flagship': {
-        title: 'AURA LUXURY DIGITAL FLAGSHIP',
-        shortDesc: 'Bespoke e-commerce web design featuring real-time 3D interactive garment staging and architectural typography.',
-        fullDesc: 'AURA redefines high-fashion digital retail through the lens of architectural brutalism. Stripping away conventional card carousels, the experience presents garments as monolithic gallery sculptures with real-time WebGL material draping, custom magnetic cursor ergonomics, and fluid layout morphing.',
+        title: 'MADCAT COLLECTIVE — WORK IN PROGRESS',
+        shortDesc: 'Bilingual portfolio site in development for a graphic design collective, built around a single, deliberately-chosen motion language instead of a grab-bag of effects.',
+        fullDesc: 'Currently under active construction — structural skeleton and routing are complete, visual design has not started yet. MadCat is architected around token-driven motion (every duration, easing curve, and transform value lives in one file) and a single site-wide animation verb, chosen only after comparing candidates side by side rather than assumed upfront. Full bilingual parity (Turkish/English) is enforced automatically at build time.',
         structuralSpecs: [
-          { label: 'FRAME BUDGET', value: '120 FPS OPTIMIZED' },
-          { label: 'TYPOGRAPHY', value: 'EDITORIAL SERIF + MONO' },
-          { label: '3D ENGINE', value: 'THREE.JS + CUSTOM GLSL' },
-          { label: 'CONVERSION', value: '+34% ENGAGEMENT TIME' }
+          { label: 'STATUS', value: 'WORK IN PROGRESS — SKELETON PHASE' },
+          { label: 'FRAMEWORK', value: 'NEXT.JS 16 + TYPESCRIPT' },
+          { label: 'MOTION ENGINE', value: 'GSAP SCROLLTRIGGER + LENIS' },
+          { label: 'LOCALIZATION', value: 'NEXT-INTL (TR/EN PARITY ENFORCED)' }
         ]
       },
       'nebula-sound': {
@@ -318,14 +318,14 @@ export const TRANSLATIONS = {
     },
     projects: {
       'aura-flagship': {
-        title: 'AURA LÜKS DİJİTAL MAĞAZA',
-        shortDesc: 'Gerçek zamanlı 3D etkileşimli ürün sergileme ve mimari tipografi sunan özel e-ticaret web tasarımı.',
-        fullDesc: 'AURA, yüksek moda dijital perakendeciliğini mimari brutalizm perspektifinden yeniden tanımlıyor. Klasik kart kaydırıcılarını terk eden deneyim, ürünleri gerçek zamanlı WebGL kumaş simülasyonu, manyetik imleç ergonomisi ve akışkan yerleşim dönüşümleriyle anıtsal galeri heykelleri olarak sergiler.',
+        title: 'MADCAT KOLEKTİFİ — YAPIM AŞAMASINDA',
+        shortDesc: 'Bir grafik tasarım kolektifi için geliştirilmekte olan, bir dizi rastgele efekt yerine tek ve bilinçli seçilmiş bir hareket diline dayanan iki dilli portfolyo sitesi.',
+        fullDesc: 'Şu anda aktif geliştirme aşamasında — yapısal iskelet ve yönlendirme tamamlandı, görsel tasarım henüz başlamadı. MadCat, belirteç tabanlı harekete (her süre, yumuşatma eğrisi ve dönüşüm değeri tek bir dosyada tutulur) ve baştan varsayılmak yerine adaylar birbiriyle karşılaştırılarak seçilen tek bir site geneli animasyon diline göre kurgulanmıştır. Türkçe/İngilizce tam çeviri eşleşmesi derleme sırasında otomatik olarak denetlenir.',
         structuralSpecs: [
-          { label: 'KARE HEDEFİ', value: '120 FPS OPTİMİZE' },
-          { label: 'TİPOGRAFİ', value: 'EDİTÖRYAL SERİF + MONO' },
-          { label: '3D MOTORU', value: 'THREE.JS + ÖZEL GLSL' },
-          { label: 'DÖNÜŞÜM', value: '+%34 ETKİLEŞİM SÜRESİ' }
+          { label: 'DURUM', value: 'YAPIM AŞAMASINDA — İSKELET SÜRECİ' },
+          { label: 'ALTYAPI', value: 'NEXT.JS 16 + TYPESCRIPT' },
+          { label: 'HAREKET MOTORU', value: 'GSAP SCROLLTRIGGER + LENIS' },
+          { label: 'YERELLEŞTİRME', value: 'NEXT-INTL (TR/EN EŞLEŞMESİ ZORUNLU)' }
         ]
       },
       'nebula-sound': {

@@ -177,25 +177,25 @@ export const PORTFOLIO_DATA = {
   projects: [
     {
       id: 'aura-flagship',
-      code: 'PROJECT // 01',
-      title: 'AURA LUXURY DIGITAL FLAGSHIP',
+      code: 'MC-01',
+      title: 'MADCAT COLLECTIVE — WORK IN PROGRESS',
       sector: 'WEB DESIGN',
-      year: '2025',
+      year: '2026',
       elevation: 'ELEVATION 01',
-      renderMetric: '60 FPS WEBGL PRODUCT VIEW',
-      status: 'LIVE',
-      shortDesc: 'Bespoke e-commerce web design featuring real-time 3D interactive garment staging and architectural typography.',
-      fullDesc: 'AURA redefines high-fashion digital retail through the lens of architectural brutalism. Stripping away conventional card carousels, the experience presents garments as monolithic gallery sculptures with real-time WebGL material draping, custom magnetic cursor ergonomics, and fluid layout morphing.',
+      renderMetric: 'GSAP + LENIS MOTION',
+      status: 'PROTOTYPE',
+      shortDesc: 'Bilingual portfolio site in development for a graphic design collective, built around a single, deliberately-chosen motion language instead of a grab-bag of effects.',
+      fullDesc: 'Currently under active construction — structural skeleton and routing are complete, visual design has not started yet. MadCat is architected around token-driven motion (every duration, easing curve, and transform value lives in one file) and a single site-wide animation verb, chosen only after comparing candidates side by side rather than assumed upfront. Full bilingual parity (Turkish/English) is enforced automatically at build time.',
       structuralSpecs: [
-        { label: 'FRAME BUDGET', value: '120 FPS OPTIMIZED' },
-        { label: 'TYPOGRAPHY', value: 'EDITORIAL SERIF + MONO' },
-        { label: '3D ENGINE', value: 'THREE.JS + CUSTOM GLSL' },
-        { label: 'CONVERSION', value: '+34% ENGAGEMENT TIME' }
+        { label: 'STATUS', value: 'WORK IN PROGRESS — SKELETON PHASE' },
+        { label: 'FRAMEWORK', value: 'NEXT.JS 16 + TYPESCRIPT' },
+        { label: 'MOTION ENGINE', value: 'GSAP SCROLLTRIGGER + LENIS' },
+        { label: 'LOCALIZATION', value: 'NEXT-INTL (TR/EN PARITY ENFORCED)' }
       ],
-      techStack: ['Figma', 'React 19', 'Three.js', 'Tailwind CSS', 'Framer Motion'],
+      techStack: ['Next.js 16', 'TypeScript', 'GSAP', 'Lenis', 'next-intl'],
       liveUrl: 'https://github.com',
       repoUrl: 'https://github.com',
-      schematicType: 'SPATIAL 3D'
+      schematicType: 'MONOLITH GRID'
     },
     {
       id: 'nebula-sound',

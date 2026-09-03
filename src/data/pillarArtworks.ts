@@ -57,19 +57,19 @@ export interface PillarGraffitiConfig {
 export const PILLAR_PROJECT_ARTWORKS: PillarArtworkConfig[] = [
   {
     id: 'art-aura',
-    projectId: 'aura',
-    title: 'AURA // HORLOGERIE',
-    code: 'AU-01',
+    projectId: 'aura-flagship',
+    title: 'MADCAT // COLLECTIVE',
+    code: 'MC-01',
     elevationY: 6.8,
     angleRad: 0.15,
     width: 2.1,
     height: 3.0,
     primaryColor: '#fafafa',
     accentColor: '#f59e0b',
-    tags: ['HAUTE HORLOGERIE', 'KINETIC BEZEL', 'MICRO-MECHANICS'],
+    tags: ['GRAPHIC COLLECTIVE', 'TOKEN MOTION', 'BILINGUAL PARITY'],
     stickers: [
-      { text: 'EET // 120 FPS', offsetX: 0.9, offsetY: 1.2, width: 0.75, height: 0.35, rotation: -0.12, bg: '#000000', fg: '#ffffff' },
-      { text: 'SWISS CALIBRE', offsetX: -0.85, offsetY: -1.2, width: 0.8, height: 0.3, rotation: 0.08, bg: '#f59e0b', fg: '#000000' }
+      { text: 'NEXT.JS 16', offsetX: 0.9, offsetY: 1.2, width: 0.75, height: 0.35, rotation: -0.12, bg: '#000000', fg: '#ffffff' },
+      { text: 'GSAP + LENIS', offsetX: -0.85, offsetY: -1.2, width: 0.8, height: 0.3, rotation: 0.08, bg: '#f59e0b', fg: '#000000' }
     ],
     graffitis: []
   },
@@ -154,8 +154,8 @@ export const PILLAR_GRAFFITI_ARTWORKS: PillarGraffitiConfig[] = [
   { id: 'graf-02', text: '★ ISTANBUL 34', elevationY: 11.2, angleRad: 2.3, scale: 1.25, color: '#ff5500', style: 'subway-handstyle', hasUnderline: true, hasDrips: true, rotation: 0.08 },
   { id: 'graf-03', text: 'RAW BRUTALISM', elevationY: 9.8, angleRad: -1.8, scale: 1.2, color: '#facc15', style: 'eroded-stencil', hasUnderline: false, hasDrips: false, rotation: -0.06 },
 
-  // Level 00 / Upper Zone (Y: 9.6 to 6.0) - Completely clear of AURA poster (Y: 5.3 to 8.3)
-  { id: 'graf-04', text: 'AURA // 01', elevationY: 9.6, angleRad: 0.4, scale: 1.15, color: '#ff0055', style: 'chisel-marker', hasUnderline: true, hasDrips: true, rotation: -0.04 },
+  // Level 00 / Upper Zone (Y: 9.6 to 6.0) - Completely clear of MADCAT poster (Y: 5.3 to 8.3)
+  { id: 'graf-04', text: 'MADCAT // 01', elevationY: 9.6, angleRad: 0.4, scale: 1.15, color: '#ff0055', style: 'chisel-marker', hasUnderline: true, hasDrips: true, rotation: -0.04 },
   { id: 'graf-05', text: '120 FPS // EET', elevationY: 7.5, angleRad: -2.0, scale: 1.2, color: '#22c55e', style: 'wild-scribble', hasUnderline: true, hasDrips: true, rotation: 0.12 },
   { id: 'graf-06', text: 'KINETIC FORM', elevationY: 6.0, angleRad: 1.6, scale: 1.1, color: '#f59e0b', style: 'subway-handstyle', hasUnderline: true, hasDrips: true, rotation: -0.07 },
 

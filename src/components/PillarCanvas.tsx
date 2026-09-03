@@ -916,7 +916,7 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
 
       if (focusedId) {
         // Find corresponding artwork
-        const art = PILLAR_PROJECT_ARTWORKS.find((a) => a.projectId === focusedId);
+        const art = PILLAR_PROJECT_ARTWORKS.find((a) => a.projectId === focusedId || (focusedId && (focusedId.includes(a.projectId) || a.projectId.includes(focusedId))));
         if (art) {
           // Dynamic camera distance Z:
           // On mobile phones, the bottom sheet takes the bottom ~50% of the screen.
