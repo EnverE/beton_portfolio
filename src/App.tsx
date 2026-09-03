@@ -274,6 +274,37 @@ export function App() {
         <span className="opacity-80 uppercase">{t.phases.pillar}: {targetAlignment.toUpperCase()}</span>
       </div>
 
+      {/* Mobile Floating Architectural Elevator Bar (Top-Left) */}
+      <nav
+        aria-label="Mobile section navigation"
+        className={`fixed top-4 left-4 z-40 flex xl:hidden items-center gap-1 p-1 border font-mono text-[10px] font-bold backdrop-blur-md transition-colors duration-500 shadow-[3px_3px_0_rgba(0,0,0,0.08)] ${
+          isDayMode
+            ? 'bg-white/90 border-zinc-300 text-zinc-700'
+            : 'bg-zinc-950/90 border-zinc-800 text-zinc-300 shadow-[3px_3px_0_#050507]'
+        }`}
+      >
+        <span className="text-[9px] text-zinc-500 px-1 font-mono hidden sm:inline">LVL:</span>
+        {elevatorLevels.map((lvl) => {
+          const isActive = activeElevation === lvl.num;
+          return (
+            <button
+              key={lvl.num}
+              onClick={() => handleElevatorClick(lvl.id)}
+              className={`px-1.5 py-0.5 transition-all cursor-pointer border ${
+                isActive
+                  ? isDayMode
+                    ? 'bg-black text-white border-black shadow-[1px_1px_0_rgba(0,0,0,0.2)]'
+                    : 'bg-white text-black border-white shadow-[1px_1px_0_#fff]'
+                  : 'bg-transparent text-zinc-500 border-transparent hover:text-zinc-900 dark:hover:text-white'
+              }`}
+              title={lvl.label}
+            >
+              {lvl.num}
+            </button>
+          );
+        })}
+      </nav>
+
       {/* Minimal Vertical Elevator HUD (Right Edge) */}
       <aside className={`fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-2 p-2 border backdrop-blur-md transition-colors duration-500 ${
         isDayMode

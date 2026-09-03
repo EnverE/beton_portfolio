@@ -37,18 +37,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       {/* Click outside backdrop / 3D viewport area to close inspection */}
       <div
         onClick={onClose}
-        className="flex-grow pointer-events-auto cursor-pointer relative"
+        className="flex-grow pointer-events-auto cursor-pointer relative h-[38vh] md:h-full"
         title="Click anywhere to leave poster"
       >
         {/* Subtle brutalist hint badge pinned top-left */}
-        <div className="absolute top-6 left-6 hidden sm:flex items-center gap-2 px-3 py-1.5 bg-black/80 border border-zinc-700 text-zinc-300 hover:text-white hover:border-white font-mono text-[11px] font-bold tracking-widest uppercase backdrop-blur-md transition-colors select-none shadow-[2px_2px_0_#000]">
+        <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2 px-3 py-1.5 bg-black/85 border border-zinc-700 text-zinc-300 hover:text-white hover:border-white font-mono text-[10px] sm:text-[11px] font-bold tracking-widest uppercase backdrop-blur-md transition-colors select-none shadow-[2px_2px_0_#000]">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-          <span>[ CLICK CANVAS TO LEAVE ]</span>
+          <span>[ TAP CANVAS TO LEAVE ]</span>
         </div>
       </div>
 
-      {/* Heavy Concrete Inspection Dossier Panel (Docked on Right) */}
-      <div className="pointer-events-auto relative w-full md:w-[480px] lg:w-[540px] h-full max-h-screen overflow-y-auto bg-[#121215]/95 border-l border-zinc-700 shadow-[-16px_0_40px_rgba(0,0,0,0.6)] backdrop-blur-md p-6 sm:p-8 text-zinc-200 animate-in slide-in-from-right duration-300">
+      {/* Heavy Concrete Inspection Dossier Panel (Docked Bottom on Mobile, Docked Right on Desktop) */}
+      <div className="pointer-events-auto relative w-full md:w-[480px] lg:w-[540px] h-[62vh] md:h-full max-h-[85vh] md:max-h-screen overflow-y-auto bg-[#121215]/95 border-t md:border-t-0 md:border-l border-zinc-700 shadow-[0_-12px_32px_rgba(0,0,0,0.8)] md:shadow-[-16px_0_40px_rgba(0,0,0,0.6)] backdrop-blur-md p-5 sm:p-8 text-zinc-200 animate-in slide-in-from-bottom md:slide-in-from-right duration-300 rounded-t-2xl md:rounded-none">
+        {/* Mobile Tactile Grab Handle */}
+        <div className="w-12 h-1 bg-zinc-600 rounded-full mx-auto mb-3 md:hidden" />
         {/* Top Header Strip */}
         <div className="flex items-center justify-between pb-4 mb-6 border-b border-zinc-700">
           <div className="flex flex-wrap items-center gap-2 text-xs font-mono">

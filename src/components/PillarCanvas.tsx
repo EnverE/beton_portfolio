@@ -91,7 +91,8 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
 
     // 3. Ultra-Photorealistic Architectural Concrete Procedural Textures (Diffuse + Normal + Roughness + AO)
     const createRuggedConcreteTextures = () => {
-      const size = 2048; // High resolution 2K canvas for crisp micro-porosity and razor detail
+      const isMobileDevice = window.innerWidth < 768;
+      const size = isMobileDevice ? 1024 : 2048; // Efficient 1K on mobile, ultra-crisp 2K on desktop
 
       // --- Diffuse Canvas ---
       const diffCanvas = document.createElement('canvas');
@@ -131,10 +132,11 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
         }
 
         // Layer 1: Large-Scale Hydration Mottling & Cement Clouding (Organic poured slurry variations)
-        for (let i = 0; i < 60; i++) {
+        const mottlingCount = isMobileDevice ? 25 : 60;
+        for (let i = 0; i < mottlingCount; i++) {
           const cx = Math.random() * size;
           const cy = Math.random() * size;
-          const rad = Math.random() * 320 + 120;
+          const rad = Math.random() * (isMobileDevice ? 160 : 320) + 60;
           const isLighter = Math.random() > 0.45;
           const grad = diffCtx.createRadialGradient(cx, cy, 0, cx, cy, rad);
           const alpha = Math.random() * 0.12 + 0.04;
@@ -146,10 +148,11 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
           diffCtx.fill();
         }
 
-        // Layer 2: Micro Silica Sand Matrix (250,000 dense sand granules for tactile physical grain)
+        // Layer 2: Micro Silica Sand Matrix (Tactile physical grain)
         const sandImgData = diffCtx.getImageData(0, 0, size, size);
         const sandPixels = sandImgData.data;
-        for (let i = 0; i < 280000; i++) {
+        const sandCount = isMobileDevice ? 70000 : 280000;
+        for (let i = 0; i < sandCount; i++) {
           const px = Math.floor(Math.random() * size);
           const py = Math.floor(Math.random() * size);
           const idx = (py * size + px) * 4;
@@ -163,7 +166,8 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
         diffCtx.putImageData(sandImgData, 0, 0);
 
         // Layer 3: High-Density Gritty Mineral Aggregate Spots (Basalt, Quartz, Limestone)
-        for (let i = 0; i < 35000; i++) {
+        const mineralCount = isMobileDevice ? 9000 : 35000;
+        for (let i = 0; i < mineralCount; i++) {
           const x = Math.floor(Math.random() * size);
           const y = Math.floor(Math.random() * size);
           const r = Math.random() * 2.6 + 0.5;
@@ -265,39 +269,43 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
           aoCtx.fill();
         };
 
-        // Large prominent chiseled dents & surface pockets (350 deep rugged pockets)
-        for (let i = 0; i < 350; i++) {
+        // Large prominent chiseled dents & surface pockets
+        const dentCount = isMobileDevice ? 90 : 350;
+        for (let i = 0; i < dentCount; i++) {
           const cx = Math.floor(Math.random() * size);
           const cy = Math.floor(Math.random() * size);
-          const baseR = Math.random() * 8 + 3.5;
+          const baseR = Math.random() * (isMobileDevice ? 4.5 : 8) + 2.0;
           drawCraggyDent(cx, cy, baseR, 0.55);
         }
 
-        // Medium air void pockets & pits (2,800 rugged bug holes across the surface)
-        for (let i = 0; i < 2800; i++) {
+        // Medium air void pockets & pits (rugged bug holes across the surface)
+        const bugholeCount = isMobileDevice ? 700 : 2800;
+        for (let i = 0; i < bugholeCount; i++) {
           const cx = Math.floor(Math.random() * size);
           const cy = Math.floor(Math.random() * size);
-          const baseR = Math.random() * 3.2 + 1.2;
+          const baseR = Math.random() * (isMobileDevice ? 2.0 : 3.2) + 1.0;
           drawCraggyDent(cx, cy, baseR, 0.35);
         }
 
         // Honeycomb Rock Pockets (Clusters of exposed coarse gravel with deep crevices)
-        for (let h = 0; h < 25; h++) {
+        const honeycombCount = isMobileDevice ? 8 : 25;
+        for (let h = 0; h < honeycombCount; h++) {
           const hx = Math.floor(Math.random() * size);
           const hy = Math.floor(Math.random() * size);
-          const clusterRadius = Math.random() * 35 + 20;
-          const rockCount = Math.floor(Math.random() * 20 + 12);
+          const clusterRadius = Math.random() * (isMobileDevice ? 20 : 35) + 12;
+          const rockCount = Math.floor(Math.random() * (isMobileDevice ? 10 : 20) + 6);
 
           for (let r = 0; r < rockCount; r++) {
             const rx = hx + (Math.random() - 0.5) * clusterRadius * 2;
             const ry = hy + (Math.random() - 0.5) * clusterRadius * 2;
-            const rockR = Math.random() * 4 + 1.5;
+            const rockR = Math.random() * (isMobileDevice ? 2.5 : 4) + 1.0;
             drawCraggyDent(rx, ry, rockR, 0.45);
           }
         }
 
         // Layer 5: Vertical Hydration Flow & Curing Streaks (Subtle water drainage marks)
-        for (let s = 0; s < 65; s++) {
+        const streakCount = isMobileDevice ? 25 : 65;
+        for (let s = 0; s < streakCount; s++) {
           const sx = Math.random() * size;
           const alpha = Math.random() * 0.08 + 0.02;
           const isDarkStreak = Math.random() > 0.45;
@@ -823,7 +831,7 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
       drag.lastY = e.clientY;
 
       // 1. Horizontal Spin: dragging across screen spins ~360 degrees (2 * PI)
-      const sensitivity = (Math.PI * 2.8) / Math.max(600, window.innerWidth);
+      const sensitivity = (Math.PI * 2.4) / Math.max(300, window.innerWidth);
       const rotDelta = deltaX * sensitivity;
 
       drag.manualRotation += rotDelta;
@@ -893,20 +901,38 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
     window.addEventListener('pointerup', onPointerUp);
     window.addEventListener('pointercancel', onPointerUp);
 
+    const onContextMenu = (e: MouseEvent) => e.preventDefault();
+    container.addEventListener('contextmenu', onContextMenu);
+
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
 
       const progress = scrollRef.current;
       const alignment = alignmentRef.current;
+      const aspect = window.innerWidth / Math.max(1, window.innerHeight);
       const isMobile = window.innerWidth < 1024;
+      const isPhone = window.innerWidth < 768 || aspect < 0.85;
       const focusedId = focusedProjectRef.current;
 
       if (focusedId) {
         // Find corresponding artwork
         const art = PILLAR_PROJECT_ARTWORKS.find((a) => a.projectId === focusedId);
         if (art) {
-          // Camera glides up close (Z = 5.8 on desktop, 6.8 on mobile)
-          const targetCamZ = isMobile ? 6.8 : 5.8;
+          // Dynamic camera distance Z:
+          // On mobile phones, the bottom sheet takes the bottom ~50% of the screen.
+          // Compute targetCamZ so the 2.1 unit poster fits horizontally with comfortable breathing room:
+          let targetCamZ = 5.8;
+          let targetY = -art.elevationY;
+
+          if (isPhone) {
+            const halfFovRad = (35 / 2) * (Math.PI / 180);
+            targetCamZ = Math.max(8.8, 3.1 / (2 * Math.tan(halfFovRad) * aspect));
+            // Shift poster upwards into top half of screen above mobile bottom sheet
+            targetY = -art.elevationY - 1.25;
+          } else if (isMobile) {
+            targetCamZ = 6.8;
+          }
+
           camera.position.z += (targetCamZ - camera.position.z) * 0.055;
           camera.position.x += (0 - camera.position.x) * 0.055;
           camera.position.y += (0 - camera.position.y) * 0.055;
@@ -915,7 +941,6 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
           currentX += (0 - currentX) * 0.055;
 
           // Bring poster to eye level
-          const targetY = -art.elevationY;
           currentY += (targetY - currentY) * 0.055;
 
           // Face the poster directly towards camera + subtle mouse parallax
@@ -927,8 +952,11 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
           }
         }
       } else {
-        // Normal camera distance
-        const defaultCamZ = 19.5;
+        // Normal camera distance: dynamically adapted for mobile portrait framing
+        let defaultCamZ = 19.5;
+        if (isPhone) {
+          defaultCamZ = 22.8; // Gracefully frame pillar on narrow mobile screens
+        }
         camera.position.z += (defaultCamZ - camera.position.z) * 0.045;
         camera.position.x += (0 - camera.position.x) * 0.045;
         camera.position.y += (0 - camera.position.y) * 0.045;
@@ -938,9 +966,13 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
         if (!isMobile) {
           if (alignment === 'right') targetX = 4.8;
           if (alignment === 'left') targetX = -4.8;
-        } else {
+        } else if (!isPhone) {
           if (alignment === 'right') targetX = 2.0;
           if (alignment === 'left') targetX = -2.0;
+        } else {
+          // On mobile phones: subtle offset (0.85) so pillar remains 100% on screen
+          if (alignment === 'right') targetX = 0.85;
+          if (alignment === 'left') targetX = -0.85;
         }
 
         // Slow, heavy architectural mass lerp: majestic, continuous glide across the screen

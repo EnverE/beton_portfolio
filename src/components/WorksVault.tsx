@@ -38,14 +38,14 @@ export const WorksVault: React.FC<WorksVaultProps> = ({
 
       {/* Alternating Project Stages Pushed to the Sides */}
       {/* Alternating Project Stages with Dedicated Vertical Runway */}
-      <div className="space-y-48 mb-24">
+      <div className="space-y-24 sm:space-y-36 lg:space-y-48 mb-16 lg:mb-24">
         {PORTFOLIO_DATA.projects.map((project, idx) => {
           const isLeft = idx % 2 === 0;
           return (
             <div
               key={project.id}
               id={`project-stage-${idx}`}
-              className="min-h-[85vh] flex items-center grid grid-cols-1 lg:grid-cols-12 gap-8"
+              className="min-h-[70vh] lg:min-h-[85vh] flex items-center grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8"
             >
               {isLeft ? (
                 <>
