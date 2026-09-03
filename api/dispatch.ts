@@ -37,12 +37,23 @@ export default async function handler(req: any, res: any) {
       }),
     });
 
-    const data = (await response.json()) as { success?: boolean; message?: string };
+    const text = await response.text();
+    let data: any = {};
+    try {
+      data = JSON.parse(text);
+    } catch {
+      return res.status(502).json({
+        error: 'Upstream returned invalid response',
+        status: response.status,
+        preview: text.slice(0, 150)
+      });
+    }
+
     if (data.success) {
       return res.status(200).json({ success: true });
     }
     return res.status(500).json({ error: data.message || 'Transmission failed' });
-  } catch {
-    return res.status(500).json({ error: 'Failed to contact dispatch server' });
+  } catch (err: any) {
+    return res.status(500).json({ error: 'Failed to contact dispatch server', details: err?.message || String(err) });
   }
 }
