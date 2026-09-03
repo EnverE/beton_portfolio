@@ -366,8 +366,8 @@ export const PORTFOLIO_DATA = {
 
   contactTelemetry: {
     transmissionFrequency: 'STUDIO DISPATCH // OPEN',
-    email: 'envererental@gmail.com',
-    github: 'https://github.com',
+    email: 'tatlidil.eren@gmail.com',
+    github: 'https://github.com/EnverE',
     linkedin: 'https://linkedin.com',
     xTwitter: 'https://x.com',
     locationCoordinate: 'ISTANBUL // 41°00\'49"N  28°57\'18"E',
