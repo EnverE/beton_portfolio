@@ -123,48 +123,15 @@ export const TRANSLATIONS = {
           { label: 'LOCALIZATION', value: 'NEXT-INTL (TR/EN PARITY ENFORCED)' }
         ]
       },
-      'nebula-sound': {
-        title: 'NEBULA SPATIAL AUDIO EXPERIENCE',
-        shortDesc: 'Generative sound and visual playground reacting to cursor velocity and microphone acoustics.',
-        fullDesc: 'An experimental interactive web experience exploring the intersection of spatial typography and generative acoustics. Features real-time FFT audio spectrum analysis driving particle deformation and fluid typographic wave distortions.',
+      'next-project': {
+        title: 'YOU COULD BE NEXT',
+        shortDesc: "Have an ambitious idea, a portfolio, or a product that deserves distinct motion and brutalist craft? Let's build it together.",
+        fullDesc: "I'm currently taking on select web design and creative frontend commissions around my software engineering studies at METU. Whether you need a bespoke portfolio, an interactive 3D WebGL experience, or a production-grade web application built with React, Three.js, or GSAP — reach out directly. Send an email to tatlidil.eren@gmail.com, connect on LinkedIn, or drop a message below at the dispatch terminal.",
         structuralSpecs: [
-          { label: 'AUDIO DSP', value: 'WEB AUDIO BIQUAD API' },
-          { label: 'SHADER PASS', value: 'RAYMARCHED DISPLACEMENT' },
-          { label: 'LATENCY', value: '< 8MS AUDIO-VISUAL SYNC' },
-          { label: 'COLOR PALETTE', value: 'MONOCHROME TITANIUM' }
-        ]
-      },
-      'chrono-mag': {
-        title: 'CHRONO EDITORIAL PUBLICATION',
-        shortDesc: 'Digital architectural publication with asymmetric grid layouts and darkroom reading mode.',
-        fullDesc: 'Engineered for deep-read cultural essays and architectural critiques. Implements a fluid responsive baseline grid, custom reading progress indicator, darkroom inverted mode, and physical tactile page transition physics.',
-        structuralSpecs: [
-          { label: 'PERFORMANCE', value: '100/100 LIGHTHOUSE SCORE' },
-          { label: 'TYPOGRAPHY', value: 'PLUS JAKARTA SANS' },
-          { label: 'GRID SYSTEM', value: '12-COLUMN ASYMMETRIC' },
-          { label: 'ASSET WEIGHT', value: 'ZERO LAYOUT SHIFT (CLS: 0)' }
-        ]
-      },
-      'monolith-system': {
-        title: 'MONOLITH-UI DESIGN SYSTEM',
-        shortDesc: 'Clean, uncompromising brutalist UI component architecture for high-density web software.',
-        fullDesc: 'A rigorous design system built on mathematical proportions and raw honesty of materials. Includes 42 accessible UI components, standardized spacing tokens, refined tactile button physics, and comprehensive documentation.',
-        structuralSpecs: [
-          { label: 'COMPONENTS', value: '42 ACCESSIBLE MODULES' },
-          { label: 'ACCESSIBILITY', value: 'WCAG AAA 14:1 CONTRAST' },
-          { label: 'BUNDLE IMPACT', value: '< 12KB COMPRESSED' },
-          { label: 'CUSTOMIZATION', value: 'VARIABLE CSS TOKENS' }
-        ]
-      },
-      'synapse-ai': {
-        title: 'SYNAPSE CREATIVE CANVAS',
-        shortDesc: 'Node-based AI generative canvas featuring hardware-accelerated spatial panning and magnetic docking.',
-        fullDesc: 'A revolutionary creative workspace allowing designers to orchestrate complex generative workflows on an infinite zoomable canvas. Designed with cold obsidian panels, laser-thin connector cables, and low-latency interaction loops.',
-        structuralSpecs: [
-          { label: 'RENDER MODEL', value: 'CANVAS2D + WEBGL HYBRID' },
-          { label: 'CONCURRENCY', value: 'LOCAL-FIRST CRDT STATE' },
-          { label: 'TOUCH SUPPORT', value: 'MULTI-FINGER PINCH ZOOM' },
-          { label: 'DESIGN TOKENS', value: 'DARK TITANIUM OBSIDIAN' }
+          { label: 'AVAILABILITY', value: 'OPEN FOR COMMISSIONS' },
+          { label: 'DIRECT EMAIL', value: 'tatlidil.eren@gmail.com' },
+          { label: 'COLLABORATION', value: 'GLOBAL & REMOTE' },
+          { label: 'RESPONSE TIME', value: '< 24-48 HOURS' }
         ]
       }
     } as Record<string, ProjectTranslation>,
@@ -330,48 +297,15 @@ export const TRANSLATIONS = {
           { label: 'YERELLEŞTİRME', value: 'NEXT-INTL (TR/EN EŞLEŞMESİ ZORUNLU)' }
         ]
       },
-      'nebula-sound': {
-        title: 'NEBULA MEKANSAL SES DENEYİMİ',
-        shortDesc: 'İmleç hızına ve mikrofon akustiğine anında tepki veren üretken ses ve görsel deneyim alanı.',
-        fullDesc: 'Mekansal tipografi ve üretken akustiğin kesişimini keşfeden deneysel etkileşimli web deneyimi. Gerçek zamanlı FFT ses spektrum analizi, parçacık deformasyonunu ve akışkan tipografik dalga bozulmalarını doğrudan yönetir.',
+      'next-project': {
+        title: 'SIRADAKİ SEN OLABİLİRSİN',
+        shortDesc: 'Özgün bir hareket dilini ve brutalist özeni hak eden iddialı bir fikrin, portfolyon ya da ürünün mü var? Birlikte inşa edelim.',
+        fullDesc: 'Şu anda ODTÜ\'deki yazılım mühendisliği derslerimin yanında seçkin web tasarımı ve yaratıcı ön yüz projeleri alıyorum. İster özel bir portfolyo, ister etkileşimli bir WebGL deneyimi, ister React, Three.js veya GSAP ile geliştirilmiş canlıya hazır bir web uygulaması olsun — doğrudan iletişime geçebilirsin. tatlidil.eren@gmail.com adresine e-posta gönderebilir, LinkedIn\'den yazabilir veya aşağıdaki iletişim terminalinden mesaj bırakabilirsin.',
         structuralSpecs: [
-          { label: 'SES DSP', value: 'WEB AUDIO BIQUAD API' },
-          { label: 'SHADER ETKİSİ', value: 'RAYMARCHED DISPLACEMENT' },
-          { label: 'GECİKME', value: '< 8MS SES-GÖRSEL SENKRON' },
-          { label: 'RENK PALETİ', value: 'MONOKROM TİTANYUM' }
-        ]
-      },
-      'chrono-mag': {
-        title: 'CHRONO EDİTÖRYAL YAYIN',
-        shortDesc: 'Asimetrik ızgara yerleşimleri ve karanlık oda okuma moduna sahip dijital mimarlık yayını.',
-        fullDesc: 'Kapsamlı kültürel denemeler ve mimari eleştiriler için özel olarak tasarlandı. Akışkan taban çizgisi ızgarası, özel okuma ilerleme göstergesi, karanlık oda ters mod ve fiziksel dokunsal sayfa geçiş mekaniği barındırır.',
-        structuralSpecs: [
-          { label: 'PERFORMANS', value: '100/100 LIGHTHOUSE SKORU' },
-          { label: 'TİPOGRAFİ', value: 'PLUS JAKARTA SANS' },
-          { label: 'IZGARA SİSTEMİ', value: '12 SÜTUN ASİMETRİK' },
-          { label: 'AĞIRLIK', value: 'SIFIR YERLEŞİM KAYMASI (CLS: 0)' }
-        ]
-      },
-      'monolith-system': {
-        title: 'MONOLITH-UI TASARIM SİSTEMİ',
-        shortDesc: 'Yüksek yoğunluklu web yazılımları için temiz, tavizsiz brutalist UI bileşen mimarisi.',
-        fullDesc: 'Matematiksel oranlar ve malzemelerin yalın dürüstlüğü üzerine inşa edilmiş titiz bir tasarım sistemi. 42 erişilebilir UI bileşeni, standartlaştırılmış boşluk belirteçleri, rafine dokunsal düğme fiziği ve kapsamlı dokümantasyon içerir.',
-        structuralSpecs: [
-          { label: 'BİLEŞENLER', value: '42 ERİŞİLEBİLİR MODÜL' },
-          { label: 'ERİŞİLEBİLİRLİK', value: 'WCAG AAA 14:1 KONTRAST' },
-          { label: 'PAKET ETKİSİ', value: '< 12KB SIKIŞTIRILMIŞ' },
-          { label: 'ÖZELLEŞTİRME', value: 'DEĞİŞKEN CSS BELİRTEÇLERİ' }
-        ]
-      },
-      'synapse-ai': {
-        title: 'SYNAPSE YARATICI ÇALIŞMA ALANI',
-        shortDesc: 'Donanım hızlandırmalı mekansal kaydırma ve manyetik kenetlenme sunan düğüm tabanlı yapay zeka tuvali.',
-        fullDesc: 'Tasarımcıların sonsuz yakınlaştırılabilir bir tuval üzerinde karmaşık üretken iş akışlarını yönetmesini sağlayan devrim niteliğinde yaratıcı çalışma alanı. Soğuk obsidyen paneller, lazer inceliğinde bağlantı kabloları ve düşük gecikmeli etkileşim döngüleriyle tasarlandı.',
-        structuralSpecs: [
-          { label: 'ÇİZİM MODELİ', value: 'CANVAS2D + WEBGL HİBRİT' },
-          { label: 'EŞZAMANLILIK', value: 'LOCAL-FIRST CRDT DURUMU' },
-          { label: 'DOKUNMATİK', value: 'ÇOKLU PARMAKLA YAKINLAŞTIRMA' },
-          { label: 'TASARIM BELİRTECİ', value: 'KOYU TİTANYUM OBSİDYEN' }
+          { label: 'UYGUNLUK', value: 'YENİ PROJELERE AÇIK' },
+          { label: 'DOĞRUDAN E-POSTA', value: 'tatlidil.eren@gmail.com' },
+          { label: 'İŞ BİRLİĞİ', value: 'KÜRESEL & UZAKTAN' },
+          { label: 'DÖNÜŞ SÜRESİ', value: '< 24-48 SAAT' }
         ]
       }
     } as Record<string, ProjectTranslation>,

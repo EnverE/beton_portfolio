@@ -151,29 +151,54 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Action Triggers */}
         <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-zinc-800">
           <div className="flex items-center gap-3">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => brutalistAudio.playMechanicalClick()}
-                className="flex items-center gap-2 bg-white hover:bg-zinc-200 text-black font-display font-bold text-xs sm:text-sm px-5 py-2.5 border border-white uppercase transition-all shadow-[2px_2px_0_#000] cursor-pointer"
-              >
-                <span>{t.works.liveUrl}</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            )}
-            {project.repoUrl && (
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => brutalistAudio.playMechanicalClick()}
-                className="flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white font-mono font-bold text-xs px-4 py-2.5 border border-zinc-700 hover:border-zinc-500 uppercase transition-all shadow-[2px_2px_0_#000] cursor-pointer"
-              >
-                <Code2 className="w-3.5 h-3.5 text-zinc-400" />
-                <span>{t.works.repoUrl}</span>
-              </a>
+            {project.id === 'next-project' ? (
+              <>
+                <a
+                  href="#dispatch"
+                  onClick={() => {
+                    brutalistAudio.playMechanicalClick();
+                    onClose();
+                  }}
+                  className="flex items-center gap-2 bg-cyan-400 hover:bg-white text-black font-display font-bold text-xs sm:text-sm px-5 py-2.5 border border-cyan-400 hover:border-white uppercase transition-all shadow-[2px_2px_0_#000] cursor-pointer"
+                >
+                  <span>{language === 'TR' ? 'İLETİŞİME GEÇ // FORM' : 'GET IN TOUCH // DISPATCH'}</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="mailto:tatlidil.eren@gmail.com"
+                  onClick={() => brutalistAudio.playMechanicalClick()}
+                  className="flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white font-mono font-bold text-xs px-4 py-2.5 border border-zinc-700 hover:border-zinc-500 uppercase transition-all shadow-[2px_2px_0_#000] cursor-pointer"
+                >
+                  <span>tatlidil.eren@gmail.com</span>
+                </a>
+              </>
+            ) : (
+              <>
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => brutalistAudio.playMechanicalClick()}
+                    className="flex items-center gap-2 bg-white hover:bg-zinc-200 text-black font-display font-bold text-xs sm:text-sm px-5 py-2.5 border border-white uppercase transition-all shadow-[2px_2px_0_#000] cursor-pointer"
+                  >
+                    <span>{t.works.liveUrl}</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
+                {project.repoUrl && (
+                  <a
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => brutalistAudio.playMechanicalClick()}
+                    className="flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white font-mono font-bold text-xs px-4 py-2.5 border border-zinc-700 hover:border-zinc-500 uppercase transition-all shadow-[2px_2px_0_#000] cursor-pointer"
+                  >
+                    <Code2 className="w-3.5 h-3.5 text-zinc-400" />
+                    <span>{t.works.repoUrl}</span>
+                  </a>
+                )}
+              </>
             )}
           </div>
 
