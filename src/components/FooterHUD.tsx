@@ -31,7 +31,14 @@ export const FooterHUD: React.FC = () => {
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
           <span className="text-zinc-300">{t.footer.systemFps}</span>
           <span className="text-zinc-700">|</span>
-          <span className="text-zinc-400">{t.footer.designQuality}</span>
+          <a
+            href="https://github.com/EnverE/beton_portfolio"
+            target="_blank"
+            rel="noreferrer"
+            className="text-zinc-400 hover:text-white transition-colors underline-offset-2 hover:underline"
+          >
+            {t.footer.designQuality}
+          </a>
         </div>
 
         {/* Back to top pneumatic button */}

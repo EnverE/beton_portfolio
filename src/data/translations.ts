@@ -44,7 +44,7 @@ export const TRANSLATIONS = {
       subTag: 'EET // WEB DESIGN',
       elevation: 'LEVEL 00 // MORNING LIGHT',
       title: 'CREATIVE WEB DESIGNER & INTERACTION ENGINEER',
-      bio: 'I design and craft refined, tactile web experiences. Rooted in brutalist minimalism, razor typography, and 120 FPS interactive engineering.',
+      bio: "I'm a senior Software Engineering student at METU, but I don't stay inside that box. Most of what I build lives in the browser, React, Three.js, GSAP, that kind of stack, but I'm just as likely to be soldering a board or writing a synth patch on the same day.",
       btnWorks: 'SELECTED WORKS',
       btnContact: 'CONTACT',
       scrollHint: 'CLICK & DRAG PILLAR TO SPIN OR SCROLL SITE // SCROLL TO DESCEND',
@@ -68,20 +68,21 @@ export const TRANSLATIONS = {
       phase: 'GOLDEN HOUR SUNSET // LOW-ANGLE AMBER SUN',
       eyebrow: 'ARCHITECTURAL PIPELINE',
       title: 'HOW I WORK',
-      desc: 'A disciplined four-phase creative pipeline that balances brutalist aesthetic restraint with rigorous frontend engineering.',
+      desc: 'Roughly four stages, though they overlap more than this list makes it sound. Structure first, then how it moves, then how it looks, then making sure it actually runs well.',
       stage: 'STAGE',
     },
     about: {
       level: 'LEVEL 03 // ABOUT & MANIFESTO',
       phase: 'TWILIGHT DUSK // EVENING SKY',
       title: 'ABOUT',
+      bioStatement: "I'm Eren, based in Istanbul. Web is where most of my work ends up, React, Three.js, GSAP, that kind of stack, but I don't stay in one lane. I've built PCBs, messed around in Fusion 360, put together a game or two, and spent a fair amount of time in a DAW. Still studying, still freelancing on the side, still figuring out which of these I want to get serious about.",
       specimensTitle: 'DIGITAL SURFACE SPECIMENS',
     },
     dispatch: {
       level: 'LEVEL 04 // CONTACT & DISPATCH',
       phase: 'NOCTURNAL NIGHT // PILLAR FOUNDATION',
       title: 'CONTACT',
-      intro: 'The round concrete pillar anchors at the nocturnal foundation. Send inquiries or commissions directly to Enver Eren Tatlıdil.',
+      intro: 'If you want to talk about a project, or just have a question, send it over. I read everything myself.',
       formName: 'NAME / STUDIO',
       formNamePlaceholder: 'Your Name or Studio',
       formEmail: 'EMAIL COORDINATES',
@@ -91,7 +92,7 @@ export const TRANSLATIONS = {
       btnTransmit: 'TRANSMIT DISPATCH',
       btnTransmitting: 'TRANSMITTING...',
       successTitle: 'TRANSMISSION RECEIVED',
-      successDesc: 'I will review your message and reply via email coordinates within 24 hours.',
+      successDesc: "Got it. I'll read it properly and get back to you by email, usually within a day or two.",
       btnSendAnother: 'Send another message',
       directDispatch: 'DIRECT COORDINATES',
       btnCopy: 'COPY EMAIL',
@@ -99,13 +100,13 @@ export const TRANSLATIONS = {
       coordinates: 'COORDINATES',
       locationVal: 'ISTANBUL // 41°00\'49"N  28°57\'18"E',
       statusLabel: 'COMMISSION STATUS',
-      statusVal: 'NOW SCHEDULING SELECT COMMISSIONS FOR 2025/2026',
+      statusVal: 'OPEN TO NEW PROJECTS, LIMITED HOURS AROUND SCHOOL',
     },
     footer: {
       portfolioTag: 'PORTFOLIO',
-      subline: 'CREATIVE WEB DESIGN, INTERACTION ARCHITECTURE & DIGITAL INTERFACES',
+      subline: "WEB, INTERACTION DESIGN, AND WHATEVER ELSE I'M BUILDING THIS WEEK",
       systemFps: 'SYSTEM: 120 FPS FLUID',
-      designQuality: 'DESIGN QUALITY: 100%',
+      designQuality: 'SOURCE: GITHUB // OPEN REPO',
       returnTop: 'RETURN TO TOP',
       copyright: 'DESIGN SPEC: BRUTALIST LUXURY // COPYRIGHT',
       editHint: 'EDIT CONTENT IN:',
@@ -171,37 +172,37 @@ export const TRANSLATIONS = {
       {
         step: '01',
         phase: 'STRUCTURAL DISCOVERY & GRID ARCHITECTURE',
-        title: 'DISSECTING CONTENT & SPATIAL HIERARCHY',
-        description: 'Before any styling begins, I construct the mathematical layout foundation: column rhythms, baseline typography grids, and disciplined negative space.',
+        title: 'FIGURING OUT WHAT GOES WHERE',
+        description: "Before I touch any styling I work out the actual structure, what content exists, how it's grouped, what the grid needs to support.",
         deliverables: ['Spatial Layout Blueprint', 'Typography Scale Matrix', 'Interactive Wireframe Flow']
       },
       {
         step: '02',
         phase: 'TACTILE MOTION & INTERACTION PHYSICS',
-        title: 'CALIBRATING PHYSICAL DIGITAL ERGONOMICS',
-        description: 'Defining the mechanical feel of the interface: spring stiffness, cursor damping, acoustic cues, and smooth viewport transitions that provide physical feedback.',
+        title: 'GETTING THE MOTION TO FEEL RIGHT',
+        description: 'This is where I spend the most time honestly, tuning how things move until they stop feeling like animations and start feeling like responses.',
         deliverables: ['Framer Motion Prototypes', 'Three.js Spatial Sandboxes', 'Micro-Interaction Curves']
       },
       {
         step: '03',
         phase: 'HIGH-FIDELITY SURFACE & DESIGN SYSTEMS',
-        title: 'SCULPTING REFINED VISUAL SURFACES',
-        description: 'Applying refined brutalist aesthetics: cold obsidian/slate palettes, razor 1px borders, pristine typography, and tokenized design systems.',
+        title: 'MAKING IT LOOK LIKE SOMETHING',
+        description: 'Typography, color, spacing, the actual visual layer, applied on top of a structure that already works without it.',
         deliverables: ['Figma Design System', 'WCAG AAA Color Tokens', 'Editorial Visual Direction']
       },
       {
         step: '04',
         phase: 'CREATIVE FRONTEND & 120 FPS PRODUCTION',
-        title: 'ROCK-SOLID PRODUCTION ENGINEERING',
-        description: 'Translating design into uncompromising, fluid code using React 19, Three.js, and modern CSS. Zero layout shifts and sub-100ms response times.',
+        title: "SHIPPING SOMETHING THAT DOESN'T CHOKE",
+        description: "Turning the design into real code and making sure it stays fast once it's live, not just in the demo.",
         deliverables: ['Production Web Architecture', 'Zero-Jank 120 FPS Pacing', 'Automated CI/CD Deployment']
       }
     ] as ProcessStepTranslation[],
     manifesto: [
-      { title: '01. HONESTY OF DIGITAL MEDIUM', text: 'The web is not paper or billboard. We embrace resolution independence, fluid aspect ratios, and raw code integrity.' },
-      { title: '02. REFINED MINIMALISM', text: 'Stripping away decorative vanity to reveal structural typography, deliberate negative space, and disciplined layout grids.' },
-      { title: '03. TACTILE MICRO-INTERACTIONS', text: 'Every hover, scroll displacement, and press must convey physical weight and visceral responsive feedback.' },
-      { title: '04. PERFORMANCE AS LUXURY', text: 'True elegance is instantaneous response. 60-120 FPS frame pacing, zero layout shifts, and lightweight assets.' }
+      { title: "01. BUILD FOR THE SCREEN IT'S ON", text: "A phone and a monitor aren't the same canvas. I design for what the browser actually gives you, not a fixed frame I wish it had." },
+      { title: "02. CUT UNTIL IT'S HONEST", text: "If a piece of the layout isn't doing anything, it goes. I'd rather have three things that matter than ten that don't." },
+      { title: "03. INTERACTIONS SHOULD FEEL LIKE SOMETHING", text: 'A hover, a scroll, a click, they should respond in a way that feels physical, not just technically correct.' },
+      { title: "04. SLOW IS A BUG", text: "If something feels laggy, that's not a minor detail I'll get to later, that's the thing I fix first." }
     ],
     materialSpecimens: [
       {
@@ -250,7 +251,7 @@ export const TRANSLATIONS = {
       subTag: 'EET // WEB TASARIMI',
       elevation: 'KAT 00 // SABAH IŞIĞI',
       title: 'KREATİF WEB TASARIMCISI & ETKİLEŞİM MÜHENDİSİ',
-      bio: 'Rafine, dokunsal web deneyimleri tasarlıyor ve üretiyorum. Brutalist minimalizm, jilet keskinliğinde tipografi ve 120 FPS etkileşim mühendisliğiyle temellendirilmiş.',
+      bio: "ODTÜ'de Yazılım Mühendisliği son sınıf öğrencisiyim, ama sadece o kutunun içinde kalmıyorum. Ürettiklerimin çoğu tarayıcıda yaşıyor, React, Three.js, GSAP, o tarz bir yığın, ama aynı gün bir devre kartı lehimlemem ya da bir synth patch'i yazmam da hiç şaşırtıcı değil.",
       btnWorks: 'SEÇİLMİŞ PROJELER',
       btnContact: 'İLETİŞİM',
       scrollHint: 'SÜTUNU SÜRÜKLEYEREK DÖNDÜRÜN VEYA SAYFAYI KAYDIRIN // İNMEK İÇİN KAYDIRIN',
@@ -274,20 +275,21 @@ export const TRANSLATIONS = {
       phase: 'ALTIN SAAT GÜNBATIMI // YATIK AÇILI KEHRİBAR GÜNEŞ',
       eyebrow: 'MİMARİ ÇALIŞMA SÜRECİ',
       title: 'NASIL ÇALIŞIRIM',
-      desc: 'Brutalist estetik sadeliği titiz ön yüz mühendisliğiyle kusursuz biçimde dengeleyen dört aşamalı yaratıcı süreç.',
+      desc: 'Kabaca dört aşama, gerçi bu liste kadar net ayrışmıyorlar. Önce yapı, sonra nasıl hareket ettiği, sonra nasıl göründüğü, sonra da gerçekten iyi çalıştığından emin olmak.',
       stage: 'AŞAMA',
     },
     about: {
       level: 'KAT 03 // HAKKINDA & MANİFESTO',
       phase: 'ALACAKARANLIK // AKŞAM GÖKYÜZÜ',
       title: 'HAKKIMDA',
+      bioStatement: "Ben Eren, Istanbul'dayım. İşimin çoğu web'de bitiyor, React, Three.js, GSAP, o tarz bir yığın, ama tek bir alanda kalmıyorum. PCB tasarladım, Fusion 360'ta uğraştım, birkaç oyun bir araya getirdim, DAW'da da epey vakit geçirdim. Hala okuyorum, hala yan işlerde freelance yapıyorum, hangisine gerçekten ağırlık vereceğime hala karar veriyorum.",
       specimensTitle: 'DİJİTAL YÜZEY NUMUNELERİ',
     },
     dispatch: {
       level: 'KAT 04 // İLETİŞİM & MESAJ',
       phase: 'GECE KARANLIĞI // SÜTUN TEMELİ',
       title: 'İLETİŞİM',
-      intro: 'Yuvarlak beton sütun gece temelinde sonlanıyor. Proje teklifi veya iş birliği taleplerinizi doğrudan Enver Eren Tatlıdil\'e iletin.',
+      intro: 'Bir proje konuşmak istersen, ya da sadece bir sorun varsa, yaz. Her mesajı kendim okuyorum.',
       formName: 'İSİM / STÜDYO',
       formNamePlaceholder: 'İsminiz veya Stüdyonuz',
       formEmail: 'E-POSTA ADRESİ',
@@ -297,7 +299,7 @@ export const TRANSLATIONS = {
       btnTransmit: 'MESAJI GÖNDER',
       btnTransmitting: 'İLETİLİYOR...',
       successTitle: 'MESAJINIZ ALINDI',
-      successDesc: 'Mesajınızı detaylıca inceleyip 24 saat içerisinde e-posta adresinize dönüş yapacağım.',
+      successDesc: 'Ulaştı. Düzgünce okuyup e-postandan dönüş yapacağım, genelde bir iki gün içinde.',
       btnSendAnother: 'Yeni bir mesaj gönder',
       directDispatch: 'DOĞRUDAN İLETİŞİM',
       btnCopy: 'E-POSTAYI KOPYALA',
@@ -305,13 +307,13 @@ export const TRANSLATIONS = {
       coordinates: 'KONUM BİLGİSİ',
       locationVal: 'İSTANBUL // 41°00\'49"K  28°57\'18"D',
       statusLabel: 'PROJE DURUMU',
-      statusVal: '2025/2026 İÇİN SEÇKİN PROJE TALEPLERİ KABUL EDİLİYOR',
+      statusVal: 'YENİ PROJELERE AÇIĞIM, OKUL YÜZÜNDEN VAKTİM SINIRLI',
     },
     footer: {
       portfolioTag: 'PORTFOLYO',
-      subline: 'KREATİF WEB TASARIMI, ETKİLEŞİM MİMARİSİ VE DİJİTAL ARAYÜZLER',
+      subline: 'WEB, ETKİLEŞİM TASARIMI VE O HAFTA NE ÜZERİNDE ÇALIŞIYORSAM',
       systemFps: 'SİSTEM: 120 FPS AKICI',
-      designQuality: 'TASARIM KALİTESİ: %100',
+      designQuality: 'KAYNAK: GITHUB // AÇIK REPO',
       returnTop: 'BAŞA DÖN',
       copyright: 'TASARIM: BRUTALİST LÜKS // TÜM HAKLARI SAKLIDIR',
       editHint: 'İÇERİK DÜZENLEME:',
@@ -377,37 +379,37 @@ export const TRANSLATIONS = {
       {
         step: '01',
         phase: 'YAPISAL KEŞİF & IZGARA MİMARİSİ',
-        title: 'İÇERİK ANALİZİ & MEKANSAL HİYERARŞİ',
-        description: 'Herhangi bir görsel stil oluşturulmadan önce matematiksel yerleşim temeli kurulur: sütun ritimleri, taban çizgisi tipografi ızgaraları ve disiplinli negatif alan.',
+        title: 'NEYİN NEREYE GİDECEĞİNİ ÇÖZMEK',
+        description: 'Herhangi bir stile dokunmadan önce gerçek yapıyı çözerim, ne içerik var, nasıl gruplanıyor, ızgara neyi taşımak zorunda.',
         deliverables: ['Mekansal Yerleşim Planı', 'Tipografi Ölçek Matrisi', 'Etkileşimli İskelet Akışı']
       },
       {
         step: '02',
         phase: 'DOKUNSAL HAREKET & ETKİLEŞİM FİZİĞİ',
-        title: 'FİZİKSEL DİJİTAL ERGONOMİ KALİBRASYONU',
-        description: 'Arayüzün mekanik hissinin tanımlanması: yay sertliği, imleç sönümlemesi, akustik geri bildirimler ve fiziksel tepki veren akıcı görünüm alanı geçişleri.',
+        title: 'HAREKETİ DOĞRU HİSSETTİRMEK',
+        description: 'Dürüst olmak gerekirse en çok burada vakit geçiriyorum, hareketleri artık animasyon gibi değil, tepki gibi hissettirene kadar ayarlıyorum.',
         deliverables: ['Framer Motion Prototipleri', 'Three.js Mekansal Test Alanları', 'Mikro Etkileşim Eğrileri']
       },
       {
         step: '03',
         phase: 'YÜKSEK DOĞRULUKLU YÜZEY & TASARIM SİSTEMLERİ',
-        title: 'RAFİNE GÖRSEL YÜZEYLERİN ŞEKİLLENDİRİLMESİ',
-        description: 'Rafine brutalist estetiğin uygulanması: soğuk obsidyen/arduvaz paletleri, 1 piksellik jilet kenarlıklar, kusursuz tipografi ve belirteç tabanlı tasarım sistemleri.',
+        title: 'BİR ŞEYE BENZETMEK',
+        description: 'Tipografi, renk, boşluk, gerçek görsel katman, zaten kendi başına çalışan bir yapının üzerine ekleniyor.',
         deliverables: ['Figma Tasarım Sistemi', 'WCAG AAA Renk Belirteçleri', 'Editöryal Görsel Yönelim']
       },
       {
         step: '04',
         phase: 'KREATİF ÖN YÜZ & 120 FPS ÜRETİM',
-        title: 'KUSURSUZ VE SAĞLAM ÜRETİM MÜHENDİSLİĞİ',
-        description: 'Tasarımın React 19, Three.js ve modern CSS kullanılarak tavizsiz, akıcı koda dönüştürülmesi. Sıfır yerleşim kayması ve 100ms altı yanıt süreleri.',
+        title: 'TAKILMADAN ÇALIŞAN BİR ŞEY ÇIKARMAK',
+        description: 'Tasarımı gerçek koda çevirmek ve yayına girdiğinde de hızlı kalmasını sağlamak, sadece demoda değil.',
         deliverables: ['Canlı Web Mimarisi', 'Takılmasız 120 FPS Akıcılık', 'Otomatik CI/CD Dağıtımı']
       }
     ] as ProcessStepTranslation[],
     manifesto: [
-      { title: '01. DİJİTAL ORTAMIN DÜRÜSTLÜĞÜ', text: 'Web bir kağıt veya afiş değildir. Çözünürlük bağımsızlığını, akışkan en-boy oranlarını ve yalın kod bütünlüğünü benimsiyoruz.' },
-      { title: '02. RAFİNE MİNİMALİZM', text: 'Yapısal tipografiyi, bilinçli negatif alanı ve disiplinli yerleşim ızgaralarını ortaya çıkarmak için süsleyici fazlalıklardan arınıyoruz.' },
-      { title: '03. DOKUNSAL MİKRO ETKİLEŞİMLER', text: 'Her üzerine gelme, kaydırma hareketi ve basma eylemi fiziksel bir ağırlık ve anında hissedilir yanıt vermelidir.' },
-      { title: '04. BİR LÜKS OLARAK PERFORMANS', text: 'Gerçek zarafet anında yanıttır. 60-120 FPS kare akıcılığı, sıfır yerleşim kayması ve hafif varlık mimarisi.' }
+      { title: '01. HANGİ EKRANDAYSA ONA GÖRE', text: 'Telefon ile monitör aynı tuval değil. Tarayıcının gerçekten verdiğine göre tasarlıyorum, olmasını istediğim sabit bir çerçeveye göre değil.' },
+      { title: '02. DÜRÜST OLANA KADAR KIRP', text: 'Bir işe yaramayan bir parça varsa gider. Önemli olan üç şeyi, önemsiz on şeye tercih ederim.' },
+      { title: '03. ETKİLEŞİMLER BİR ŞEY HİSSETTİRMELİ', text: 'Hover, scroll, tıklama, bunlar sadece teknik olarak doğru değil, fiziksel gibi hissettiren bir şekilde yanıt vermeli.' },
+      { title: '04. YAVAŞLIK BİR HATADIR', text: 'Bir şey yavaş hissettiriyorsa bu sonra bakılacak ufak bir detay değil, önce düzelttiğim şeydir.' }
     ],
     materialSpecimens: [
       {

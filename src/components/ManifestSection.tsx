@@ -16,9 +16,7 @@ export const ManifestSection: React.FC = () => {
 
   const currentSpecimen = t.materialSpecimens.find((s) => s.id === selectedSpecimenId) || t.materialSpecimens[0];
 
-  const bioStatement = language === 'TR'
-    ? 'Soğuk, rafine ve yüksek etkili dijital deneyimler tasarlıyor ve inşa ediyorum. Brutalist minimalizm ve mimari disiplinden beslenerek keskin tipografi, dokunsal mikro etkileşimler ve yüksek performanslı ön yüz mühendisliğini kalıcı iz bırakan deneyimler için bir araya getiriyorum.'
-    : PORTFOLIO_DATA.identity.bioStatement;
+  const bioStatement = t.about.bioStatement || PORTFOLIO_DATA.identity.bioStatement;
 
   return (
     <section id="about" className="relative min-h-[92vh] flex flex-col justify-center py-28 px-4 sm:px-8 max-w-7xl mx-auto">

@@ -59,8 +59,8 @@ export const PORTFOLIO_DATA = {
     elevation: "LEVEL 00 // DIGITAL CANVAS",
     structuralIntegrity: "100% DESIGN REFINEMENT",
     seismicRating: "60-120 FPS FLUID MOTION",
-    status: "AVAILABLE // ACCEPTING SELECTED COMMISSIONS",
-    bioStatement: "I design and build cold, refined, high-impact digital experiences. Rooted in brutalist minimalism and architectural restraint, I combine sharp typography, tactile micro-interactions, and high-performance frontend engineering to build web experiences that leave an indelible impression.",
+    status: "OPEN TO NEW PROJECTS, LIMITED HOURS AROUND SCHOOL",
+    bioStatement: "I'm Eren, a senior Software Engineering student at METU, based in Istanbul. On paper that's my field, but in practice I've got a hand in a bit of everything. Web is where most of my work ends up, React, Three.js, GSAP, that kind of stack, but I don't stay in one lane. I've built PCBs, messed around in Fusion 360, put together a game or two, and spent a fair amount of time in a DAW. Still studying, still freelancing on the side, still figuring out which of these I want to get serious about.",
     manifesto: [
       "01. HONESTY OF DIGITAL MEDIUM: The web is not paper or billboard. We embrace resolution independence, fluid aspect ratios, and raw code integrity.",
       "02. REFINED MINIMALISM: Stripping away decorative vanity to reveal structural typography, deliberate negative space, and disciplined layout grids.",
