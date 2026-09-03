@@ -16,14 +16,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isDayMode = true }) =>
   return (
     <section id="monolith" className="relative min-h-[92vh] flex flex-col justify-between pt-16 pb-16 px-4 sm:px-8 max-w-7xl mx-auto">
       {/* Subtle Top Metadata */}
-      <div className={`flex items-center justify-between text-xs font-mono tracking-wider transition-colors duration-500 ${
+      <div className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 sm:gap-2 text-xs font-mono tracking-wider transition-colors duration-500 ${
         isDayMode ? 'text-zinc-600' : 'text-zinc-500'
       }`}>
-        <div className="flex items-center gap-2 font-bold">
+        <div className={`flex items-center gap-2 font-bold px-2.5 py-1 border backdrop-blur-xs ${
+          isDayMode
+            ? 'bg-white/80 border-zinc-300'
+            : 'bg-black/80 border-zinc-700'
+        }`}>
           <span className={`w-2 h-2 rounded-full ${isDayMode ? 'bg-black' : 'bg-white'}`}></span>
           <span>{t.hero.subTag}</span>
         </div>
-        <div>
+        <div className={`px-2.5 py-1 border backdrop-blur-xs ${
+          isDayMode
+            ? 'bg-white/80 border-zinc-300'
+            : 'bg-black/80 border-zinc-700'
+        }`}>
           <span>{t.hero.elevation}</span>
         </div>
       </div>
@@ -83,10 +91,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isDayMode = true }) =>
       </div>
 
       {/* Subtle Scroll Hint */}
-      <div className={`flex items-center justify-between text-[11px] font-mono transition-colors duration-500 ${
-        isDayMode ? 'text-zinc-500' : 'text-zinc-500'
-      }`}>
-        <span className="animate-pulse">{t.hero.scrollHint}</span>
+      <div className="flex items-center justify-center sm:justify-between text-[11px] font-mono transition-colors duration-500 text-zinc-500">
+        <span className={`animate-pulse text-center px-2.5 py-1 border backdrop-blur-xs ${
+          isDayMode
+            ? 'bg-white/80 border-zinc-300'
+            : 'bg-black/80 border-zinc-700'
+        }`}>
+          {t.hero.scrollHint}
+        </span>
         <span className="hidden sm:inline">{t.hero.monolithTag}</span>
       </div>
     </section>

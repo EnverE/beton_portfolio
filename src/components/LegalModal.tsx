@@ -102,7 +102,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose }) => {
 
         {/* Footer Actions */}
         <div className="flex items-center justify-between px-6 py-3 border-t border-zinc-800 bg-zinc-900/60 text-[10px] text-zinc-500">
-          <span>GDPR // KVKK AUDIT: 100% COMPLIANT</span>
+          <span>{t.legalDisclaimer}</span>
           <button
             onClick={() => {
               brutalistAudio.playMechanicalClick();

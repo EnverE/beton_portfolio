@@ -123,6 +123,7 @@ export const TRANSLATIONS = {
       legalIpBody: 'Repository source code is open under the MIT License at github.com/EnverE/beton_portfolio. Original branding, 3D monolithic models, and graphic compositions are © 2026 Enver Eren Tatlıdil.',
       legalContactHeader: '04. DATA DELETION REQUESTS',
       legalContactBody: 'To inspect or request deletion of any correspondence sent through this terminal, submit a request directly to tatlidil.eren@gmail.com.',
+      legalDisclaimer: 'WRITTEN IN PLAIN TERMS, NOT A SUBSTITUTE FOR LEGAL ADVICE',
       legalClose: 'CLOSE SPECIFICATION [ESC]',
     },
     projects: {
@@ -311,6 +312,7 @@ export const TRANSLATIONS = {
       legalIpBody: 'Projenin kaynak kodları github.com/EnverE/beton_portfolio adresinde MIT Lisansı ile açık kaynak olarak paylaşılmıştır. Özgün marka kimliği, 3D monolitik modeller ve grafik kompozisyonlar © 2026 Enver Eren Tatlıdil\'e aittir.',
       legalContactHeader: '04. VERİ SİLME TALEPLERİ',
       legalContactBody: 'Bu site üzerinden ilettiğiniz herhangi bir yazışmanın incelenmesini veya silinmesini talep etmek için doğrudan tatlidil.eren@gmail.com adresine yazabilirsiniz.',
+      legalDisclaimer: 'SADE BİR DİLLE YAZILMIŞTIR, HUKUKİ DANIŞMANLIĞIN YERİNE GEÇMEZ',
       legalClose: 'KAPAT [ESC]',
     },
     projects: {
