@@ -79,9 +79,9 @@ export const DispatchSection: React.FC = () => {
   return (
     <section id="dispatch" className="relative min-h-[92vh] flex flex-col justify-center py-28 px-4 sm:px-8 max-w-7xl mx-auto">
       {/* Subtle Elevation Header */}
-      <div className="flex items-center justify-between text-xs font-mono mb-16 pb-2 border-b border-zinc-800 text-zinc-500">
-        <span className="font-bold text-zinc-200">{t.dispatch.level}</span>
-        <span className="text-zinc-400">{t.dispatch.phase}</span>
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 sm:gap-2 text-xs font-mono mb-16 pb-2 border-b border-zinc-800 text-zinc-500">
+        <span className="font-bold text-zinc-200 bg-black/60 backdrop-blur-xs px-2.5 py-1 border border-white/10">{t.dispatch.level}</span>
+        <span className="text-zinc-400 bg-black/60 backdrop-blur-xs px-2.5 py-1 border border-white/10">{t.dispatch.phase}</span>
       </div>
 
       {/* Centered Heading */}

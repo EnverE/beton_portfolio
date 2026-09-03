@@ -29,11 +29,15 @@ export const WorksVault: React.FC<WorksVaultProps> = ({
   return (
     <section id="works" className="relative py-28 px-4 sm:px-8 max-w-7xl mx-auto">
       {/* Subtle Elevation Header */}
-      <div className={`flex items-center justify-between text-xs font-mono mb-16 pb-2 border-b transition-colors duration-500 ${
+      <div className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 sm:gap-2 text-xs font-mono mb-16 pb-2 border-b transition-colors duration-500 ${
         isDayMode ? 'border-zinc-300/60 text-zinc-500' : 'border-zinc-800 text-zinc-500'
       }`}>
-        <span className="font-bold">{t.works.level}</span>
-        <span>{t.works.phase}</span>
+        <span className={`font-bold px-2.5 py-1 border backdrop-blur-xs ${
+          isDayMode ? 'bg-white/80 border-zinc-300' : 'bg-black/60 border-white/10'
+        }`}>{t.works.level}</span>
+        <span className={`px-2.5 py-1 border backdrop-blur-xs ${
+          isDayMode ? 'bg-white/80 border-zinc-300' : 'bg-black/60 border-white/10'
+        }`}>{t.works.phase}</span>
       </div>
 
       {/* Alternating Project Stages Pushed to the Sides */}

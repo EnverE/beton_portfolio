@@ -14,16 +14,20 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ isDayMode = true
   return (
     <section id="process" className="relative min-h-[92vh] flex flex-col justify-center py-28 px-4 sm:px-8 max-w-7xl mx-auto">
       {/* Golden Hour Elevation Header */}
-      <div className={`flex items-center justify-between text-xs font-mono mb-16 pb-2 border-b transition-colors duration-500 ${
+      <div className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 sm:gap-2 text-xs font-mono mb-16 pb-2 border-b transition-colors duration-500 ${
         isDayMode
           ? 'border-zinc-400/60 text-zinc-800'
           : 'border-amber-500/30 text-amber-300/90'
       }`}>
-        <span className={`font-black flex items-center gap-1.5 ${isDayMode ? 'text-zinc-950' : 'text-amber-400'}`}>
+        <span className={`font-black flex items-center gap-1.5 px-2.5 py-1 border backdrop-blur-xs ${
+          isDayMode ? 'text-zinc-950 bg-white/80 border-zinc-300' : 'text-amber-400 bg-black/60 border-amber-500/20'
+        }`}>
           <Sunset className={`w-4 h-4 ${isDayMode ? 'text-amber-700' : 'text-amber-400'}`} />
           {t.process.level}
         </span>
-        <span className={`font-bold ${isDayMode ? 'text-zinc-800' : 'text-amber-400/90'}`}>
+        <span className={`font-bold px-2.5 py-1 border backdrop-blur-xs ${
+          isDayMode ? 'text-zinc-800 bg-white/80 border-zinc-300' : 'text-amber-400/90 bg-black/60 border-amber-500/20'
+        }`}>
           {t.process.phase}
         </span>
       </div>
