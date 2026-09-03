@@ -953,6 +953,16 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
             pillarGroupRef.current.position.y = currentY;
             pillarGroupRef.current.rotation.y += (targetRotY - pillarGroupRef.current.rotation.y) * 0.065;
           }
+        } else {
+          // Project does not have a 3D poster yet - maintain calm, centered column presentation
+          const defaultCamZ = isPhone ? 20.0 : 16.0;
+          camera.position.z += (defaultCamZ - camera.position.z) * 0.055;
+          camera.position.x += (0 - camera.position.x) * 0.055;
+          camera.position.y += (0 - camera.position.y) * 0.055;
+          currentX += (0 - currentX) * 0.055;
+          if (pillarGroupRef.current) {
+            pillarGroupRef.current.position.x = currentX;
+          }
         }
       } else {
         // Normal camera distance: dynamically adapted for mobile portrait framing
