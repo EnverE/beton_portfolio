@@ -43,7 +43,7 @@ export const TRANSLATIONS = {
     hero: {
       subTag: 'EET // WEB DESIGN',
       elevation: 'LEVEL 00 // MORNING LIGHT',
-      title: 'CREATIVE WEB DESIGNER & INTERACTION ENGINEER',
+      title: 'SOFTWARE ENGINEER & CREATIVE WEB DESIGNER',
       bio: "I'm a senior Software Engineering student at METU, but I don't stay inside that box. Most of what I build lives in the browser, React, Three.js, GSAP, that kind of stack, but I'm just as likely to be soldering a board or writing a synth patch on the same day.",
       btnWorks: 'SELECTED WORKS',
       btnContact: 'CONTACT',
@@ -232,7 +232,7 @@ export const TRANSLATIONS = {
     hero: {
       subTag: 'EET // WEB TASARIMI',
       elevation: 'KAT 00 // SABAH IŞIĞI',
-      title: 'KREATİF WEB TASARIMCISI & ETKİLEŞİM MÜHENDİSİ',
+      title: 'YAZILIM MÜHENDİSİ & KREATİF WEB TASARIMCISI',
       bio: "ODTÜ'de Yazılım Mühendisliği son sınıf öğrencisiyim, ama sadece o kutunun içinde kalmıyorum. Ürettiklerimin çoğu tarayıcıda yaşıyor, React, Three.js, GSAP, o tarz bir yığın, ama aynı gün bir devre kartı lehimlemem ya da bir synth patch'i yazmam da hiç şaşırtıcı değil.",
       btnWorks: 'SEÇİLMİŞ PROJELER',
       btnContact: 'İLETİŞİM',

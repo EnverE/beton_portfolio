@@ -52,7 +52,7 @@ export interface ProcessStep {
 export const PORTFOLIO_DATA = {
   identity: {
     name: "ENVER EREN TATLIDIL",
-    title: "CREATIVE WEB DESIGNER & INTERACTION ENGINEER",
+    title: "SOFTWARE ENGINEER & CREATIVE WEB DESIGNER",
     monolithicTitle: "REFINED DIGITAL ARCHITECTURE",
     callsign: "EET // WEB.SPEC.01",
     location: "ISTANBUL // GLOBAL COLLABORATIONS",
