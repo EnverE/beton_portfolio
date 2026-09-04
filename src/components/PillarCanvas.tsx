@@ -650,7 +650,7 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
           stkThetaStart,
           stkDeltaTheta
         );
-        conformToPillarSurface(stkGeo, art.elevationY + stk.offsetY, 0.135);
+        conformToPillarSurface(stkGeo, art.elevationY + stk.offsetY, 0.145, false);
 
         const stkMat = new THREE.MeshStandardMaterial({
           map: stkTex,
@@ -660,8 +660,8 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
           depthWrite: false,
           depthTest: true,
           polygonOffset: true,
-          polygonOffsetFactor: -6,
-          polygonOffsetUnits: -12,
+          polygonOffsetFactor: -8,
+          polygonOffsetUnits: -16,
           side: THREE.FrontSide,
         });
 

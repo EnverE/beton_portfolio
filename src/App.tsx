@@ -156,6 +156,15 @@ export function App() {
     return t.phases.night;
   };
 
+  // Pause smooth page scroll when inspecting a project or modal so the modal panel can scroll natively
+  useEffect(() => {
+    if (focusedProjectId && lenisRef.current) {
+      lenisRef.current.stop();
+    } else if (lenisRef.current) {
+      lenisRef.current.start();
+    }
+  }, [focusedProjectId]);
+
   // Section animation preset
   const sectionSlideVariants = {
     hidden: { opacity: 0, y: 50 },

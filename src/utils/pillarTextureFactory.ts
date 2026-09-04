@@ -209,26 +209,28 @@ export class PillarTextureFactory {
     bg: string,
     fg: string,
     rotation = 0,
-    widthPx = 512,
+    widthPx = 640,
     heightPx = 220
   ): THREE.CanvasTexture {
+    // Dynamically expand canvas resolution for long text strings (e.g. full email addresses)
+    const effectiveWidth = Math.max(widthPx, Math.min(1024, text.length * 36));
     const canvas = document.createElement('canvas');
-    canvas.width = widthPx;
+    canvas.width = effectiveWidth;
     canvas.height = heightPx;
     const ctx = canvas.getContext('2d');
     if (!ctx) return new THREE.CanvasTexture(canvas);
 
     ctx.save();
     if (rotation !== 0) {
-      ctx.translate(widthPx / 2, heightPx / 2);
+      ctx.translate(effectiveWidth / 2, heightPx / 2);
       ctx.rotate(rotation);
-      ctx.translate(-widthPx / 2, -heightPx / 2);
+      ctx.translate(-effectiveWidth / 2, -heightPx / 2);
     }
 
     // Rounded Sticker Background
     ctx.fillStyle = bg;
     ctx.beginPath();
-    ctx.roundRect(14, 14, widthPx - 28, heightPx - 28, 16);
+    ctx.roundRect(14, 14, effectiveWidth - 28, heightPx - 28, 16);
     ctx.fill();
 
     // Sticker Outer Edge Border
@@ -240,17 +242,25 @@ export class PillarTextureFactory {
     ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
     ctx.beginPath();
     ctx.moveTo(18, 18);
-    ctx.lineTo(widthPx / 2, 18);
+    ctx.lineTo(effectiveWidth / 2, 18);
     ctx.lineTo(18, heightPx - 18);
     ctx.closePath();
     ctx.fill();
 
-    // Text Label
+    // Text Label with dynamic auto-scaling to guarantee it never overflows or clips
     ctx.fillStyle = fg;
-    ctx.font = '900 36px "JetBrains Mono", monospace';
+    const maxTextWidth = effectiveWidth - 56;
+    let fontSize = 34;
+    ctx.font = `900 ${fontSize}px "JetBrains Mono", monospace`;
+    let measured = ctx.measureText(text).width;
+    while (measured > maxTextWidth && fontSize > 16) {
+      fontSize -= 1.5;
+      ctx.font = `900 ${fontSize}px "JetBrains Mono", monospace`;
+      measured = ctx.measureText(text).width;
+    }
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText(text, widthPx / 2, heightPx / 2);
+    ctx.fillText(text, effectiveWidth / 2, heightPx / 2);
     ctx.restore();
 
     const texture = new THREE.CanvasTexture(canvas);

@@ -48,7 +48,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       </div>
 
       {/* Heavy Concrete Inspection Dossier Panel (Docked Bottom on Mobile, Docked Right on Desktop) */}
-      <div className="pointer-events-auto relative w-full md:w-[480px] lg:w-[540px] h-[62vh] md:h-full max-h-[85vh] md:max-h-screen overflow-y-auto bg-[#121215]/95 border-t md:border-t-0 md:border-l border-zinc-700 shadow-[0_-12px_32px_rgba(0,0,0,0.8)] md:shadow-[-16px_0_40px_rgba(0,0,0,0.6)] backdrop-blur-md p-5 sm:p-8 text-zinc-200 animate-in slide-in-from-bottom md:slide-in-from-right duration-300 rounded-t-2xl md:rounded-none">
+      <div
+        data-lenis-prevent="true"
+        onWheel={(e) => e.stopPropagation()}
+        className="pointer-events-auto relative w-full md:w-[480px] lg:w-[560px] h-[65vh] md:h-screen max-h-[85vh] md:max-h-screen overflow-y-auto overscroll-contain touch-pan-y bg-[#121215]/95 border-t md:border-t-0 md:border-l border-zinc-700 shadow-[0_-12px_32px_rgba(0,0,0,0.8)] md:shadow-[-16px_0_40px_rgba(0,0,0,0.6)] backdrop-blur-md p-5 sm:p-8 pb-20 text-zinc-200 animate-in slide-in-from-bottom md:slide-in-from-right duration-300 rounded-t-2xl md:rounded-none z-10"
+      >
         {/* Mobile Tactile Grab Handle */}
         <div className="w-12 h-1 bg-zinc-600 rounded-full mx-auto mb-3 md:hidden" />
         {/* Top Header Strip */}

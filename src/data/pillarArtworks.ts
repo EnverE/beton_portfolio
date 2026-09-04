@@ -86,8 +86,8 @@ export const PILLAR_PROJECT_ARTWORKS: PillarArtworkConfig[] = [
     accentColor: '#00f0ff',
     tags: ['OPEN COMMISSION', 'METU SOFTWARE ENG', "LET'S BUILD"],
     stickers: [
-      { text: "LET'S BUILD", offsetX: 0.85, offsetY: 1.15, width: 0.85, height: 0.35, rotation: -0.1, bg: '#00f0ff', fg: '#000000' },
-      { text: 'tatlidil.eren', offsetX: -0.85, offsetY: -1.15, width: 0.85, height: 0.3, rotation: 0.12, bg: '#000000', fg: '#ffffff' }
+      { text: "LET'S BUILD", offsetX: 0.70, offsetY: 1.15, width: 0.85, height: 0.35, rotation: -0.08, bg: '#00f0ff', fg: '#000000' },
+      { text: 'tatlidil.eren@gmail.com', offsetX: -0.10, offsetY: -0.90, width: 1.55, height: 0.34, rotation: 0.04, bg: '#000000', fg: '#ffffff' }
     ],
     graffitis: []
   }
