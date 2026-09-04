@@ -1,20 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolio';
-import { brutalistAudio } from '../utils/audio';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
 
 export const ManifestSection: React.FC = () => {
   const { language } = useLanguage();
   const t = TRANSLATIONS[language];
-  const [selectedSpecimenId, setSelectedSpecimenId] = useState<string>('honed-slate');
-
-  const handleSelectSpecimen = (id: string) => {
-    brutalistAudio.playConcreteThud();
-    setSelectedSpecimenId(id);
-  };
-
-  const currentSpecimen = t.materialSpecimens.find((s) => s.id === selectedSpecimenId) || t.materialSpecimens[0];
 
   const bioStatement = t.about.bioStatement || PORTFOLIO_DATA.identity.bioStatement;
 
@@ -57,36 +48,6 @@ export const ManifestSection: React.FC = () => {
                 </p>
               </div>
             ))}
-          </div>
-
-          {/* Minimal Surface Specimen Selector */}
-          <div className="bg-zinc-950/80 p-5 border border-zinc-800 backdrop-blur-md">
-            <div className="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-wider mb-3">
-              {t.about.specimensTitle}
-            </div>
-            <div className="grid grid-cols-2 gap-1.5 mb-4">
-              {t.materialSpecimens.map((specimen) => {
-                const isSelected = selectedSpecimenId === specimen.id;
-                return (
-                  <button
-                    key={specimen.id}
-                    onClick={() => handleSelectSpecimen(specimen.id)}
-                    className={`p-2 text-left border transition-all cursor-pointer font-mono text-xs ${
-                      isSelected
-                        ? 'bg-white text-black border-white font-bold'
-                        : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-600 hover:text-white'
-                    }`}
-                  >
-                    <div className="font-display font-bold text-[11px] uppercase truncate">
-                      {specimen.name.split(' // ')[0]}
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-            <p className="font-sans text-[11px] text-zinc-300 leading-relaxed">
-              {currentSpecimen.description}
-            </p>
           </div>
         </div>
       </div>
