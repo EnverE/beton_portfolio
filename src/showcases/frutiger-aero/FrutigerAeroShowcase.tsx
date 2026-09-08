@@ -13,6 +13,7 @@ import { AeroHeaderNav } from './AeroHeaderNav';
 import { AeroBubbleField, type Bubble } from './AeroBubbleField';
 import { FishbowlEnvironment } from './FishbowlEnvironment';
 import { ClownfishCompanion } from './ClownfishCompanion';
+import { WaterWakeCanvas, type WaterWakeCanvasRef } from './WaterWakeCanvas';
 import { EcoDashboardPage } from './EcoDashboardPage';
 import { AquaMediaPlayerPage } from './AquaMediaPlayerPage';
 import { BiosphereTelemetryPage } from './BiosphereTelemetryPage';
@@ -42,6 +43,7 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
   const [purityLevel, setPurityLevel] = useState(99.8);
   const [bubbles, setBubbles] = useState<Bubble[]>([]);
   const bubbleIdRef = useRef(1);
+  const wakeRef = useRef<WaterWakeCanvasRef | null>(null);
 
   // Live system clock
   useEffect(() => {
@@ -56,19 +58,19 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
     return () => clearInterval(interval);
   }, []);
 
-  // Initial bubble population in the fishbowl
+  // Initial population of subtle, realistic aquarium bubbles
   useEffect(() => {
-    const initBubbles: Bubble[] = Array.from({ length: 14 }, (_, i) => ({
+    const initBubbles: Bubble[] = Array.from({ length: 18 }, (_, i) => ({
       id: i,
-      x: Math.random() * 90 + 5,
-      y: Math.random() * 80 + 15,
-      size: Math.random() * 45 + 24,
-      speed: Math.random() * 0.35 + 0.18,
-      drift: (Math.random() - 0.5) * 0.25,
-      opacity: Math.random() * 0.45 + 0.4,
+      x: Math.random() * 92 + 4,
+      y: Math.random() * 85 + 10,
+      size: Math.random() * 12 + 6, // 6px to 18px realistic subtle scale
+      speed: Math.random() * 0.35 + 0.15,
+      drift: (Math.random() - 0.5) * 0.2,
+      opacity: Math.random() * 0.35 + 0.45,
     }));
     setBubbles(initBubbles);
-    bubbleIdRef.current = 15;
+    bubbleIdRef.current = 19;
   }, []);
 
   // Continuous animation loop for floating bubbles
@@ -79,9 +81,9 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
         prev.map((b) => {
           let newY = b.y - b.speed;
           let newX = b.x + b.drift;
-          if (newY < -12) {
-            newY = 108;
-            newX = Math.random() * 90 + 5;
+          if (newY < -8) {
+            newY = 106;
+            newX = Math.random() * 92 + 4;
           }
           return { ...b, y: newY, x: newX };
         })
@@ -127,28 +129,28 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
     const newBubble: Bubble = {
       id: bubbleIdRef.current++,
       x: Math.random() * 80 + 10,
-      y: 95,
-      size: Math.random() * 50 + 30,
-      speed: Math.random() * 0.5 + 0.3,
-      drift: (Math.random() - 0.5) * 0.4,
-      opacity: 0.8,
+      y: 92,
+      size: Math.random() * 14 + 12,
+      speed: Math.random() * 0.45 + 0.25,
+      drift: (Math.random() - 0.5) * 0.25,
+      opacity: 0.75,
     };
     setBubbles((prev) => [...prev, newBubble]);
   };
 
   // Called by ClownfishCompanion when swimming fast to leave a tiny trail bubble
   const handleClownfishEmitBubble = (xPx: number, yPx: number) => {
-    if (bubbles.length > 25) return; // Prevent too many simultaneous bubbles
-    const pctX = Math.max(5, Math.min(95, (xPx / window.innerWidth) * 100));
-    const pctY = Math.max(10, Math.min(95, (yPx / window.innerHeight) * 100));
+    if (bubbles.length > 30) return;
+    const pctX = Math.max(4, Math.min(96, (xPx / window.innerWidth) * 100));
+    const pctY = Math.max(8, Math.min(95, (yPx / window.innerHeight) * 100));
     const fishBubble: Bubble = {
       id: bubbleIdRef.current++,
       x: pctX,
       y: pctY,
-      size: Math.random() * 16 + 14,
-      speed: Math.random() * 0.5 + 0.35,
-      drift: (Math.random() - 0.5) * 0.3,
-      opacity: 0.85,
+      size: Math.random() * 8 + 5, // Delicate micro-bubble
+      speed: Math.random() * 0.45 + 0.3,
+      drift: (Math.random() - 0.5) * 0.2,
+      opacity: 0.7,
     };
     setBubbles((prev) => [...prev, fishBubble]);
   };
@@ -160,16 +162,22 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
 
   return (
     <div className="min-h-screen relative overflow-x-hidden font-sans select-none text-slate-900">
-      {/* 1. Inside-a-Fishbowl Glass Refraction & Distant Windows XP Bliss Backdrop */}
+      {/* 1. Photorealistic Inside-a-Fishbowl Environment with Aquarium Substrate & God Rays */}
       <FishbowlEnvironment />
 
-      {/* 2. Single Cursor-Chasing Clownfish */}
-      <ClownfishCompanion onEmitBubble={handleClownfishEmitBubble} />
+      {/* 2. Hydrodynamic Water Wake Canvas (Water displacement ripples from fish) */}
+      <WaterWakeCanvas canvasRef={wakeRef} />
 
-      {/* 3. Floating Translucent Water Bubbles (Click-to-Pop) */}
+      {/* 3. Photorealistic 3D Animated Clownfish (Pursuing Cursor) */}
+      <ClownfishCompanion
+        onEmitBubble={handleClownfishEmitBubble}
+        onWaterWake={(x, y, speed) => wakeRef.current?.addWake(x, y, speed)}
+      />
+
+      {/* 4. Subtle, Photorealistic Translucent Bubbles (Click-to-Pop) */}
       <AeroBubbleField bubbles={bubbles} onPopBubble={popBubble} />
 
-      {/* 4. Top Windows XP Luna Blue & Bliss Green Header */}
+      {/* 5. Top Windows XP Luna Blue & Bliss Green Header */}
       <AeroHeaderNav
         lang={lang}
         onBack={onBack}
@@ -184,9 +192,9 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
         }}
       />
 
-      {/* 5. Main Aero Glass Window Shell with Windows XP Color Accents */}
+      {/* 6. Main Aero Glass Window Shell with Windows XP Color Accents */}
       <main className="max-w-6xl mx-auto px-4 sm:px-8 py-6 sm:py-10 relative z-20">
-        <div className="rounded-2xl sm:rounded-3xl bg-white/55 backdrop-blur-xl border-2 border-white/80 shadow-[0_25px_70px_rgba(0,50,150,0.3),inset_0_1px_2px_rgba(255,255,255,0.95)] overflow-hidden">
+        <div className="rounded-2xl sm:rounded-3xl bg-white/50 backdrop-blur-xl border-2 border-white/85 shadow-[0_25px_70px_rgba(0,50,150,0.25),inset_0_1px_2px_rgba(255,255,255,0.95)] overflow-hidden">
           {/* Windows XP Luna Title Bar */}
           <div className="px-5 py-3.5 bg-gradient-to-r from-[#0055ea] via-[#245edb] to-[#0044cc] border-b-2 border-sky-300/50 flex items-center justify-between shadow-[0_3px_12px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.6)] text-white">
             <div className="flex items-center gap-3">
@@ -200,8 +208,8 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
                 <Globe className="w-4 h-4 text-cyan-200" />
                 <span className="font-extrabold text-xs sm:text-sm tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
                   {lang === 'TR'
-                    ? 'BİYOSFER EKO-PORTALI // WINDOWS XP & FRUTIGER AERO'
-                    : 'ECO-SPHERE BIO-PORTAL // WINDOWS XP & FRUTIGER AERO'}
+                    ? 'BİYOSFER EKO-PORTALI // XP AKVARYUM DENEYİMİ'
+                    : 'ECO-SPHERE BIO-PORTAL // XP AQUARIUM FISHBOWL'}
                 </span>
               </div>
             </div>
@@ -279,7 +287,7 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
             aeroAudio.playAeroClick();
             onBack();
           }}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-white/95 to-sky-50/95 hover:from-white hover:to-white text-slate-900 font-extrabold text-xs uppercase tracking-wider border-2 border-white shadow-[0_8px_30px_rgba(0,85,234,0.35),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-md"
+          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-white/95 to-sky-50/95 hover:from-white hover:to-white text-slate-900 font-extrabold text-xs uppercase tracking-wider border-2 border-white shadow-[0_8px_30px_rgba(0,85,234,0.3),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-md"
         >
           <ArrowLeft className="w-4 h-4 text-[#0055ea]" />
           <span>{lang === 'TR' ? 'BETON PORTFOLYOYA DÖN' : 'BACK TO BETON PORTFOLIO'}</span>

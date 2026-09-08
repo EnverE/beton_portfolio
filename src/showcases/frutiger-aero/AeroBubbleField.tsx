@@ -8,6 +8,7 @@ export interface Bubble {
   speed: number;
   drift: number;
   opacity: number;
+  wobblePhase?: number;
 }
 
 export interface PopEffect {
@@ -27,7 +28,6 @@ export const AeroBubbleField: React.FC<AeroBubbleFieldProps> = ({ bubbles, onPop
 
   const handlePop = (bubble: Bubble, e: React.MouseEvent | React.TouchEvent) => {
     e.stopPropagation();
-    // Add pop burst visual effect
     const newPop: PopEffect = {
       id: Date.now() + Math.random(),
       x: bubble.x,
@@ -35,23 +35,21 @@ export const AeroBubbleField: React.FC<AeroBubbleFieldProps> = ({ bubbles, onPop
       size: bubble.size,
     };
     setPopEffects((prev) => [...prev, newPop]);
-
-    // Trigger audio & state removal
     onPopBubble(bubble.id);
   };
 
-  // Clean up expired pop effects after 450ms
+  // Clean up expired pop effects
   useEffect(() => {
     if (popEffects.length === 0) return;
     const timer = setTimeout(() => {
       setPopEffects((prev) => prev.slice(1));
-    }, 450);
+    }, 350);
     return () => clearTimeout(timer);
   }, [popEffects]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-10 overflow-hidden select-none">
-      {/* Active Floating Bubbles */}
+    <div className="fixed inset-0 pointer-events-none z-20 overflow-hidden select-none">
+      {/* Subtle, Photorealistic Translucent Bubbles */}
       {bubbles.map((b) => (
         <div
           key={b.id}
@@ -64,17 +62,17 @@ export const AeroBubbleField: React.FC<AeroBubbleFieldProps> = ({ bubbles, onPop
             height: `${b.size}px`,
             opacity: b.opacity,
           }}
-          className="absolute rounded-full cursor-pointer pointer-events-auto transition-transform duration-100 hover:scale-115 active:scale-90 shadow-[inset_0_3px_5px_rgba(255,255,255,0.95),inset_0_-4px_8px_rgba(0,85,234,0.35),0_6px_16px_rgba(0,50,150,0.18)] border border-white/70 backdrop-blur-[0.5px] bg-gradient-to-tr from-cyan-400/20 via-white/30 to-emerald-300/25 group"
+          className="absolute rounded-full cursor-pointer pointer-events-auto transition-transform duration-150 hover:scale-120 active:scale-80 shadow-[inset_0_1.5px_3px_rgba(255,255,255,0.9),inset_0_-2px_4px_rgba(0,100,200,0.2),0_2px_8px_rgba(0,40,100,0.08)] border border-white/50 backdrop-blur-[0.5px] bg-gradient-to-br from-white/20 via-sky-200/10 to-transparent group animate-pulse"
           title="Click to pop!"
         >
-          {/* Primary High-Gloss Crescent Glint */}
-          <div className="absolute top-[12%] left-[16%] w-[36%] h-[26%] bg-white rounded-full blur-[0.5px] rotate-[-35deg] opacity-90 group-hover:opacity-100" />
+          {/* Razor-thin Specular Pinpoint Glint */}
+          <div className="absolute top-[18%] left-[20%] w-[25%] h-[20%] bg-white rounded-full blur-[0.3px] opacity-90 group-hover:opacity-100" />
 
-          {/* Secondary Subsurface Rim Reflection */}
-          <div className="absolute bottom-[14%] right-[18%] w-[22%] h-[16%] bg-white/80 rounded-full blur-[0.5px]" />
+          {/* Secondary Faint Internal Reflection Arc */}
+          <div className="absolute bottom-[20%] right-[22%] w-[18%] h-[12%] bg-sky-200/50 rounded-full blur-[0.4px]" />
 
-          {/* Subtle iridescent rainbow ring rim */}
-          <div className="absolute inset-0 rounded-full border border-sky-300/40" />
+          {/* Ultra-subtle rainbow chromatic fringe ring */}
+          <div className="absolute inset-0 rounded-full border border-cyan-300/25" />
         </div>
       ))}
 
@@ -85,19 +83,19 @@ export const AeroBubbleField: React.FC<AeroBubbleFieldProps> = ({ bubbles, onPop
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
-            width: `${p.size}px`,
-            height: `${p.size}px`,
+            width: `${p.size * 1.4}px`,
+            height: `${p.size * 1.4}px`,
           }}
           className="absolute pointer-events-none -translate-x-1/2 -translate-y-1/2"
         >
-          {/* Expanding shockwave ring */}
-          <div className="w-full h-full rounded-full border-2 border-white animate-ping opacity-75" />
-          {/* Droplet burst particles */}
+          {/* Delicate expanding shockwave ring */}
+          <div className="w-full h-full rounded-full border border-white/80 animate-ping opacity-60" />
+          {/* Micro-droplet spray */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-sm -translate-y-4 animate-out fade-out" />
-            <span className="absolute w-1.5 h-1.5 rounded-full bg-cyan-200 shadow-sm translate-y-4 animate-out fade-out" />
-            <span className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-sm -translate-x-4 animate-out fade-out" />
-            <span className="absolute w-1.5 h-1.5 rounded-full bg-emerald-200 shadow-sm translate-x-4 animate-out fade-out" />
+            <span className="absolute w-1 h-1 rounded-full bg-white -translate-y-3 opacity-75" />
+            <span className="absolute w-1 h-1 rounded-full bg-sky-200 translate-y-3 opacity-75" />
+            <span className="absolute w-1 h-1 rounded-full bg-white -translate-x-3 opacity-75" />
+            <span className="absolute w-1 h-1 rounded-full bg-cyan-100 translate-x-3 opacity-75" />
           </div>
         </div>
       ))}

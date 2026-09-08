@@ -1,6 +1,7 @@
 export { FrutigerAeroShowcase } from './FrutigerAeroShowcase';
 export { FishbowlEnvironment } from './FishbowlEnvironment';
 export { ClownfishCompanion } from './ClownfishCompanion';
+export { WaterWakeCanvas, type WaterWakeCanvasRef } from './WaterWakeCanvas';
 export { EcoDashboardPage } from './EcoDashboardPage';
 export { AquaMediaPlayerPage } from './AquaMediaPlayerPage';
 export { BiosphereTelemetryPage } from './BiosphereTelemetryPage';
