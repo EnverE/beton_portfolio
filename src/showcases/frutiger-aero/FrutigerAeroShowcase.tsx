@@ -25,7 +25,6 @@ export interface FrutigerAeroShowcaseProps {
 }
 
 export type AeroShowcaseTab = 'dashboard' | 'media' | 'telemetry' | 'spec';
-export type AeroAtmosphere = 'azure' | 'aqua' | 'aurora';
 
 export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
   onBack,
@@ -34,7 +33,6 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
   const [lang, setLang] = useState<'EN' | 'TR'>(initialLanguage);
   const [isMuted, setIsMuted] = useState(false);
   const [activeTab, setActiveTab] = useState<AeroShowcaseTab>('dashboard');
-  const [atmosphere, setAtmosphere] = useState<AeroAtmosphere>('azure');
   const [timeString, setTimeString] = useState('');
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [audioProgress, setAudioProgress] = useState(38);
@@ -181,8 +179,6 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
       <AeroHeaderNav
         lang={lang}
         onBack={onBack}
-        atmosphere={atmosphere}
-        setAtmosphere={setAtmosphere}
         timeString={timeString}
         isMuted={isMuted}
         onToggleMute={toggleMute}

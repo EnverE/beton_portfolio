@@ -1,4 +1,4 @@
-﻿// Authentic 2000s Frutiger Aero Synthesizer (Web Audio API)
+// Authentic 2000s Frutiger Aero Synthesizer (Web Audio API)
 // Crystal glass chimes, water droplet pops, liquid bubbles, and aero clicks
 
 class AeroAudioSynthesizer {
@@ -83,7 +83,7 @@ class AeroAudioSynthesizer {
     }
   }
 
-  // Soft glossy tactile click
+  // Subtle organic popping bubble click sound
   playAeroClick() {
     const ctx = this.initCtx();
     if (!ctx) return;
@@ -94,15 +94,27 @@ class AeroAudioSynthesizer {
       const gain = ctx.createGain();
       const filter = ctx.createBiquadFilter();
 
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(880, now);
-      osc.frequency.exponentialRampToValueAtTime(320, now + 0.04);
+      // Subtle organic pitch variation (±4%) for natural underwater texture
+      const pitchJitter = 1 + (Math.random() - 0.5) * 0.08;
+      const baseFreq = 720 * pitchJitter;
+      const peakFreq = 1480 * pitchJitter;
+      const endFreq = 480 * pitchJitter;
 
-      filter.type = 'highpass';
-      filter.frequency.setValueAtTime(400, now);
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(baseFreq, now);
+      // Fast upward bubble release pinch
+      osc.frequency.exponentialRampToValueAtTime(peakFreq, now + 0.016);
+      // Delicate relaxation decay
+      osc.frequency.exponentialRampToValueAtTime(endFreq, now + 0.045);
 
-      gain.gain.setValueAtTime(0.22, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.045);
+      // Warm lowpass filter to remove digital hardness
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(3200, now);
+      filter.Q.setValueAtTime(1.2, now);
+
+      // Subtle, soft volume envelope
+      gain.gain.setValueAtTime(0.14, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.048);
 
       osc.connect(filter);
       filter.connect(gain);

@@ -71,7 +71,7 @@ export const AquaMediaPlayerPage: React.FC<AquaMediaPlayerPageProps> = ({
       <div className="flex items-center justify-center gap-5 pt-2">
         <button
           onClick={() => {
-            aeroAudio.playGlassChime();
+            aeroAudio.playAeroClick();
             onTogglePlay();
           }}
           className="w-16 h-16 rounded-full bg-gradient-to-b from-[#4caf50] via-[#43a047] to-[#2e7d32] text-white flex items-center justify-center shadow-[0_8px_25px_rgba(46,125,50,0.5),inset_0_2px_0_rgba(255,255,255,0.9)] hover:scale-105 active:scale-95 cursor-pointer transition-all border-2 border-[#a5d6a7]"

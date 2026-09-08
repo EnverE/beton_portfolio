@@ -5,8 +5,6 @@ import { aeroAudio } from './aeroAudio';
 export interface AeroHeaderNavProps {
   lang: 'EN' | 'TR';
   onBack: () => void;
-  atmosphere: 'azure' | 'aqua' | 'aurora';
-  setAtmosphere: (a: 'azure' | 'aqua' | 'aurora') => void;
   timeString: string;
   isMuted: boolean;
   onToggleMute: () => void;
@@ -16,8 +14,6 @@ export interface AeroHeaderNavProps {
 export const AeroHeaderNav: React.FC<AeroHeaderNavProps> = ({
   lang,
   onBack,
-  atmosphere,
-  setAtmosphere,
   timeString,
   isMuted,
   onToggleMute,
@@ -46,38 +42,6 @@ export const AeroHeaderNav: React.FC<AeroHeaderNavProps> = ({
 
       {/* Right controls */}
       <div className="flex items-center gap-2.5 sm:gap-3 text-xs font-semibold">
-        {/* Atmosphere Theme Selector */}
-        <div className="hidden sm:flex items-center gap-1 bg-black/25 p-1 rounded-full border border-white/30 shadow-inner">
-          {(['azure', 'aqua', 'aurora'] as const).map((atm) => {
-            const isActive = atmosphere === atm;
-            const labels = {
-              azure: lang === 'TR' ? 'XP BLISS' : 'XP BLISS',
-              aqua: lang === 'TR' ? 'AQUA MAVİ' : 'AQUA BLUE',
-              aurora: lang === 'TR' ? 'ÇAYIR YEŞİLİ' : 'LUSH MEADOW',
-            };
-            const activeGradients = {
-              azure: 'from-[#42a5f5] to-[#1565c0]',
-              aqua: 'from-[#26a69a] to-[#00695c]',
-              aurora: 'from-[#66bb6a] to-[#2e7d32]',
-            };
-            return (
-              <button
-                key={atm}
-                onClick={() => {
-                  aeroAudio.playGlassChime();
-                  setAtmosphere(atm);
-                }}
-                className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer ${
-                  isActive
-                    ? `bg-gradient-to-b ${activeGradients[atm]} text-white shadow-[0_2px_6px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.7)]`
-                    : 'text-white/80 hover:text-white hover:bg-white/10'
-                }`}
-              >
-                {labels[atm]}
-              </button>
-            );
-          })}
-        </div>
 
         {/* Digital Clock */}
         <div className="px-3 py-1 rounded-full bg-white/20 border border-white/40 font-mono text-[11px] text-white shadow-inner">
