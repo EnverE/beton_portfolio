@@ -1,4 +1,4 @@
-﻿// ============================================================================
+// ============================================================================
 // ASCII ART ENGINE - SEPARATE MODULAR CLASS (WITH GLITCH TRANSITIONS)
 // Isolated, self-contained ASCII Art transformation system for 3D Pillar & UI.
 // To remove this feature, simply delete this class and its React trigger.

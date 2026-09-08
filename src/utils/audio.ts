@@ -1,4 +1,4 @@
-﻿// Brutalist Web Audio Synthesizer - Completely Disabled per User Request
+// Brutalist Web Audio Synthesizer - Completely Disabled per User Request
 
 class BrutalistAudioEngine {
   public isMuted: boolean = true;
