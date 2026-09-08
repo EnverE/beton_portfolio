@@ -200,21 +200,21 @@ export const PORTFOLIO_DATA = {
     {
       id: 'frutiger-aero',
       code: 'AERO // 02',
-      title: 'ECO-SPHERE — FRUTIGER AERO SHOWCASE',
+      title: 'ECO-SPHERE — FRUTIGER AERO & FISHBOWL',
       sector: 'DESIGN CAPABILITY',
       year: '2026',
       elevation: 'ELEVATION 02',
-      renderMetric: 'AERO GLASS & WEB AUDIO',
+      renderMetric: 'AERO GLASS & FISHBOWL COMPANION',
       status: 'INTERACTIVE LIVE',
-      shortDesc: 'A fully interactive, skeuomorphic web portal celebrating 2000s Frutiger Aero techno-optimism with procedural bubbles, glassy chrome, and sound synthesis.',
-      fullDesc: 'Built directly within this domain to prove dynamic aesthetic range. Contrasting the rugged monolithic concrete of the main portfolio, Eco-Sphere demonstrates authentic 2004–2013 Frutiger Aero design craft: high-gloss glassmorphism, nature-tech harmony, interactive water bubble physics, a skeuomorphic MP3 jukebox, and custom Web Audio synthesizers.',
+      shortDesc: 'An inside-a-fishbowl web experience looking out at Windows XP Bliss hills, with a cursor-chasing clownfish, interactive popping bubbles, and rich blue-green glass.',
+      fullDesc: 'Built directly within this domain to prove dynamic aesthetic range. Contrasting the rugged monolithic concrete of the main portfolio, Eco-Sphere demonstrates authentic 2000s Frutiger Aero and Windows XP design craft: curved fishbowl glass optics, an animated clownfish chasing the cursor, tactile popping bubbles with droplet sound synthesis, and a skeuomorphic XP Media Player.',
       structuralSpecs: [
         { label: 'STATUS', value: 'INTERACTIVE PRODUCTION PROTOTYPE' },
-        { label: 'STYLE LANGUAGE', value: 'FRUTIGER AERO // SKEUOMORPHISM' },
-        { label: 'AUDIO SYNTH', value: 'WEB AUDIO API CRYSTAL OSCILLATORS' },
+        { label: 'VANTAGE', value: 'FISHBOWL SPHERE // XP BLISS HORIZON' },
+        { label: 'COMPANION', value: 'CURSOR-PURSUING CLOWNFISH' },
         { label: 'ROUTING', value: 'SAME-DOMAIN SPA SHOWCASE' }
       ],
-      techStack: ['React 19', 'Tailwind CSS', 'Web Audio API', 'TypeScript', 'Aero Glass CSS'],
+      techStack: ['React 19', 'Tailwind CSS', 'Web Audio API', 'TypeScript', 'Vector Physics'],
       liveUrl: '/showcase/frutiger-aero',
       repoUrl: 'https://github.com/EnverE/beton_portfolio',
       schematicType: 'AERO SKEUOMORPHISM'

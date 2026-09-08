@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Globe,
   Activity,
@@ -6,11 +6,13 @@ import {
   Sliders,
   Sparkles,
   Plus,
-  ArrowLeft
+  ArrowLeft,
 } from 'lucide-react';
 import { aeroAudio } from './aeroAudio';
 import { AeroHeaderNav } from './AeroHeaderNav';
 import { AeroBubbleField, type Bubble } from './AeroBubbleField';
+import { FishbowlEnvironment } from './FishbowlEnvironment';
+import { ClownfishCompanion } from './ClownfishCompanion';
 import { EcoDashboardPage } from './EcoDashboardPage';
 import { AquaMediaPlayerPage } from './AquaMediaPlayerPage';
 import { BiosphereTelemetryPage } from './BiosphereTelemetryPage';
@@ -54,22 +56,22 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
     return () => clearInterval(interval);
   }, []);
 
-  // Initial bubble population
+  // Initial bubble population in the fishbowl
   useEffect(() => {
-    const initBubbles: Bubble[] = Array.from({ length: 12 }, (_, i) => ({
+    const initBubbles: Bubble[] = Array.from({ length: 14 }, (_, i) => ({
       id: i,
       x: Math.random() * 90 + 5,
-      y: Math.random() * 80 + 20,
-      size: Math.random() * 45 + 25,
-      speed: Math.random() * 0.4 + 0.2,
-      drift: (Math.random() - 0.5) * 0.3,
-      opacity: Math.random() * 0.5 + 0.35,
+      y: Math.random() * 80 + 15,
+      size: Math.random() * 45 + 24,
+      speed: Math.random() * 0.35 + 0.18,
+      drift: (Math.random() - 0.5) * 0.25,
+      opacity: Math.random() * 0.45 + 0.4,
     }));
     setBubbles(initBubbles);
-    bubbleIdRef.current = 13;
+    bubbleIdRef.current = 15;
   }, []);
 
-  // Animation frame loop for floating bubbles
+  // Continuous animation loop for floating bubbles
   useEffect(() => {
     let animId: number;
     const updateBubbles = () => {
@@ -77,8 +79,8 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
         prev.map((b) => {
           let newY = b.y - b.speed;
           let newX = b.x + b.drift;
-          if (newY < -15) {
-            newY = 110;
+          if (newY < -12) {
+            newY = 108;
             newX = Math.random() * 90 + 5;
           }
           return { ...b, y: newY, x: newX };
@@ -129,9 +131,26 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
       size: Math.random() * 50 + 30,
       speed: Math.random() * 0.5 + 0.3,
       drift: (Math.random() - 0.5) * 0.4,
-      opacity: 0.75,
+      opacity: 0.8,
     };
     setBubbles((prev) => [...prev, newBubble]);
+  };
+
+  // Called by ClownfishCompanion when swimming fast to leave a tiny trail bubble
+  const handleClownfishEmitBubble = (xPx: number, yPx: number) => {
+    if (bubbles.length > 25) return; // Prevent too many simultaneous bubbles
+    const pctX = Math.max(5, Math.min(95, (xPx / window.innerWidth) * 100));
+    const pctY = Math.max(10, Math.min(95, (yPx / window.innerHeight) * 100));
+    const fishBubble: Bubble = {
+      id: bubbleIdRef.current++,
+      x: pctX,
+      y: pctY,
+      size: Math.random() * 16 + 14,
+      speed: Math.random() * 0.5 + 0.35,
+      drift: (Math.random() - 0.5) * 0.3,
+      opacity: 0.85,
+    };
+    setBubbles((prev) => [...prev, fishBubble]);
   };
 
   const popBubble = (id: number) => {
@@ -139,39 +158,18 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
     setBubbles((prev) => prev.filter((b) => b.id !== id));
   };
 
-  // Background atmospheres
-  const atmosphereStyles = {
-    azure: {
-      bg: 'from-[#0288d1] via-[#4fc3f7] to-[#81c784]',
-      ground: 'from-[#66bb6a] to-[#2e7d32]',
-      accent: '#00e5ff',
-      glow: 'rgba(79, 195, 247, 0.45)',
-    },
-    aqua: {
-      bg: 'from-[#00695c] via-[#26a69a] to-[#80cbc4]',
-      ground: 'from-[#004d40] to-[#00796b]',
-      accent: '#64ffda',
-      glow: 'rgba(38, 166, 154, 0.45)',
-    },
-    aurora: {
-      bg: 'from-[#1a237e] via-[#00897b] to-[#7cb342]',
-      ground: 'from-[#004d40] to-[#1b5e20]',
-      accent: '#69f0ae',
-      glow: 'rgba(105, 240, 174, 0.45)',
-    },
-  }[atmosphere];
-
   return (
-    <div
-      className={`min-h-screen relative overflow-x-hidden font-sans select-none bg-gradient-to-b ${atmosphereStyles.bg} transition-colors duration-1000 text-slate-900`}
-    >
-      {/* Dynamic Animated Sunburst & Horizon Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-radial from-white/60 via-cyan-200/30 to-transparent blur-3xl pointer-events-none" />
+    <div className="min-h-screen relative overflow-x-hidden font-sans select-none text-slate-900">
+      {/* 1. Inside-a-Fishbowl Glass Refraction & Distant Windows XP Bliss Backdrop */}
+      <FishbowlEnvironment />
 
-      {/* Floating Translucent Water Bubbles */}
+      {/* 2. Single Cursor-Chasing Clownfish */}
+      <ClownfishCompanion onEmitBubble={handleClownfishEmitBubble} />
+
+      {/* 3. Floating Translucent Water Bubbles (Click-to-Pop) */}
       <AeroBubbleField bubbles={bubbles} onPopBubble={popBubble} />
 
-      {/* Top Aero Navigation Bridge */}
+      {/* 4. Top Windows XP Luna Blue & Bliss Green Header */}
       <AeroHeaderNav
         lang={lang}
         onBack={onBack}
@@ -186,41 +184,44 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
         }}
       />
 
-      {/* Main Aero Glass Workspace */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-12 relative z-20">
-        {/* Aero Window Shell */}
-        <div className="rounded-2xl sm:rounded-3xl bg-white/40 backdrop-blur-2xl border border-white/90 shadow-[0_20px_60px_rgba(0,50,120,0.25),inset_0_1px_1px_rgba(255,255,255,0.9)] overflow-hidden">
-          {/* Aero Window Header Strip */}
-          <div className="px-6 py-4 bg-gradient-to-b from-white/90 via-white/70 to-white/40 border-b border-white/80 flex items-center justify-between shadow-[0_2px_10px_rgba(0,0,0,0.03)]">
+      {/* 5. Main Aero Glass Window Shell with Windows XP Color Accents */}
+      <main className="max-w-6xl mx-auto px-4 sm:px-8 py-6 sm:py-10 relative z-20">
+        <div className="rounded-2xl sm:rounded-3xl bg-white/55 backdrop-blur-xl border-2 border-white/80 shadow-[0_25px_70px_rgba(0,50,150,0.3),inset_0_1px_2px_rgba(255,255,255,0.95)] overflow-hidden">
+          {/* Windows XP Luna Title Bar */}
+          <div className="px-5 py-3.5 bg-gradient-to-r from-[#0055ea] via-[#245edb] to-[#0044cc] border-b-2 border-sky-300/50 flex items-center justify-between shadow-[0_3px_12px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.6)] text-white">
             <div className="flex items-center gap-3">
-              {/* Window Aqua Buttons */}
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-gradient-to-b from-rose-400 to-rose-600 border border-rose-700/40 shadow-inner" />
-                <span className="w-3 h-3 rounded-full bg-gradient-to-b from-amber-300 to-amber-500 border border-amber-600/40 shadow-inner" />
-                <span className="w-3 h-3 rounded-full bg-gradient-to-b from-emerald-400 to-emerald-600 border border-emerald-700/40 shadow-inner" />
+              {/* Classic Window Buttons */}
+              <div className="flex items-center gap-1.5">
+                <span className="w-3.5 h-3.5 rounded-full bg-gradient-to-b from-rose-400 to-rose-600 border border-white/70 shadow-sm" />
+                <span className="w-3.5 h-3.5 rounded-full bg-gradient-to-b from-amber-300 to-amber-500 border border-white/70 shadow-sm" />
+                <span className="w-3.5 h-3.5 rounded-full bg-gradient-to-b from-emerald-400 to-emerald-600 border border-white/70 shadow-sm" />
               </div>
-              <span className="font-bold text-xs sm:text-sm text-slate-800 tracking-wide flex items-center gap-1.5">
-                <Globe className="w-4 h-4 text-sky-600" />
-                <span>ECO-SPHERE BIO-PORTAL // VISTA AERO ENGINE 2026</span>
-              </span>
+              <div className="flex items-center gap-2">
+                <Globe className="w-4 h-4 text-cyan-200" />
+                <span className="font-extrabold text-xs sm:text-sm tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
+                  {lang === 'TR'
+                    ? 'BİYOSFER EKO-PORTALI // WINDOWS XP & FRUTIGER AERO'
+                    : 'ECO-SPHERE BIO-PORTAL // WINDOWS XP & FRUTIGER AERO'}
+                </span>
+              </div>
             </div>
 
-            {/* Bubble Spawner CTA */}
+            {/* Windows XP "Bliss Green" Spawn Bubble Button */}
             <button
               onClick={spawnBubble}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-b from-sky-400 via-sky-500 to-sky-600 text-white font-bold text-xs shadow-[0_2px_8px_rgba(2,136,209,0.4),inset_0_1px_0_rgba(255,255,255,0.7)] hover:brightness-105 active:translate-y-0.5 cursor-pointer transition-all"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-b from-[#4caf50] via-[#43a047] to-[#2e7d32] text-white font-extrabold text-xs shadow-[0_3px_10px_rgba(46,125,50,0.4),inset_0_1px_0_rgba(255,255,255,0.8)] hover:brightness-110 active:translate-y-0.5 cursor-pointer transition-all border border-[#a5d6a7]"
             >
               <Plus className="w-3.5 h-3.5" />
               <span>{lang === 'TR' ? 'BALONCUK ÜRET' : 'SPAWN BUBBLE'}</span>
             </button>
           </div>
 
-          {/* Aero Tab Navigation */}
-          <div className="px-6 pt-4 bg-white/20 border-b border-white/50 flex flex-wrap gap-2">
+          {/* Navigation Tabs with Windows XP Blue & Green Glow */}
+          <div className="px-5 pt-3.5 bg-white/40 border-b border-white/60 flex flex-wrap gap-2">
             {[
               { id: 'dashboard', label: lang === 'TR' ? 'EKO GÖSTERGE' : 'ECO DASHBOARD', icon: Activity },
-              { id: 'media', label: lang === 'TR' ? 'AQUA MEDYA OYNATICI' : 'AQUA MEDIA PLAYER', icon: Radio },
-              { id: 'telemetry', label: lang === 'TR' ? 'BİYOSFER TELEMETRİSİ' : 'BIOSPHERE TELEMETRY', icon: Sliders },
+              { id: 'media', label: lang === 'TR' ? 'AQUA MEDYA' : 'AQUA MEDIA PLAYER', icon: Radio },
+              { id: 'telemetry', label: lang === 'TR' ? 'BİYOSFER TELEMETRİ' : 'BIOSPHERE TELEMETRY', icon: Sliders },
               { id: 'spec', label: lang === 'TR' ? 'TASARIM MANİFESTOSU' : 'DESIGN MANIFESTO', icon: Sparkles },
             ].map((tab) => {
               const Icon = tab.icon;
@@ -232,20 +233,20 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
                     aeroAudio.playAeroClick();
                     setActiveTab(tab.id as AeroShowcaseTab);
                   }}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-t-xl font-bold text-xs transition-all cursor-pointer ${
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-t-xl font-extrabold text-xs transition-all cursor-pointer ${
                     isActive
-                      ? 'bg-white/90 text-sky-900 border-t-2 border-sky-500 shadow-[0_-4px_12px_rgba(0,100,200,0.1)]'
-                      : 'bg-white/30 hover:bg-white/60 text-slate-700'
+                      ? 'bg-white text-[#0055ea] border-t-2 border-[#245edb] shadow-[0_-4px_12px_rgba(0,85,234,0.15)]'
+                      : 'bg-white/40 hover:bg-white/70 text-slate-700'
                   }`}
                 >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-sky-600' : 'text-slate-500'}`} />
+                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#0055ea]' : 'text-slate-500'}`} />
                   <span>{tab.label}</span>
                 </button>
               );
             })}
           </div>
 
-          {/* Window Body Content - Rendered by clean dedicated page classes */}
+          {/* Window Body Content - Rendered by dedicated modular sub-page classes */}
           <div className="p-6 sm:p-10 space-y-8">
             {activeTab === 'dashboard' && (
               <EcoDashboardPage
@@ -278,10 +279,10 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
             aeroAudio.playAeroClick();
             onBack();
           }}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/90 hover:bg-white text-slate-900 font-extrabold text-xs uppercase tracking-wider border border-white shadow-[0_8px_25px_rgba(0,120,220,0.3),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-md"
+          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-white/95 to-sky-50/95 hover:from-white hover:to-white text-slate-900 font-extrabold text-xs uppercase tracking-wider border-2 border-white shadow-[0_8px_30px_rgba(0,85,234,0.35),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-md"
         >
-          <ArrowLeft className="w-4 h-4 text-sky-600" />
-          <span>{lang === 'TR' ? 'BETON PORTFOLYOYA GERİ DÖN' : 'BACK TO BETON PORTFOLIO'}</span>
+          <ArrowLeft className="w-4 h-4 text-[#0055ea]" />
+          <span>{lang === 'TR' ? 'BETON PORTFOLYOYA DÖN' : 'BACK TO BETON PORTFOLIO'}</span>
         </button>
       </footer>
     </div>

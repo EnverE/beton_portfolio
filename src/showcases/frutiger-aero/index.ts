@@ -1,4 +1,6 @@
-﻿export { FrutigerAeroShowcase } from './FrutigerAeroShowcase';
+export { FrutigerAeroShowcase } from './FrutigerAeroShowcase';
+export { FishbowlEnvironment } from './FishbowlEnvironment';
+export { ClownfishCompanion } from './ClownfishCompanion';
 export { EcoDashboardPage } from './EcoDashboardPage';
 export { AquaMediaPlayerPage } from './AquaMediaPlayerPage';
 export { BiosphereTelemetryPage } from './BiosphereTelemetryPage';

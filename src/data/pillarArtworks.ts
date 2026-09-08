@@ -86,9 +86,9 @@ export const PILLAR_PROJECT_ARTWORKS: PillarArtworkConfig[] = [
     accentColor: '#00e5ff',
     tags: ['AERO GLASS SKEUOMORPHISM', 'WEB AUDIO SYNTH', 'SAME-DOMAIN SHOWCASE'],
     stickers: [
-      { text: 'AERO AUDIO // MP3 JUKEBOX', offsetX: 0.50, offsetY: 1.15, width: 1.30, height: 0.32, rotation: -0.06, bg: '#0288d1', fg: '#ffffff' },
-      { text: 'HYDRO FLOW // 99.8% PURITY', offsetX: -0.55, offsetY: -1.05, width: 1.30, height: 0.32, rotation: 0.07, bg: '#00e5ff', fg: '#003344' },
-      { text: 'LIVE DEMO // TAP TO ENTER', offsetX: 0.55, offsetY: -1.05, width: 1.25, height: 0.30, rotation: -0.04, bg: '#00e676', fg: '#002b11' }
+      { text: 'CLOWNFISH // CURSOR PURSUIT', offsetX: 0.50, offsetY: 1.15, width: 1.35, height: 0.32, rotation: -0.06, bg: '#f4511e', fg: '#ffffff' },
+      { text: 'FISHBOWL // XP BLISS HORIZON', offsetX: -0.55, offsetY: -1.05, width: 1.35, height: 0.32, rotation: 0.07, bg: '#0055ea', fg: '#ffffff' },
+      { text: 'POPPING BUBBLES // TAP TO ENTER', offsetX: 0.55, offsetY: -1.05, width: 1.35, height: 0.30, rotation: -0.04, bg: '#2e7d32', fg: '#ffffff' }
     ],
     graffitis: []
   },

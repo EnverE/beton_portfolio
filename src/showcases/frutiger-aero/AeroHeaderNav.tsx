@@ -1,5 +1,5 @@
-﻿import React from 'react';
-import { ArrowLeft, Volume2, VolumeX } from 'lucide-react';
+import React from 'react';
+import { ArrowLeft, Volume2, VolumeX, Sparkles } from 'lucide-react';
 import { aeroAudio } from './aeroAudio';
 
 export interface AeroHeaderNavProps {
@@ -24,40 +24,41 @@ export const AeroHeaderNav: React.FC<AeroHeaderNavProps> = ({
   onToggleLang,
 }) => {
   return (
-    <header className="sticky top-0 z-40 bg-white/70 backdrop-blur-xl border-b border-white/80 shadow-[0_4px_20px_rgba(0,120,220,0.15)] px-4 sm:px-8 py-3 flex items-center justify-between">
+    <header className="sticky top-0 z-40 bg-gradient-to-b from-[#0055ea]/90 via-[#245edb]/85 to-[#0044cc]/90 backdrop-blur-xl border-b-2 border-sky-300/60 shadow-[0_4px_25px_rgba(0,85,234,0.35),inset_0_1px_0_rgba(255,255,255,0.8)] px-4 sm:px-8 py-2.5 flex items-center justify-between text-white">
+      {/* Left: Return button & XP Status badge */}
       <div className="flex items-center gap-3">
         <button
           onClick={() => {
             aeroAudio.playAeroClick();
             onBack();
           }}
-          className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-b from-white to-slate-100 hover:from-slate-50 hover:to-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider border border-slate-300 shadow-[0_2px_6px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all active:translate-y-0.5 cursor-pointer"
+          className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-b from-[#4caf50] via-[#388e3c] to-[#2e7d32] hover:brightness-110 text-white font-extrabold text-xs uppercase tracking-wider border border-[#81c784] shadow-[0_2px_8px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.7)] transition-all active:translate-y-0.5 cursor-pointer"
         >
-          <ArrowLeft className="w-3.5 h-3.5 text-sky-600" />
-          <span>{lang === 'TR' ? 'PORTFOLYOYA DÖN' : 'RETURN TO PORTFOLIO'}</span>
+          <ArrowLeft className="w-3.5 h-3.5 text-white" />
+          <span>{lang === 'TR' ? 'PORTFOLYO' : 'BETON PORTFOLIO'}</span>
         </button>
 
-        <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-400/40 text-sky-900 text-xs font-semibold">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span>ECO-SPHERE // BIO-AERO CLOUD OS</span>
+        <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-black/20 border border-white/30 text-white text-xs font-semibold shadow-inner">
+          <Sparkles className="w-3.5 h-3.5 text-yellow-300 animate-spin" style={{ animationDuration: '6s' }} />
+          <span className="tracking-wide">XP LUNA // FRUTIGER AERO FISHBOWL</span>
         </div>
       </div>
 
-      {/* Center / Right controls */}
-      <div className="flex items-center gap-2.5 sm:gap-4 text-xs font-semibold">
-        {/* Atmosphere Preset Selector */}
-        <div className="hidden sm:flex items-center gap-1 bg-white/60 p-1 rounded-full border border-white/80 shadow-inner">
+      {/* Right controls */}
+      <div className="flex items-center gap-2.5 sm:gap-3 text-xs font-semibold">
+        {/* Atmosphere Theme Selector */}
+        <div className="hidden sm:flex items-center gap-1 bg-black/25 p-1 rounded-full border border-white/30 shadow-inner">
           {(['azure', 'aqua', 'aurora'] as const).map((atm) => {
             const isActive = atmosphere === atm;
             const labels = {
-              azure: lang === 'TR' ? 'GÖKYÜZÜ' : 'AZURE',
-              aqua: 'AQUA',
-              aurora: 'AURORA',
+              azure: lang === 'TR' ? 'XP BLISS' : 'XP BLISS',
+              aqua: lang === 'TR' ? 'AQUA MAVİ' : 'AQUA BLUE',
+              aurora: lang === 'TR' ? 'ÇAYIR YEŞİLİ' : 'LUSH MEADOW',
             };
             const activeGradients = {
-              azure: 'from-sky-400 to-sky-600',
-              aqua: 'from-teal-400 to-teal-600',
-              aurora: 'from-emerald-400 to-emerald-600',
+              azure: 'from-[#42a5f5] to-[#1565c0]',
+              aqua: 'from-[#26a69a] to-[#00695c]',
+              aurora: 'from-[#66bb6a] to-[#2e7d32]',
             };
             return (
               <button
@@ -66,10 +67,10 @@ export const AeroHeaderNav: React.FC<AeroHeaderNavProps> = ({
                   aeroAudio.playGlassChime();
                   setAtmosphere(atm);
                 }}
-                className={`px-2.5 py-1 rounded-full transition-all cursor-pointer ${
+                className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer ${
                   isActive
-                    ? `bg-gradient-to-b ${activeGradients[atm]} text-white shadow-sm`
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? `bg-gradient-to-b ${activeGradients[atm]} text-white shadow-[0_2px_6px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.7)]`
+                    : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {labels[atm]}
@@ -78,24 +79,24 @@ export const AeroHeaderNav: React.FC<AeroHeaderNavProps> = ({
           })}
         </div>
 
-        {/* Clock */}
-        <div className="px-3 py-1 rounded-full bg-white/70 border border-white/90 font-mono text-[11px] text-sky-900 shadow-sm">
+        {/* Digital Clock */}
+        <div className="px-3 py-1 rounded-full bg-white/20 border border-white/40 font-mono text-[11px] text-white shadow-inner">
           {timeString}
         </div>
 
-        {/* Sound Mute Toggle */}
+        {/* Sound Toggle */}
         <button
           onClick={onToggleMute}
-          className="p-1.5 rounded-full bg-white/80 hover:bg-white text-slate-700 border border-slate-200 shadow-sm cursor-pointer transition-all"
-          title={isMuted ? 'Unmute Aero Sounds' : 'Mute Aero Sounds'}
+          className="p-1.5 rounded-full bg-white/20 hover:bg-white/30 text-white border border-white/40 shadow-sm cursor-pointer transition-all"
+          title={isMuted ? 'Unmute Audio' : 'Mute Audio'}
         >
-          {isMuted ? <VolumeX className="w-4 h-4 text-rose-500" /> : <Volume2 className="w-4 h-4 text-emerald-600" />}
+          {isMuted ? <VolumeX className="w-4 h-4 text-rose-300" /> : <Volume2 className="w-4 h-4 text-emerald-300" />}
         </button>
 
         {/* Language Toggle */}
         <button
           onClick={onToggleLang}
-          className="px-2.5 py-1 rounded-full bg-white/80 hover:bg-white text-slate-800 font-bold border border-slate-200 shadow-sm cursor-pointer transition-all"
+          className="px-2.5 py-1 rounded-full bg-white/20 hover:bg-white/30 text-white font-extrabold border border-white/40 shadow-sm cursor-pointer transition-all"
         >
           {lang}
         </button>

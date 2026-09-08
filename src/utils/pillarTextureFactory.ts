@@ -94,22 +94,122 @@ export class PillarTextureFactory {
     ctx.stroke();
 
     if (config.projectId === 'frutiger-aero') {
-      // 1. Frutiger Aero Sky & Meadow Gradient Base
+      // 1. Windows XP Bliss Sky & Rolling Grass Hills
       const aeroGrad = ctx.createLinearGradient(0, 0, 0, h);
-      aeroGrad.addColorStop(0, '#0288d1');
-      aeroGrad.addColorStop(0.55, '#4fc3f7');
-      aeroGrad.addColorStop(0.78, '#81c784');
-      aeroGrad.addColorStop(1, '#388e3c');
+      aeroGrad.addColorStop(0, '#0055ea');
+      aeroGrad.addColorStop(0.45, '#29b6f6');
+      aeroGrad.addColorStop(0.68, '#81c784');
+      aeroGrad.addColorStop(1, '#1b5e20');
       ctx.fillStyle = aeroGrad;
       ctx.fillRect(0, 0, w, h);
 
+      // Layered Windows XP Bliss Rolling Green Hills
+      ctx.fillStyle = '#2e7d32';
+      ctx.beginPath();
+      ctx.moveTo(0, h * 0.70);
+      ctx.bezierCurveTo(w * 0.35, h * 0.62, w * 0.70, h * 0.76, w, h * 0.68);
+      ctx.lineTo(w, h);
+      ctx.lineTo(0, h);
+      ctx.fill();
+
+      ctx.fillStyle = '#43a047';
+      ctx.beginPath();
+      ctx.moveTo(0, h * 0.76);
+      ctx.bezierCurveTo(w * 0.3, h * 0.67, w * 0.65, h * 0.82, w, h * 0.73);
+      ctx.lineTo(w, h);
+      ctx.lineTo(0, h);
+      ctx.fill();
+
+      ctx.fillStyle = '#689f38';
+      ctx.beginPath();
+      ctx.moveTo(0, h * 0.82);
+      ctx.bezierCurveTo(w * 0.4, h * 0.72, w * 0.8, h * 0.88, w, h * 0.79);
+      ctx.lineTo(w, h);
+      ctx.lineTo(0, h);
+      ctx.fill();
+
       // Sunburst Glow at Top
       const sunGrad = ctx.createRadialGradient(w / 2, 80, 20, w / 2, 80, 450);
-      sunGrad.addColorStop(0, 'rgba(255, 255, 255, 0.85)');
-      sunGrad.addColorStop(0.4, 'rgba(224, 247, 250, 0.4)');
-      sunGrad.addColorStop(1, 'rgba(2, 136, 209, 0)');
+      sunGrad.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+      sunGrad.addColorStop(0.4, 'rgba(224, 247, 250, 0.45)');
+      sunGrad.addColorStop(1, 'rgba(0, 85, 234, 0)');
       ctx.fillStyle = sunGrad;
       ctx.fillRect(0, 0, w, 550);
+
+      // 2. Fishbowl Spherical Curvature Vignette
+      const fishbowlGrad = ctx.createRadialGradient(w / 2, h / 2, w * 0.25, w / 2, h / 2, w * 0.75);
+      fishbowlGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
+      fishbowlGrad.addColorStop(0.7, 'rgba(0, 85, 234, 0.12)');
+      fishbowlGrad.addColorStop(1, 'rgba(0, 50, 160, 0.45)');
+      ctx.fillStyle = fishbowlGrad;
+      ctx.fillRect(0, 0, w, h);
+
+      // Specular Glass Rim Arcs on Fishbowl
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.55)';
+      ctx.lineWidth = 14;
+      ctx.beginPath();
+      ctx.arc(w / 2, h / 2, w * 0.45, -Math.PI * 0.85, -Math.PI * 0.35);
+      ctx.stroke();
+
+      // 3. Swimming Clownfish Graphic on Poster
+      const fx = w - 240;
+      const fy = 360;
+      // Tail Fin
+      ctx.fillStyle = '#ff7043';
+      ctx.beginPath();
+      ctx.moveTo(fx - 40, fy);
+      ctx.lineTo(fx - 85, fy - 32);
+      ctx.lineTo(fx - 75, fy + 32);
+      ctx.closePath();
+      ctx.fill();
+      ctx.strokeStyle = '#212121';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+      // Tail White Stripe
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 6;
+      ctx.beginPath();
+      ctx.moveTo(fx - 65, fy - 18);
+      ctx.lineTo(fx - 65, fy + 18);
+      ctx.stroke();
+      // Body
+      ctx.fillStyle = '#f4511e';
+      ctx.beginPath();
+      ctx.ellipse(fx, fy, 58, 36, 0, 0, Math.PI * 2);
+      ctx.fill();
+      // Body White Stripes with Black Borders
+      ctx.strokeStyle = '#212121';
+      ctx.lineWidth = 16;
+      ctx.beginPath();
+      ctx.moveTo(fx - 12, fy - 33);
+      ctx.quadraticCurveTo(fx - 2, fy, fx - 12, fy + 33);
+      ctx.stroke();
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 10;
+      ctx.stroke();
+
+      ctx.strokeStyle = '#212121';
+      ctx.lineWidth = 14;
+      ctx.beginPath();
+      ctx.moveTo(fx + 24, fy - 28);
+      ctx.lineTo(fx + 24, fy + 28);
+      ctx.stroke();
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 8;
+      ctx.stroke();
+      // Eye
+      ctx.fillStyle = '#ffb74d';
+      ctx.beginPath();
+      ctx.arc(fx + 38, fy - 8, 8, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#111111';
+      ctx.beginPath();
+      ctx.arc(fx + 39, fy - 8, 5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.arc(fx + 40, fy - 10, 2, 0, Math.PI * 2);
+      ctx.fill();
 
       // Procedural Floating Water Bubbles on Poster
       const bubbleCoords = [
@@ -122,15 +222,15 @@ export class PillarTextureFactory {
       ];
       bubbleCoords.forEach(b => {
         const bGrad = ctx.createRadialGradient(b.x - b.r * 0.3, b.y - b.r * 0.3, b.r * 0.1, b.x, b.y, b.r);
-        bGrad.addColorStop(0, 'rgba(255, 255, 255, 0.7)');
-        bGrad.addColorStop(0.5, 'rgba(129, 212, 250, 0.3)');
-        bGrad.addColorStop(1, 'rgba(2, 136, 209, 0.6)');
+        bGrad.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
+        bGrad.addColorStop(0.5, 'rgba(129, 212, 250, 0.35)');
+        bGrad.addColorStop(1, 'rgba(0, 85, 234, 0.55)');
         ctx.fillStyle = bGrad;
         ctx.beginPath();
         ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.85)';
         ctx.lineWidth = 2.5;
         ctx.stroke();
 
@@ -141,7 +241,7 @@ export class PillarTextureFactory {
         ctx.fill();
       });
 
-      // 2. Aero Glass Window Frame (Home Screen Viewport)
+      // 4. Aero Glass Window Frame (Windows XP Style)
       const winX = 65;
       const winY = 160;
       const winW = w - 130;
@@ -150,28 +250,28 @@ export class PillarTextureFactory {
 
       ctx.save();
       // Window shadow
-      ctx.shadowColor = 'rgba(0, 40, 90, 0.35)';
+      ctx.shadowColor = 'rgba(0, 40, 120, 0.35)';
       ctx.shadowBlur = 32;
       ctx.shadowOffsetY = 16;
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.65)';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
       ctx.beginPath();
       ctx.roundRect(winX, winY, winW, winH, winR);
       ctx.fill();
       ctx.restore();
 
       // Window Glass Border
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
       ctx.lineWidth = 3;
       ctx.beginPath();
       ctx.roundRect(winX, winY, winW, winH, winR);
       ctx.stroke();
 
-      // Top Glass Title Bar
+      // Top Windows XP Luna Blue Title Bar
       const barH = 75;
       const barGrad = ctx.createLinearGradient(0, winY, 0, winY + barH);
-      barGrad.addColorStop(0, 'rgba(255, 255, 255, 0.95)');
-      barGrad.addColorStop(0.5, 'rgba(224, 242, 254, 0.85)');
-      barGrad.addColorStop(1, 'rgba(186, 230, 253, 0.65)');
+      barGrad.addColorStop(0, '#0055ea');
+      barGrad.addColorStop(0.5, '#245edb');
+      barGrad.addColorStop(1, '#0044cc');
       ctx.fillStyle = barGrad;
       ctx.beginPath();
       ctx.roundRect(winX, winY, winW, barH, [winR, winR, 0, 0]);
@@ -194,22 +294,22 @@ export class PillarTextureFactory {
       });
 
       // Window Title
-      ctx.fillStyle = '#0f172a';
+      ctx.fillStyle = '#ffffff';
       ctx.font = '800 24px "Plus Jakarta Sans", sans-serif';
-      ctx.fillText('ECO-SPHERE // BIO-AERO CLOUD PORTAL', winX + 130, btnY + 8);
+      ctx.fillText('ECO-SPHERE // XP FISHBOWL & BLISS PORTAL', winX + 130, btnY + 8);
 
       // Hero Content Inside Window
       ctx.font = '900 86px "Plus Jakarta Sans", sans-serif';
-      ctx.fillStyle = '#0284c7';
+      ctx.fillStyle = '#0055ea';
       ctx.fillText(config.code, winX + 45, winY + 200);
 
       ctx.font = '900 52px "Plus Jakarta Sans", sans-serif';
       ctx.fillStyle = '#0f172a';
-      ctx.fillText('ECO-SPHERE', winX + 45, winY + 270);
+      ctx.fillText('FISHBOWL SANCTUARY', winX + 45, winY + 270);
 
       ctx.font = '700 24px "Plus Jakarta Sans", sans-serif';
-      ctx.fillStyle = '#0369a1';
-      ctx.fillText('FRUTIGER AERO // CAPABILITY SHOWCASE', winX + 45, winY + 310);
+      ctx.fillStyle = '#2e7d32';
+      ctx.fillText('WINDOWS XP BLISS // CLOWNFISH COMPANION', winX + 45, winY + 310);
 
       // High-Gloss Telemetry Card
       const cardX = winX + 45;
@@ -217,8 +317,8 @@ export class PillarTextureFactory {
       const cardW = winW - 90;
       const cardH = 360;
       const cardGrad = ctx.createLinearGradient(0, cardY, 0, cardY + cardH);
-      cardGrad.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
-      cardGrad.addColorStop(1, 'rgba(240, 249, 255, 0.7)');
+      cardGrad.addColorStop(0, 'rgba(255, 255, 255, 0.92)');
+      cardGrad.addColorStop(1, 'rgba(240, 249, 255, 0.75)');
       ctx.fillStyle = cardGrad;
       ctx.beginPath();
       ctx.roundRect(cardX, cardY, cardW, cardH, 20);
@@ -230,8 +330,8 @@ export class PillarTextureFactory {
       // 3 Dials inside Telemetry Card
       const dials = [
         { label: 'SOLAR GRID', val: '98.4%', col: '#f59e0b', cx: cardX + cardW * 0.2 },
-        { label: 'HYDRO FLOW', val: '14.2 M/S', col: '#0284c7', cx: cardX + cardW * 0.5 },
-        { label: 'BIO PURITY', val: '99.8%', col: '#10b981', cx: cardX + cardW * 0.8 }
+        { label: 'HYDRO FLOW', val: '14.2 M/S', col: '#0055ea', cx: cardX + cardW * 0.5 },
+        { label: 'BIO PURITY', val: '99.8%', col: '#2e7d32', cx: cardX + cardW * 0.8 }
       ];
       dials.forEach(d => {
         const cy = cardY + 160;
@@ -266,19 +366,19 @@ export class PillarTextureFactory {
 
       ctx.font = '700 22px "JetBrains Mono", monospace';
       config.tags.forEach((tag, idx) => {
-        ctx.fillStyle = '#0369a1';
+        ctx.fillStyle = '#0055ea';
         ctx.fillText(`• ${tag}`, winX + 45, winY + 820 + idx * 45);
       });
 
-      // Large Glossy Pill CTA Button
-      const btnW = 480;
+      // Windows XP "Bliss Green" Pill CTA Button
+      const btnW = 500;
       const btnH = 75;
       const btnBx = winX + (winW - btnW) / 2;
       const btnBy = winY + 980;
       const pGrad = ctx.createLinearGradient(0, btnBy, 0, btnBy + btnH);
-      pGrad.addColorStop(0, '#38bdf8');
-      pGrad.addColorStop(0.5, '#0284c7');
-      pGrad.addColorStop(1, '#0369a1');
+      pGrad.addColorStop(0, '#4caf50');
+      pGrad.addColorStop(0.5, '#43a047');
+      pGrad.addColorStop(1, '#2e7d32');
       ctx.fillStyle = pGrad;
       ctx.beginPath();
       ctx.roundRect(btnBx, btnBy, btnW, btnH, 38);
@@ -291,22 +391,22 @@ export class PillarTextureFactory {
       ctx.fill();
 
       ctx.fillStyle = '#ffffff';
-      ctx.font = '900 24px "Plus Jakarta Sans", sans-serif';
+      ctx.font = '900 22px "Plus Jakarta Sans", sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('LAUNCH LIVE SHOWCASE WEBSITE', btnBx + btnW / 2, btnBy + 46);
+      ctx.fillText('ENTER LIVE XP FISHBOWL SHOWCASE', btnBx + btnW / 2, btnBy + 46);
       ctx.textAlign = 'left';
 
       // Official Stamp
       ctx.save();
       ctx.translate(w - 200, 1310);
       ctx.rotate(-0.1);
-      ctx.strokeStyle = '#0284c7';
+      ctx.strokeStyle = '#2e7d32';
       ctx.lineWidth = 4;
       ctx.strokeRect(-120, -40, 240, 80);
-      ctx.fillStyle = '#0284c7';
-      ctx.font = '900 22px "JetBrains Mono", monospace';
+      ctx.fillStyle = '#2e7d32';
+      ctx.font = '900 20px "JetBrains Mono", monospace';
       ctx.textAlign = 'center';
-      ctx.fillText('AUTHENTIC AERO', 0, -5);
+      ctx.fillText('XP BLISS & AERO', 0, -5);
       ctx.font = '700 15px "JetBrains Mono", monospace';
       ctx.fillText('CAPABILITY VERIFIED', 0, 22);
       ctx.restore();

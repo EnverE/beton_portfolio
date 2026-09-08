@@ -1,5 +1,5 @@
-﻿import React from 'react';
-import { Radio, Play, Pause } from 'lucide-react';
+import React from 'react';
+import { Radio, Play, Pause, Disc3, Volume2 } from 'lucide-react';
 import { aeroAudio } from './aeroAudio';
 
 export interface AquaMediaPlayerPageProps {
@@ -14,61 +14,70 @@ export const AquaMediaPlayerPage: React.FC<AquaMediaPlayerPageProps> = ({
   onTogglePlay,
 }) => {
   return (
-    <div className="max-w-xl mx-auto rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-white/95 via-sky-50/80 to-white/90 border border-white shadow-[0_16px_40px_rgba(0,120,220,0.18)] space-y-6 animate-fade-in">
-      <div className="flex items-center justify-between border-b border-sky-100 pb-4">
+    <div className="max-w-xl mx-auto rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-white/95 via-sky-50/90 to-emerald-50/80 border-2 border-white shadow-[0_20px_50px_rgba(0,85,234,0.22)] space-y-6 animate-fade-in select-none">
+      {/* Player Header - Luna Blue & Bliss Green */}
+      <div className="flex items-center justify-between border-b border-sky-200/80 pb-4">
         <div className="flex items-center gap-2">
-          <Radio className="w-5 h-5 text-sky-600" />
-          <span className="font-black text-sm text-slate-900 tracking-wide">AERO SOUND PLAYER // MP3 JUKEBOX</span>
+          <Radio className="w-5 h-5 text-[#0055ea]" />
+          <span className="font-black text-xs sm:text-sm text-slate-900 tracking-wide">
+            WINDOWS MEDIA PLAYER // XP BLISS EDITION
+          </span>
         </div>
-        <span className="text-[11px] font-mono text-sky-700 bg-sky-100 px-2 py-0.5 rounded-full font-bold">
-          320 KBPS VBR
-        </span>
+        <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-800 bg-emerald-100/90 px-2.5 py-0.5 rounded-full font-extrabold border border-emerald-300">
+          <Disc3 className={`w-3.5 h-3.5 ${isPlaying ? 'animate-spin' : ''}`} />
+          <span>WMA 320 KBPS</span>
+        </div>
       </div>
 
-      {/* Animated Equalizer Waveform */}
-      <div className="h-28 rounded-2xl bg-gradient-to-b from-slate-900 to-sky-950 p-4 flex items-end justify-center gap-1.5 shadow-inner overflow-hidden relative">
-        <div className="absolute top-2 left-4 text-[10px] font-mono text-cyan-300 font-bold uppercase tracking-widest">
-          AQUATIC AMBIENCE // 2007 CHILLOUT
+      {/* Animated Equalizer Waveform - Neon XP Blue & Emerald */}
+      <div className="h-32 rounded-2xl bg-gradient-to-b from-slate-950 via-[#001e4d] to-[#003366] p-4 flex items-end justify-center gap-1.5 shadow-[inset_0_4px_12px_rgba(0,0,0,0.6)] overflow-hidden relative border border-sky-400/30">
+        <div className="absolute top-2 left-4 flex items-center gap-2 text-[10px] font-mono text-cyan-300 font-bold uppercase tracking-widest">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span>FISHBOWL AMBIENCE // BLISS CHILLOUT</span>
         </div>
-        {Array.from({ length: 28 }, (_, i) => {
+        {Array.from({ length: 30 }, (_, i) => {
           const heightPct = isPlaying
-            ? Math.sin(i * 0.4 + progress * 0.1) * 35 + 50
-            : 10 + (i % 3) * 5;
+            ? Math.sin(i * 0.38 + progress * 0.12) * 38 + 52
+            : 10 + (i % 4) * 4;
           return (
             <div
               key={i}
-              className="w-2 rounded-t-sm bg-gradient-to-t from-sky-500 via-teal-400 to-emerald-300 transition-all duration-150"
+              className="w-2 rounded-t-sm bg-gradient-to-t from-[#0055ea] via-[#29b6f6] to-[#4caf50] transition-all duration-150 shadow-[0_0_6px_rgba(41,182,246,0.5)]"
               style={{ height: `${heightPct}%` }}
             />
           );
         })}
       </div>
 
-      {/* Scrubber */}
+      {/* Scrubber - Windows XP Progress Bar Style */}
       <div className="space-y-1.5">
-        <div className="w-full h-2.5 rounded-full bg-slate-200/90 shadow-inner overflow-hidden cursor-pointer">
+        <div className="w-full h-3 rounded-full bg-slate-200/90 p-0.5 shadow-inner overflow-hidden cursor-pointer border border-slate-300/50">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-sky-400 to-sky-600 transition-all"
+            className="h-full rounded-full bg-gradient-to-r from-[#0055ea] via-[#29b6f6] to-[#4caf50] shadow-[0_1px_4px_rgba(0,85,234,0.4)] transition-all"
             style={{ width: `${progress}%` }}
           />
         </div>
-        <div className="flex justify-between text-[11px] font-mono text-slate-500">
+        <div className="flex justify-between text-[11px] font-mono font-bold text-slate-600">
           <span>01:42</span>
+          <div className="flex items-center gap-1 text-slate-500">
+            <Volume2 className="w-3.5 h-3.5 text-[#0055ea]" />
+            <span>DOLBY SURROUND</span>
+          </div>
           <span>04:20</span>
         </div>
       </div>
 
-      {/* Controls */}
-      <div className="flex items-center justify-center gap-4 pt-2">
+      {/* Controls - Iconic XP Emerald Start-Button Style Circular Play Button */}
+      <div className="flex items-center justify-center gap-5 pt-2">
         <button
           onClick={() => {
             aeroAudio.playGlassChime();
             onTogglePlay();
           }}
-          className="w-14 h-14 rounded-full bg-gradient-to-b from-sky-400 via-sky-500 to-sky-600 text-white flex items-center justify-center shadow-[0_6px_20px_rgba(2,136,209,0.5),inset_0_2px_0_rgba(255,255,255,0.8)] hover:scale-105 active:scale-95 cursor-pointer transition-all"
+          className="w-16 h-16 rounded-full bg-gradient-to-b from-[#4caf50] via-[#43a047] to-[#2e7d32] text-white flex items-center justify-center shadow-[0_8px_25px_rgba(46,125,50,0.5),inset_0_2px_0_rgba(255,255,255,0.9)] hover:scale-105 active:scale-95 cursor-pointer transition-all border-2 border-[#a5d6a7]"
           aria-label={isPlaying ? 'Pause' : 'Play'}
         >
-          {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-1" />}
+          {isPlaying ? <Pause className="w-7 h-7" /> : <Play className="w-7 h-7 ml-1" />}
         </button>
       </div>
     </div>
