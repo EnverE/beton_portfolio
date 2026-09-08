@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { X, ExternalLink, Layers, Activity, Code2 } from 'lucide-react';
+import { X, ExternalLink, Layers, Activity, Code2, Sparkles } from 'lucide-react';
 import type { Project } from '../data/portfolio';
 import { brutalistAudio } from '../utils/audio';
 import { useLanguage } from '../context/LanguageContext';
@@ -155,7 +155,32 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Action Triggers */}
         <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-zinc-800">
           <div className="flex items-center gap-3">
-            {project.id === 'next-project' ? (
+            {project.id === 'frutiger-aero' ? (
+              <>
+                <button
+                  onClick={() => {
+                    brutalistAudio.playHydraulicHiss();
+                    onClose();
+                    window.location.hash = '#/showcase/frutiger-aero';
+                  }}
+                  className="flex items-center gap-2 bg-gradient-to-r from-sky-400 via-teal-400 to-emerald-400 hover:brightness-110 text-slate-950 font-display font-black text-xs sm:text-sm px-5 py-2.5 border border-white/60 uppercase transition-all shadow-[2px_2px_0_#000] cursor-pointer"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-slate-950" />
+                  <span>{t.works.launchShowcase}</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </button>
+                <a
+                  href="https://github.com/EnverE/beton_portfolio"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => brutalistAudio.playMechanicalClick()}
+                  className="flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white font-mono font-bold text-xs px-4 py-2.5 border border-zinc-700 hover:border-zinc-500 uppercase transition-all shadow-[2px_2px_0_#000] cursor-pointer"
+                >
+                  <Code2 className="w-3.5 h-3.5 text-zinc-400" />
+                  <span>{t.works.repoUrl}</span>
+                </a>
+              </>
+            ) : project.id === 'next-project' ? (
               <>
                 <a
                   href="#dispatch"

@@ -62,6 +62,7 @@ export const TRANSLATIONS = {
       typology: 'TYPOLOGY',
       liveUrl: 'LIVE EXPERIENCE',
       repoUrl: 'SOURCE REPOSITORY',
+      launchShowcase: 'LAUNCH LIVE SHOWCASE',
     },
     process: {
       level: 'LEVEL 02 // HOW I WORK',
@@ -136,6 +137,17 @@ export const TRANSLATIONS = {
           { label: 'FRAMEWORK', value: 'NEXT.JS 16 + TYPESCRIPT' },
           { label: 'MOTION ENGINE', value: 'GSAP SCROLLTRIGGER + LENIS' },
           { label: 'LOCALIZATION', value: 'NEXT-INTL (TR/EN PARITY ENFORCED)' }
+        ]
+      },
+      'frutiger-aero': {
+        title: 'ECO-SPHERE — FRUTIGER AERO PROTOTYPE',
+        shortDesc: 'A fully interactive, skeuomorphic web portal celebrating 2000s Frutiger Aero techno-optimism with procedural bubbles, glassy chrome, and sound synthesis.',
+        fullDesc: 'Built directly within this domain to demonstrate dynamic aesthetic range. Contrasting the rugged monolithic concrete of the main portfolio, Eco-Sphere reconstructs authentic 2004–2013 Frutiger Aero design craft: high-gloss glassmorphism, nature-tech harmony, interactive water bubble physics, a skeuomorphic MP3 jukebox, and custom Web Audio synthesizers.',
+        structuralSpecs: [
+          { label: 'STATUS', value: 'INTERACTIVE PRODUCTION PROTOTYPE' },
+          { label: 'STYLE LANGUAGE', value: 'FRUTIGER AERO // SKEUOMORPHISM' },
+          { label: 'AUDIO SYNTH', value: 'WEB AUDIO API CRYSTAL OSCILLATORS' },
+          { label: 'ROUTING', value: 'SAME-DOMAIN SPA SHOWCASE' }
         ]
       },
       'next-project': {
@@ -251,6 +263,7 @@ export const TRANSLATIONS = {
       typology: 'TİPOLOJİ',
       liveUrl: 'CANLI DENEYİM',
       repoUrl: 'KAYNAK KODLARI',
+      launchShowcase: 'CANLI DENEYİMİ BAŞLAT',
     },
     process: {
       level: 'KAT 02 // ÇALIŞMA SÜRECİ',
@@ -325,6 +338,17 @@ export const TRANSLATIONS = {
           { label: 'ALTYAPI', value: 'NEXT.JS 16 + TYPESCRIPT' },
           { label: 'HAREKET MOTORU', value: 'GSAP SCROLLTRIGGER + LENIS' },
           { label: 'YERELLEŞTİRME', value: 'NEXT-INTL (TR/EN EŞLEŞMESİ ZORUNLU)' }
+        ]
+      },
+      'frutiger-aero': {
+        title: 'ECO-SPHERE — FRUTIGER AERO PROTOTİPİ',
+        shortDesc: '2000’lerin Frutiger Aero teknolojik iyimserliğini prosedürel baloncuklar, cam arayüzler ve ses sentezleyicileri ile kutlayan tam etkileşimli, skeuomorfik web portalı.',
+        fullDesc: 'Tasarım vizyonumun ve uygulama gücümün genişliğini kanıtlamak amacıyla doğrudan bu alan adı içinde geliştirildi. Ana portfolyonun monolitik brüt beton estetiğine tezat oluşturan Eco-Sphere; parlak cam morfolojisi, doğa-teknoloji harmonisi, etkileşimli su baloncuğu fiziği, skeuomorfik bir MP3 oynatıcı ve Web Audio sentezleyicileri ile otantik 2004–2013 Frutiger Aero tasarım ustalığını yeniden yaratır.',
+        structuralSpecs: [
+          { label: 'DURUM', value: 'ETKİLEŞİMLİ CANLI PROTOTİP' },
+          { label: 'TASARIM DİLİ', value: 'FRUTIGER AERO // SKEUOMORFİZM' },
+          { label: 'SES MOTORU', value: 'WEB AUDIO API KRİSTAL OSİLATÖRLERİ' },
+          { label: 'YÖNLENDİRME', value: 'AYNI ALAN ADINDA SPA DENEYİMİ' }
         ]
       },
       'next-project': {

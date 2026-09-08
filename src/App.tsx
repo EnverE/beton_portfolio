@@ -17,11 +17,22 @@ import { PORTFOLIO_DATA } from './data/portfolio';
 import { brutalistAudio } from './utils/audio';
 import { useLanguage } from './context/LanguageContext';
 import { TRANSLATIONS } from './data/translations';
+import { FrutigerAeroShowcase } from './showcases/frutiger-aero/FrutigerAeroShowcase';
 
 // Portfolio Root Component - Enver Eren Tatlıdil (Pillar Showcase & Cinematic Zoom)
 export function App() {
   const { language } = useLanguage();
   const t = TRANSLATIONS[language];
+  const [currentRoute, setCurrentRoute] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      const hash = window.location.hash;
+      if (path.includes('/showcase/frutiger-aero') || hash.includes('/showcase/frutiger-aero')) {
+        return 'frutiger-aero';
+      }
+    }
+    return 'portfolio';
+  });
   const [cursorCoords, setCursorCoords] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [scrollProgress, setScrollProgress] = useState<number>(0);
   const [targetAlignment, setTargetAlignment] = useState<'center' | 'left' | 'right'>('center');
@@ -48,6 +59,39 @@ export function App() {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
+  // Handle SPA routing for showcases
+  useEffect(() => {
+    const handleRouteChange = () => {
+      const path = window.location.pathname;
+      const hash = window.location.hash;
+      if (path.includes('/showcase/frutiger-aero') || hash.includes('/showcase/frutiger-aero')) {
+        setCurrentRoute('frutiger-aero');
+      } else {
+        setCurrentRoute('portfolio');
+      }
+    };
+    window.addEventListener('hashchange', handleRouteChange);
+    window.addEventListener('popstate', handleRouteChange);
+    return () => {
+      window.removeEventListener('hashchange', handleRouteChange);
+      window.removeEventListener('popstate', handleRouteChange);
+    };
+  }, []);
+
+  const handleBackToPortfolio = () => {
+    window.location.hash = '';
+    if (window.location.pathname.includes('/showcase/frutiger-aero')) {
+      window.history.pushState(null, '', '/');
+    }
+    setCurrentRoute('portfolio');
+    setTimeout(() => {
+      const worksEl = document.getElementById('works');
+      if (worksEl) {
+        worksEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 150);
+  };
 
   // Initialize Lenis for Slow, Cinematic, Smooth Momentum Scrolling
   useEffect(() => {
@@ -234,6 +278,10 @@ export function App() {
 
   // Day mode remains active while background is light/medium stone
   const isDayMode = scrollProgress < 0.78;
+
+  if (currentRoute === 'frutiger-aero') {
+    return <FrutigerAeroShowcase onBack={handleBackToPortfolio} initialLanguage={language} />;
+  }
 
   return (
     <div

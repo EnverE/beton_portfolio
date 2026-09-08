@@ -198,12 +198,34 @@ export const PORTFOLIO_DATA = {
       schematicType: 'MONOLITH GRID'
     },
     {
+      id: 'frutiger-aero',
+      code: 'AERO // 02',
+      title: 'ECO-SPHERE — FRUTIGER AERO SHOWCASE',
+      sector: 'DESIGN CAPABILITY',
+      year: '2026',
+      elevation: 'ELEVATION 02',
+      renderMetric: 'AERO GLASS & WEB AUDIO',
+      status: 'INTERACTIVE LIVE',
+      shortDesc: 'A fully interactive, skeuomorphic web portal celebrating 2000s Frutiger Aero techno-optimism with procedural bubbles, glassy chrome, and sound synthesis.',
+      fullDesc: 'Built directly within this domain to prove dynamic aesthetic range. Contrasting the rugged monolithic concrete of the main portfolio, Eco-Sphere demonstrates authentic 2004–2013 Frutiger Aero design craft: high-gloss glassmorphism, nature-tech harmony, interactive water bubble physics, a skeuomorphic MP3 jukebox, and custom Web Audio synthesizers.',
+      structuralSpecs: [
+        { label: 'STATUS', value: 'INTERACTIVE PRODUCTION PROTOTYPE' },
+        { label: 'STYLE LANGUAGE', value: 'FRUTIGER AERO // SKEUOMORPHISM' },
+        { label: 'AUDIO SYNTH', value: 'WEB AUDIO API CRYSTAL OSCILLATORS' },
+        { label: 'ROUTING', value: 'SAME-DOMAIN SPA SHOWCASE' }
+      ],
+      techStack: ['React 19', 'Tailwind CSS', 'Web Audio API', 'TypeScript', 'Aero Glass CSS'],
+      liveUrl: '/showcase/frutiger-aero',
+      repoUrl: 'https://github.com/EnverE/beton_portfolio',
+      schematicType: 'AERO SKEUOMORPHISM'
+    },
+    {
       id: 'next-project',
-      code: 'NEXT // 02',
+      code: 'NEXT // 03',
       title: 'YOU COULD BE NEXT',
       sector: 'WEB DESIGN',
       year: '2026',
-      elevation: 'ELEVATION 02',
+      elevation: 'ELEVATION 03',
       renderMetric: 'DIRECT INQUIRIES OPEN',
       status: 'COMMISSIONED',
       shortDesc: "Have an ambitious idea, a portfolio, or a product that deserves distinct motion and brutalist craft? Let's build it together.",

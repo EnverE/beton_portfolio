@@ -93,108 +93,327 @@ export class PillarTextureFactory {
     ctx.lineWidth = 16;
     ctx.stroke();
 
-    // 3. Brutalist Poster Content & Typography
-    ctx.fillStyle = '#09090b';
+    if (config.projectId === 'frutiger-aero') {
+      // 1. Frutiger Aero Sky & Meadow Gradient Base
+      const aeroGrad = ctx.createLinearGradient(0, 0, 0, h);
+      aeroGrad.addColorStop(0, '#0288d1');
+      aeroGrad.addColorStop(0.55, '#4fc3f7');
+      aeroGrad.addColorStop(0.78, '#81c784');
+      aeroGrad.addColorStop(1, '#388e3c');
+      ctx.fillStyle = aeroGrad;
+      ctx.fillRect(0, 0, w, h);
 
-    // Top Metadata strip
-    ctx.font = '900 32px "JetBrains Mono", monospace';
-    ctx.fillText(`ARCHITECTURAL SPEC // ${config.code}`, 65, 110);
+      // Sunburst Glow at Top
+      const sunGrad = ctx.createRadialGradient(w / 2, 80, 20, w / 2, 80, 450);
+      sunGrad.addColorStop(0, 'rgba(255, 255, 255, 0.85)');
+      sunGrad.addColorStop(0.4, 'rgba(224, 247, 250, 0.4)');
+      sunGrad.addColorStop(1, 'rgba(2, 136, 209, 0)');
+      ctx.fillStyle = sunGrad;
+      ctx.fillRect(0, 0, w, 550);
 
-    ctx.font = '700 24px "JetBrains Mono", monospace';
-    ctx.fillStyle = '#52525b';
-    ctx.fillText('EET STUDIO / ISTANBUL', w - 380, 110);
+      // Procedural Floating Water Bubbles on Poster
+      const bubbleCoords = [
+        { x: 140, y: 320, r: 42 },
+        { x: w - 180, y: 260, r: 56 },
+        { x: 260, y: 720, r: 35 },
+        { x: w - 130, y: 840, r: 48 },
+        { x: w / 2 - 200, y: 1100, r: 38 },
+        { x: w - 240, y: 1220, r: 44 }
+      ];
+      bubbleCoords.forEach(b => {
+        const bGrad = ctx.createRadialGradient(b.x - b.r * 0.3, b.y - b.r * 0.3, b.r * 0.1, b.x, b.y, b.r);
+        bGrad.addColorStop(0, 'rgba(255, 255, 255, 0.7)');
+        bGrad.addColorStop(0.5, 'rgba(129, 212, 250, 0.3)');
+        bGrad.addColorStop(1, 'rgba(2, 136, 209, 0.6)');
+        ctx.fillStyle = bGrad;
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+        ctx.fill();
 
-    // Divider line
-    ctx.fillStyle = '#09090b';
-    ctx.fillRect(65, 135, w - 130, 8);
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
 
-    // Giant Project Code Callout
-    ctx.font = '900 160px "Plus Jakarta Sans", sans-serif';
-    ctx.fillText(config.code, 65, 300);
+        // Specular glint
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.ellipse(b.x - b.r * 0.35, b.y - b.r * 0.35, b.r * 0.28, b.r * 0.16, -Math.PI / 4, 0, Math.PI * 2);
+        ctx.fill();
+      });
 
-    // Project Title
-    ctx.font = '900 68px "Plus Jakarta Sans", sans-serif';
-    ctx.fillText(config.title, 65, 390);
+      // 2. Aero Glass Window Frame (Home Screen Viewport)
+      const winX = 65;
+      const winY = 160;
+      const winW = w - 130;
+      const winH = 1100;
+      const winR = 28;
 
-    // Accent Block
-    ctx.fillStyle = config.accentColor;
-    ctx.fillRect(65, 425, 240, 12);
-
-    // Wireframe Geometric Blueprint Graphic
-    ctx.strokeStyle = 'rgba(9, 9, 11, 0.85)';
-    ctx.lineWidth = 3;
-    ctx.strokeRect(65, 480, w - 130, 360);
-
-    // Diagonal architectural grid inside the box
-    ctx.strokeStyle = 'rgba(9, 9, 11, 0.15)';
-    ctx.lineWidth = 1.5;
-    for (let gx = 65; gx < w - 65; gx += 40) {
+      ctx.save();
+      // Window shadow
+      ctx.shadowColor = 'rgba(0, 40, 90, 0.35)';
+      ctx.shadowBlur = 32;
+      ctx.shadowOffsetY = 16;
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.65)';
       ctx.beginPath();
-      ctx.moveTo(gx, 480);
-      ctx.lineTo(gx, 840);
-      ctx.stroke();
-    }
-    for (let gy = 480; gy < 840; gy += 40) {
+      ctx.roundRect(winX, winY, winW, winH, winR);
+      ctx.fill();
+      ctx.restore();
+
+      // Window Glass Border
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+      ctx.lineWidth = 3;
       ctx.beginPath();
-      ctx.moveTo(65, gy);
-      ctx.lineTo(w - 65, gy);
+      ctx.roundRect(winX, winY, winW, winH, winR);
       ctx.stroke();
+
+      // Top Glass Title Bar
+      const barH = 75;
+      const barGrad = ctx.createLinearGradient(0, winY, 0, winY + barH);
+      barGrad.addColorStop(0, 'rgba(255, 255, 255, 0.95)');
+      barGrad.addColorStop(0.5, 'rgba(224, 242, 254, 0.85)');
+      barGrad.addColorStop(1, 'rgba(186, 230, 253, 0.65)');
+      ctx.fillStyle = barGrad;
+      ctx.beginPath();
+      ctx.roundRect(winX, winY, winW, barH, [winR, winR, 0, 0]);
+      ctx.fill();
+
+      // Aqua Window Buttons
+      const btnY = winY + barH / 2;
+      [
+        { color: '#f87171', border: '#dc2626', x: winX + 35 },
+        { color: '#fbbf24', border: '#d97706', x: winX + 65 },
+        { color: '#4ade80', border: '#16a34a', x: winX + 95 }
+      ].forEach(btn => {
+        ctx.fillStyle = btn.color;
+        ctx.beginPath();
+        ctx.arc(btn.x, btnY, 9, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = btn.border;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      });
+
+      // Window Title
+      ctx.fillStyle = '#0f172a';
+      ctx.font = '800 24px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('ECO-SPHERE // BIO-AERO CLOUD PORTAL', winX + 130, btnY + 8);
+
+      // Hero Content Inside Window
+      ctx.font = '900 86px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#0284c7';
+      ctx.fillText(config.code, winX + 45, winY + 200);
+
+      ctx.font = '900 52px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#0f172a';
+      ctx.fillText('ECO-SPHERE', winX + 45, winY + 270);
+
+      ctx.font = '700 24px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#0369a1';
+      ctx.fillText('FRUTIGER AERO // CAPABILITY SHOWCASE', winX + 45, winY + 310);
+
+      // High-Gloss Telemetry Card
+      const cardX = winX + 45;
+      const cardY = winY + 350;
+      const cardW = winW - 90;
+      const cardH = 360;
+      const cardGrad = ctx.createLinearGradient(0, cardY, 0, cardY + cardH);
+      cardGrad.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+      cardGrad.addColorStop(1, 'rgba(240, 249, 255, 0.7)');
+      ctx.fillStyle = cardGrad;
+      ctx.beginPath();
+      ctx.roundRect(cardX, cardY, cardW, cardH, 20);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // 3 Dials inside Telemetry Card
+      const dials = [
+        { label: 'SOLAR GRID', val: '98.4%', col: '#f59e0b', cx: cardX + cardW * 0.2 },
+        { label: 'HYDRO FLOW', val: '14.2 M/S', col: '#0284c7', cx: cardX + cardW * 0.5 },
+        { label: 'BIO PURITY', val: '99.8%', col: '#10b981', cx: cardX + cardW * 0.8 }
+      ];
+      dials.forEach(d => {
+        const cy = cardY + 160;
+        ctx.strokeStyle = 'rgba(203, 213, 225, 0.5)';
+        ctx.lineWidth = 14;
+        ctx.beginPath();
+        ctx.arc(d.cx, cy, 65, 0, Math.PI * 2);
+        ctx.stroke();
+
+        ctx.strokeStyle = d.col;
+        ctx.lineWidth = 14;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.arc(d.cx, cy, 65, -Math.PI / 2, Math.PI * 0.75);
+        ctx.stroke();
+
+        ctx.fillStyle = '#0f172a';
+        ctx.font = '900 28px "JetBrains Mono", monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText(d.val, d.cx, cy + 10);
+
+        ctx.font = '700 18px "Plus Jakarta Sans", sans-serif';
+        ctx.fillStyle = '#475569';
+        ctx.fillText(d.label, d.cx, cy + 120);
+        ctx.textAlign = 'left';
+      });
+
+      // Tags
+      ctx.fillStyle = '#0f172a';
+      ctx.font = '800 28px "JetBrains Mono", monospace';
+      ctx.fillText('FEATURE SPECIFICATIONS:', winX + 45, winY + 770);
+
+      ctx.font = '700 22px "JetBrains Mono", monospace';
+      config.tags.forEach((tag, idx) => {
+        ctx.fillStyle = '#0369a1';
+        ctx.fillText(`• ${tag}`, winX + 45, winY + 820 + idx * 45);
+      });
+
+      // Large Glossy Pill CTA Button
+      const btnW = 480;
+      const btnH = 75;
+      const btnBx = winX + (winW - btnW) / 2;
+      const btnBy = winY + 980;
+      const pGrad = ctx.createLinearGradient(0, btnBy, 0, btnBy + btnH);
+      pGrad.addColorStop(0, '#38bdf8');
+      pGrad.addColorStop(0.5, '#0284c7');
+      pGrad.addColorStop(1, '#0369a1');
+      ctx.fillStyle = pGrad;
+      ctx.beginPath();
+      ctx.roundRect(btnBx, btnBy, btnW, btnH, 38);
+      ctx.fill();
+
+      // Top Specular Sheen on Button
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+      ctx.beginPath();
+      ctx.roundRect(btnBx + 4, btnBy + 3, btnW - 8, btnH * 0.45, 30);
+      ctx.fill();
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 24px "Plus Jakarta Sans", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('LAUNCH LIVE SHOWCASE WEBSITE', btnBx + btnW / 2, btnBy + 46);
+      ctx.textAlign = 'left';
+
+      // Official Stamp
+      ctx.save();
+      ctx.translate(w - 200, 1310);
+      ctx.rotate(-0.1);
+      ctx.strokeStyle = '#0284c7';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(-120, -40, 240, 80);
+      ctx.fillStyle = '#0284c7';
+      ctx.font = '900 22px "JetBrains Mono", monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('AUTHENTIC AERO', 0, -5);
+      ctx.font = '700 15px "JetBrains Mono", monospace';
+      ctx.fillText('CAPABILITY VERIFIED', 0, 22);
+      ctx.restore();
+    } else {
+      // 3. Brutalist Poster Content & Typography
+      ctx.fillStyle = '#09090b';
+
+      // Top Metadata strip
+      ctx.font = '900 32px "JetBrains Mono", monospace';
+      ctx.fillText(`ARCHITECTURAL SPEC // ${config.code}`, 65, 110);
+
+      ctx.font = '700 24px "JetBrains Mono", monospace';
+      ctx.fillStyle = '#52525b';
+      ctx.fillText('EET STUDIO / ISTANBUL', w - 380, 110);
+
+      // Divider line
+      ctx.fillStyle = '#09090b';
+      ctx.fillRect(65, 135, w - 130, 8);
+
+      // Giant Project Code Callout
+      ctx.font = '900 160px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText(config.code, 65, 300);
+
+      // Project Title
+      ctx.font = '900 68px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText(config.title, 65, 390);
+
+      // Accent Block
+      ctx.fillStyle = config.accentColor;
+      ctx.fillRect(65, 425, 240, 12);
+
+      // Wireframe Geometric Blueprint Graphic
+      ctx.strokeStyle = 'rgba(9, 9, 11, 0.85)';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(65, 480, w - 130, 360);
+
+      // Diagonal architectural grid inside the box
+      ctx.strokeStyle = 'rgba(9, 9, 11, 0.15)';
+      ctx.lineWidth = 1.5;
+      for (let gx = 65; gx < w - 65; gx += 40) {
+        ctx.beginPath();
+        ctx.moveTo(gx, 480);
+        ctx.lineTo(gx, 840);
+        ctx.stroke();
+      }
+      for (let gy = 480; gy < 840; gy += 40) {
+        ctx.beginPath();
+        ctx.moveTo(65, gy);
+        ctx.lineTo(w - 65, gy);
+        ctx.stroke();
+      }
+
+      // Focal schematic geometry
+      ctx.strokeStyle = config.accentColor;
+      ctx.lineWidth = 6;
+      ctx.beginPath();
+      ctx.arc(w / 2, 660, 120, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.strokeStyle = '#09090b';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(w / 2 - 80, 580, 160, 160);
+
+      // Crosshairs
+      ctx.beginPath();
+      ctx.moveTo(w / 2 - 140, 660);
+      ctx.lineTo(w / 2 + 140, 660);
+      ctx.moveTo(w / 2, 520);
+      ctx.lineTo(w / 2, 800);
+      ctx.stroke();
+
+      // Tags & Specifications List
+      ctx.fillStyle = '#18181b';
+      ctx.font = '800 36px "JetBrains Mono", monospace';
+      ctx.fillText('CORE ATTRIBUTES:', 65, 920);
+
+      ctx.font = '600 28px "JetBrains Mono", monospace';
+      config.tags.forEach((tag, idx) => {
+        ctx.fillStyle = '#27272a';
+        ctx.fillText(`[${idx + 1}] ${tag}`, 65, 980 + idx * 50);
+      });
+
+      // Barcode Strip at Bottom
+      const barY = 1240;
+      ctx.fillStyle = '#09090b';
+      for (let bx = 65; bx < 480; bx += Math.floor(Math.random() * 8) + 4) {
+        const bw = Math.floor(Math.random() * 5) + 2;
+        ctx.fillRect(bx, barY, bw, 90);
+      }
+      ctx.font = '700 20px "JetBrains Mono", monospace';
+      ctx.fillText(`AUTHENTICATED // EET-${config.code}-2026`, 65, 1365);
+
+      // Official Stamp Badge
+      ctx.save();
+      ctx.translate(w - 220, 1260);
+      ctx.rotate(-0.15);
+      ctx.strokeStyle = '#dc2626';
+      ctx.lineWidth = 6;
+      ctx.strokeRect(-120, -50, 240, 100);
+      ctx.fillStyle = '#dc2626';
+      ctx.font = '900 28px "JetBrains Mono", monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('APPROVED', 0, -10);
+      ctx.font = '700 18px "JetBrains Mono", monospace';
+      ctx.fillText('PORTFOLIO VAULT', 0, 25);
+      ctx.restore();
     }
-
-    // Focal schematic geometry
-    ctx.strokeStyle = config.accentColor;
-    ctx.lineWidth = 6;
-    ctx.beginPath();
-    ctx.arc(w / 2, 660, 120, 0, Math.PI * 2);
-    ctx.stroke();
-
-    ctx.strokeStyle = '#09090b';
-    ctx.lineWidth = 4;
-    ctx.strokeRect(w / 2 - 80, 580, 160, 160);
-
-    // Crosshairs
-    ctx.beginPath();
-    ctx.moveTo(w / 2 - 140, 660);
-    ctx.lineTo(w / 2 + 140, 660);
-    ctx.moveTo(w / 2, 520);
-    ctx.lineTo(w / 2, 800);
-    ctx.stroke();
-
-    // Tags & Specifications List
-    ctx.fillStyle = '#18181b';
-    ctx.font = '800 36px "JetBrains Mono", monospace';
-    ctx.fillText('CORE ATTRIBUTES:', 65, 920);
-
-    ctx.font = '600 28px "JetBrains Mono", monospace';
-    config.tags.forEach((tag, idx) => {
-      ctx.fillStyle = '#27272a';
-      ctx.fillText(`[${idx + 1}] ${tag}`, 65, 980 + idx * 50);
-    });
-
-    // Barcode Strip at Bottom
-    const barY = 1240;
-    ctx.fillStyle = '#09090b';
-    for (let bx = 65; bx < 480; bx += Math.floor(Math.random() * 8) + 4) {
-      const bw = Math.floor(Math.random() * 5) + 2;
-      ctx.fillRect(bx, barY, bw, 90);
-    }
-    ctx.font = '700 20px "JetBrains Mono", monospace';
-    ctx.fillText(`AUTHENTICATED // EET-${config.code}-2026`, 65, 1365);
-
-    // Official Stamp Badge
-    ctx.save();
-    ctx.translate(w - 220, 1260);
-    ctx.rotate(-0.15);
-    ctx.strokeStyle = '#dc2626';
-    ctx.lineWidth = 6;
-    ctx.strokeRect(-120, -50, 240, 100);
-    ctx.fillStyle = '#dc2626';
-    ctx.font = '900 28px "JetBrains Mono", monospace';
-    ctx.textAlign = 'center';
-    ctx.fillText('APPROVED', 0, -10);
-    ctx.font = '700 18px "JetBrains Mono", monospace';
-    ctx.fillText('PORTFOLIO VAULT', 0, 25);
-    ctx.restore();
 
     ctx.restore();
 

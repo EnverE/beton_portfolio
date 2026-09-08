@@ -74,10 +74,29 @@ export const PILLAR_PROJECT_ARTWORKS: PillarArtworkConfig[] = [
     graffitis: []
   },
   {
+    id: 'art-aero',
+    projectId: 'frutiger-aero',
+    title: 'ECO-SPHERE // BIO-AERO OS',
+    code: 'AERO // 02',
+    elevationY: 0.95,
+    angleRad: 2.40,
+    width: 2.1,
+    height: 3.0,
+    primaryColor: '#e0f7fa',
+    accentColor: '#00e5ff',
+    tags: ['AERO GLASS SKEUOMORPHISM', 'WEB AUDIO SYNTH', 'SAME-DOMAIN SHOWCASE'],
+    stickers: [
+      { text: 'AERO AUDIO // MP3 JUKEBOX', offsetX: 0.50, offsetY: 1.15, width: 1.30, height: 0.32, rotation: -0.06, bg: '#0288d1', fg: '#ffffff' },
+      { text: 'HYDRO FLOW // 99.8% PURITY', offsetX: -0.55, offsetY: -1.05, width: 1.30, height: 0.32, rotation: 0.07, bg: '#00e5ff', fg: '#003344' },
+      { text: 'LIVE DEMO // TAP TO ENTER', offsetX: 0.55, offsetY: -1.05, width: 1.25, height: 0.30, rotation: -0.04, bg: '#00e676', fg: '#002b11' }
+    ],
+    graffitis: []
+  },
+  {
     id: 'art-next',
     projectId: 'next-project',
     title: 'YOU COULD BE THE NEXT',
-    code: 'NEXT // 02',
+    code: 'NEXT // 03',
     elevationY: -4.2,
     angleRad: 3.14,
     width: 2.1,
