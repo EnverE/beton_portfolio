@@ -117,7 +117,7 @@ export const TRANSLATIONS = {
       legalBtn: 'LEGAL // PRIVACY & TERMS',
       legalTitle: 'LEGAL PROTOCOL & PRIVACY SPECIFICATION',
       legalPrivacyHeader: '01. DATA PRIVACY (GDPR & KVKK COMPLIANCE)',
-      legalPrivacyBody: 'This portfolio operates with zero tracking cookies, zero marketing telemetry, and zero behavioral profiling. Any data submitted via the dispatch terminal (name, email, project scope) is collected solely on the lawful basis of answering project inquiries. Data is never sold, leased, or distributed to third parties. Inquiries are processed via Web3Forms and hosted on Vercel.',
+      legalPrivacyBody: 'This portfolio uses zero tracking cookies and zero behavioral profiling. It does use Vercel Web Analytics, a cookieless analytics tool that only records anonymous page-view counts, no personal data attached. Any data submitted via the dispatch terminal (name, email, project scope) is collected solely on the lawful basis of answering project inquiries. Data is never sold, leased, or distributed to third parties. Inquiries are processed via Web3Forms and hosted on Vercel.',
       legalTermsHeader: '02. TERMS OF USE',
       legalTermsBody: 'Materials and interactive spatial environments are provided for professional evaluation, design review, and commission proposals. Interactive 3D graphics, motion tokens, and interface architecture are crafted by Enver Eren Tatlıdil.',
       legalIpHeader: '03. INTELLECTUAL PROPERTY',
@@ -129,18 +129,18 @@ export const TRANSLATIONS = {
     },
     projects: {
       'aura-flagship': {
-        title: 'MADCAT COLLECTIVE — WORK IN PROGRESS',
+        title: 'MADCAT COLLECTIVE // WORK IN PROGRESS',
         shortDesc: 'Bilingual portfolio site in development for a graphic design collective, built around a single, deliberately-chosen motion language instead of a grab-bag of effects.',
-        fullDesc: 'Currently under active construction — structural skeleton and routing are complete, visual design has not started yet. MadCat is architected around token-driven motion (every duration, easing curve, and transform value lives in one file) and a single site-wide animation verb, chosen only after comparing candidates side by side rather than assumed upfront. Full bilingual parity (Turkish/English) is enforced automatically at build time.',
+        fullDesc: 'Currently under active construction. Structural skeleton and routing are complete, visual design has not started yet. MadCat is architected around token-driven motion (every duration, easing curve, and transform value lives in one file) and a single site-wide animation verb, chosen only after comparing candidates side by side rather than assumed upfront. Full bilingual parity (Turkish/English) is enforced automatically at build time.',
         structuralSpecs: [
-          { label: 'STATUS', value: 'WORK IN PROGRESS — SKELETON PHASE' },
+          { label: 'STATUS', value: 'WORK IN PROGRESS // SKELETON PHASE' },
           { label: 'FRAMEWORK', value: 'NEXT.JS 16 + TYPESCRIPT' },
           { label: 'MOTION ENGINE', value: 'GSAP SCROLLTRIGGER + LENIS' },
           { label: 'LOCALIZATION', value: 'NEXT-INTL (TR/EN PARITY ENFORCED)' }
         ]
       },
       'frutiger-aero': {
-        title: 'ECO-SPHERE — FRUTIGER AERO & FISHBOWL',
+        title: 'ECO-SPHERE // FRUTIGER AERO & FISHBOWL',
         shortDesc: 'An inside-a-fishbowl web experience looking out at Windows XP Bliss hills, with a cursor-chasing clownfish, interactive popping bubbles, and rich blue-green glass.',
         fullDesc: 'Built directly within this domain to demonstrate dynamic aesthetic range. Contrasting the rugged monolithic concrete of the main portfolio, Eco-Sphere reconstructs authentic 2000s Frutiger Aero and Windows XP design craft: curved fishbowl glass optics, an animated clownfish chasing the cursor, tactile popping bubbles with droplet sound synthesis, and a skeuomorphic XP Media Player.',
         structuralSpecs: [
@@ -153,7 +153,7 @@ export const TRANSLATIONS = {
       'next-project': {
         title: 'YOU COULD BE NEXT',
         shortDesc: "Have an ambitious idea, a portfolio, or a product that deserves distinct motion and brutalist craft? Let's build it together.",
-        fullDesc: "I'm currently taking on select web design and creative frontend commissions around my software engineering studies at METU. Whether you need a bespoke portfolio, an interactive 3D WebGL experience, or a production-grade web application built with React, Three.js, or GSAP — reach out directly. Send an email to tatlidil.eren@gmail.com, connect on LinkedIn, or drop a message below at the dispatch terminal.",
+        fullDesc: "I'm currently taking on select web design and creative frontend commissions around my software engineering studies at METU. Whether you need a bespoke portfolio, an interactive 3D WebGL experience, or a production-grade web application built with React, Three.js, or GSAP, reach out directly. Send an email to tatlidil.eren@gmail.com, connect on LinkedIn, or drop a message below at the dispatch terminal.",
         structuralSpecs: [
           { label: 'AVAILABILITY', value: 'OPEN FOR COMMISSIONS' },
           { label: 'DIRECT EMAIL', value: 'tatlidil.eren@gmail.com' },
@@ -318,7 +318,7 @@ export const TRANSLATIONS = {
       legalBtn: 'YASAL // GİZLİLİK VE KULLANIM KOŞULLARI',
       legalTitle: 'YASAL PROTOKOL VE GİZLİLİK ŞARTLARI',
       legalPrivacyHeader: '01. VERİ GİZLİLİĞİ (KVKK VE GDPR UYUMLULUĞU)',
-      legalPrivacyBody: 'Bu portfolyo hiçbir takip çerezi (cookie), reklam telemetrisi veya davranışsal profil çıkarma aracı kullanmaz. İletişim terminali aracılığıyla iletilen bilgiler (isim, e-posta, proje kapsamı) yalnızca gelen taleplere yanıt vermek amacıyla meşru menfaat temelinde toplanır. Bilgileriniz asla satılmaz, üçüncü taraflarla paylaşılmaz veya ticari bültenlerde kullanılmaz. Mesajlar Web3Forms altyapısıyla iletilir, site Vercel üzerinde barındırılır.',
+      legalPrivacyBody: 'Bu portfolyo hiçbir takip çerezi (cookie) veya davranışsal profil çıkarma aracı kullanmaz. Vercel Web Analytics kullanılır, bu araç çerezsizdir ve sadece anonim sayfa görüntülenme sayılarını kaydeder, hiçbir kişisel veri tutmaz. İletişim terminali aracılığıyla iletilen bilgiler (isim, e-posta, proje kapsamı) yalnızca gelen taleplere yanıt vermek amacıyla meşru menfaat temelinde toplanır. Bilgileriniz asla satılmaz, üçüncü taraflarla paylaşılmaz veya ticari bültenlerde kullanılmaz. Mesajlar Web3Forms altyapısıyla iletilir, site Vercel üzerinde barındırılır.',
       legalTermsHeader: '02. KULLANIM KOŞULLARI',
       legalTermsBody: 'Sitedeki materyaller ve etkileşimli mekansal ortamlar; profesyonel inceleme, tasarım değerlendirmesi ve iş birliği teklifleri amacıyla sunulmaktadır. Etkileşimli 3D grafikler, hareket token\'ları ve arayüz mimarisi Enver Eren Tatlıdil tarafından geliştirilmiştir.',
       legalIpHeader: '03. FİKRİ MÜLKİYET',
@@ -330,18 +330,18 @@ export const TRANSLATIONS = {
     },
     projects: {
       'aura-flagship': {
-        title: 'MADCAT KOLEKTİFİ — YAPIM AŞAMASINDA',
+        title: 'MADCAT KOLEKTİFİ // YAPIM AŞAMASINDA',
         shortDesc: 'Bir grafik tasarım kolektifi için geliştirilmekte olan, bir dizi rastgele efekt yerine tek ve bilinçli seçilmiş bir hareket diline dayanan iki dilli portfolyo sitesi.',
-        fullDesc: 'Şu anda aktif geliştirme aşamasında — yapısal iskelet ve yönlendirme tamamlandı, görsel tasarım henüz başlamadı. MadCat, belirteç tabanlı harekete (her süre, yumuşatma eğrisi ve dönüşüm değeri tek bir dosyada tutulur) ve baştan varsayılmak yerine adaylar birbiriyle karşılaştırılarak seçilen tek bir site geneli animasyon diline göre kurgulanmıştır. Türkçe/İngilizce tam çeviri eşleşmesi derleme sırasında otomatik olarak denetlenir.',
+        fullDesc: 'Şu anda aktif geliştirme aşamasında. Yapısal iskelet ve yönlendirme tamamlandı, görsel tasarım henüz başlamadı. MadCat, belirteç tabanlı harekete (her süre, yumuşatma eğrisi ve dönüşüm değeri tek bir dosyada tutulur) ve baştan varsayılmak yerine adaylar birbiriyle karşılaştırılarak seçilen tek bir site geneli animasyon diline göre kurgulanmıştır. Türkçe/İngilizce tam çeviri eşleşmesi derleme sırasında otomatik olarak denetlenir.',
         structuralSpecs: [
-          { label: 'DURUM', value: 'YAPIM AŞAMASINDA — İSKELET SÜRECİ' },
+          { label: 'DURUM', value: 'YAPIM AŞAMASINDA // İSKELET SÜRECİ' },
           { label: 'ALTYAPI', value: 'NEXT.JS 16 + TYPESCRIPT' },
           { label: 'HAREKET MOTORU', value: 'GSAP SCROLLTRIGGER + LENIS' },
           { label: 'YERELLEŞTİRME', value: 'NEXT-INTL (TR/EN EŞLEŞMESİ ZORUNLU)' }
         ]
       },
       'frutiger-aero': {
-        title: 'ECO-SPHERE — FRUTIGER AERO & FANUS',
+        title: 'ECO-SPHERE // FRUTIGER AERO & FANUS',
         shortDesc: 'İçeriden Windows XP Bliss tepelerine bakan kristal bir fanus, imleci takip eden palyaço balığı ve patlatılabilir baloncuklarla nostaljik bir web deneyimi.',
         fullDesc: 'Tasarım vizyonumun ve uygulama gücümün genişliğini kanıtlamak amacıyla doğrudan bu alan adı içinde geliştirildi. Ana portfolyonun monolitik brüt beton estetiğine tezat oluşturan Eco-Sphere; kavisli cam fanus optikleri, imleci kovalayan hareketli palyaço balığı, damlacık ses efektli patlatılabilir baloncuklar ve skeuomorfik XP Media Player ile otantik 2000’ler Frutiger Aero ve Windows XP tasarım ustalığını yeniden canlandırır.',
         structuralSpecs: [
@@ -354,7 +354,7 @@ export const TRANSLATIONS = {
       'next-project': {
         title: 'SIRADAKİ SEN OLABİLİRSİN',
         shortDesc: 'Özgün bir hareket dilini ve brutalist özeni hak eden iddialı bir fikrin, portfolyon ya da ürünün mü var? Birlikte inşa edelim.',
-        fullDesc: 'Şu anda ODTÜ\'deki yazılım mühendisliği derslerimin yanında seçkin web tasarımı ve yaratıcı ön yüz projeleri alıyorum. İster özel bir portfolyo, ister etkileşimli bir WebGL deneyimi, ister React, Three.js veya GSAP ile geliştirilmiş canlıya hazır bir web uygulaması olsun — doğrudan iletişime geçebilirsin. tatlidil.eren@gmail.com adresine e-posta gönderebilir, LinkedIn\'den yazabilir veya aşağıdaki iletişim terminalinden mesaj bırakabilirsin.',
+        fullDesc: 'Şu anda ODTÜ\'deki yazılım mühendisliği derslerimin yanında seçkin web tasarımı ve yaratıcı ön yüz projeleri alıyorum. İster özel bir portfolyo, ister etkileşimli bir WebGL deneyimi, ister React, Three.js veya GSAP ile geliştirilmiş canlıya hazır bir web uygulaması olsun, doğrudan iletişime geçebilirsin. tatlidil.eren@gmail.com adresine e-posta gönderebilir, LinkedIn\'den yazabilir veya aşağıdaki iletişim terminalinden mesaj bırakabilirsin.',
         structuralSpecs: [
           { label: 'UYGUNLUK', value: 'YENİ PROJELERE AÇIK' },
           { label: 'DOĞRUDAN E-POSTA', value: 'tatlidil.eren@gmail.com' },

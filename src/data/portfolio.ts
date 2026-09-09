@@ -178,16 +178,16 @@ export const PORTFOLIO_DATA = {
     {
       id: 'aura-flagship',
       code: 'MC-01',
-      title: 'MADCAT COLLECTIVE — WORK IN PROGRESS',
+      title: 'MADCAT COLLECTIVE // WORK IN PROGRESS',
       sector: 'WEB DESIGN',
       year: '2026',
       elevation: 'ELEVATION 01',
       renderMetric: 'GSAP + LENIS MOTION',
       status: 'PROTOTYPE',
       shortDesc: 'Bilingual portfolio site in development for a graphic design collective, built around a single, deliberately-chosen motion language instead of a grab-bag of effects.',
-      fullDesc: 'Currently under active construction — structural skeleton and routing are complete, visual design has not started yet. MadCat is architected around token-driven motion (every duration, easing curve, and transform value lives in one file) and a single site-wide animation verb, chosen only after comparing candidates side by side rather than assumed upfront. Full bilingual parity (Turkish/English) is enforced automatically at build time.',
+      fullDesc: 'Currently under active construction. Structural skeleton and routing are complete, visual design has not started yet. MadCat is architected around token-driven motion (every duration, easing curve, and transform value lives in one file) and a single site-wide animation verb, chosen only after comparing candidates side by side rather than assumed upfront. Full bilingual parity (Turkish/English) is enforced automatically at build time.',
       structuralSpecs: [
-        { label: 'STATUS', value: 'WORK IN PROGRESS — SKELETON PHASE' },
+        { label: 'STATUS', value: 'WORK IN PROGRESS // SKELETON PHASE' },
         { label: 'FRAMEWORK', value: 'NEXT.JS 16 + TYPESCRIPT' },
         { label: 'MOTION ENGINE', value: 'GSAP SCROLLTRIGGER + LENIS' },
         { label: 'LOCALIZATION', value: 'NEXT-INTL (TR/EN PARITY ENFORCED)' }
@@ -200,7 +200,7 @@ export const PORTFOLIO_DATA = {
     {
       id: 'frutiger-aero',
       code: 'AERO // 02',
-      title: 'ECO-SPHERE — FRUTIGER AERO & FISHBOWL',
+      title: 'ECO-SPHERE // FRUTIGER AERO & FISHBOWL',
       sector: 'DESIGN CAPABILITY',
       year: '2026',
       elevation: 'ELEVATION 02',
@@ -229,7 +229,7 @@ export const PORTFOLIO_DATA = {
       renderMetric: 'DIRECT INQUIRIES OPEN',
       status: 'COMMISSIONED',
       shortDesc: "Have an ambitious idea, a portfolio, or a product that deserves distinct motion and brutalist craft? Let's build it together.",
-      fullDesc: "I'm currently taking on select web design and creative frontend commissions around my software engineering studies at METU. Whether you need a bespoke portfolio, an interactive 3D WebGL experience, or a production-grade web application built with React, Three.js, or GSAP — reach out directly. Send an email to tatlidil.eren@gmail.com, connect on LinkedIn, or drop a message below at the dispatch terminal.",
+      fullDesc: "I'm currently taking on select web design and creative frontend commissions around my software engineering studies at METU. Whether you need a bespoke portfolio, an interactive 3D WebGL experience, or a production-grade web application built with React, Three.js, or GSAP, reach out directly. Send an email to tatlidil.eren@gmail.com, connect on LinkedIn, or drop a message below at the dispatch terminal.",
       structuralSpecs: [
         { label: 'AVAILABILITY', value: 'OPEN FOR COMMISSIONS' },
         { label: 'DIRECT EMAIL', value: 'tatlidil.eren@gmail.com' },
@@ -281,7 +281,7 @@ export const PORTFOLIO_DATA = {
 
   constructionTimeline: [
     {
-      era: '2026 — PRESENT',
+      era: '2026 // PRESENT',
       elevation: 'NOW',
       role: 'SENIOR SOFTWARE ENGINEERING STUDENT',
       organization: 'METU (ODTÜ)',

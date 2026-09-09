@@ -189,7 +189,7 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
       />
 
       {/* 6. Main Aero Glass Window Shell with Windows XP Color Accents */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-8 py-6 sm:py-10 relative z-20">
+      <main className="max-w-6xl mx-auto px-4 sm:px-8 pt-6 sm:pt-10 pb-10 relative z-20">
         <div className="rounded-2xl sm:rounded-3xl bg-white/50 backdrop-blur-xl border-2 border-white/85 shadow-[0_25px_70px_rgba(0,50,150,0.25),inset_0_1px_2px_rgba(255,255,255,0.95)] overflow-hidden">
           {/* Windows XP Luna Title Bar */}
           <div className="px-5 py-3.5 bg-gradient-to-r from-[#0055ea] via-[#245edb] to-[#0044cc] border-b-2 border-sky-300/50 flex items-center justify-between shadow-[0_3px_12px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.6)] text-white">
@@ -274,21 +274,21 @@ export const FrutigerAeroShowcase: React.FC<FrutigerAeroShowcaseProps> = ({
             {activeTab === 'spec' && <DesignManifestoPage lang={lang} />}
           </div>
         </div>
-      </main>
 
-      {/* Floating Bottom Quick Return Dock */}
-      <footer className="fixed bottom-4 left-1/2 -translate-x-1/2 z-30">
-        <button
-          onClick={() => {
-            aeroAudio.playAeroClick();
-            onBack();
-          }}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-white/95 to-sky-50/95 hover:from-white hover:to-white text-slate-900 font-extrabold text-xs uppercase tracking-wider border-2 border-white shadow-[0_8px_30px_rgba(0,85,234,0.3),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-md"
-        >
-          <ArrowLeft className="w-4 h-4 text-[#0055ea]" />
-          <span>{lang === 'TR' ? 'BETON PORTFOLYOYA DÖN' : 'BACK TO BETON PORTFOLIO'}</span>
-        </button>
-      </footer>
+        {/* Bottom Return Link, part of the normal page flow so it never covers scrolled content */}
+        <div className="flex justify-center pt-8">
+          <button
+            onClick={() => {
+              aeroAudio.playAeroClick();
+              onBack();
+            }}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-white/95 to-sky-50/95 hover:from-white hover:to-white text-slate-900 font-extrabold text-xs uppercase tracking-wider border-2 border-white shadow-[0_8px_30px_rgba(0,85,234,0.3),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-md"
+          >
+            <ArrowLeft className="w-4 h-4 text-[#0055ea]" />
+            <span>{lang === 'TR' ? 'BETON PORTFOLYOYA DÖN' : 'BACK TO BETON PORTFOLIO'}</span>
+          </button>
+        </div>
+      </main>
     </div>
   );
 };

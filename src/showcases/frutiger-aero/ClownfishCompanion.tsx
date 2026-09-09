@@ -143,7 +143,7 @@ export const ClownfishCompanion: React.FC<ClownfishCompanionProps> = ({
   return (
     <div
       ref={containerRef}
-      className="fixed pointer-events-none z-30 will-change-transform select-none"
+      className="fixed pointer-events-none z-[18] will-change-transform select-none"
       style={{
         left: 0,
         top: 0,
