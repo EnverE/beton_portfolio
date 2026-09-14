@@ -1,3 +1,10 @@
+export interface ProjectVisual {
+  title: string;
+  subtitle: string;
+  category: string;
+  image: string;
+}
+
 export interface Project {
   id: string;
   code: string;
@@ -16,7 +23,8 @@ export interface Project {
   techStack: string[];
   liveUrl?: string;
   repoUrl?: string;
-  schematicType: 'MONOLITH GRID' | 'SPATIAL 3D' | 'EDITORIAL' | 'TOKEN MATRIX';
+  schematicType: 'MONOLITH GRID' | 'SPATIAL 3D' | 'EDITORIAL' | 'TOKEN MATRIX' | 'AERO SKEUOMORPHISM';
+  visuals?: ProjectVisual[];
 }
 
 export interface MaterialSpecimen {
@@ -178,24 +186,56 @@ export const PORTFOLIO_DATA = {
     {
       id: 'aura-flagship',
       code: 'MC-01',
-      title: 'MADCAT COLLECTIVE // WORK IN PROGRESS',
+      title: 'MADCAT STUDIO // CREATIVE DIRECTION',
       sector: 'WEB DESIGN',
       year: '2026',
       elevation: 'ELEVATION 01',
-      renderMetric: 'GSAP + LENIS MOTION',
-      status: 'PROTOTYPE',
-      shortDesc: 'Bilingual portfolio site in development for a graphic design collective, built around a single, deliberately-chosen motion language instead of a grab-bag of effects.',
-      fullDesc: 'Currently under active construction. Structural skeleton and routing are complete, visual design has not started yet. MadCat is architected around token-driven motion (every duration, easing curve, and transform value lives in one file) and a single site-wide animation verb, chosen only after comparing candidates side by side rather than assumed upfront. Full bilingual parity (Turkish/English) is enforced automatically at build time.',
+      renderMetric: 'NEXT.JS 16 + EDITORIAL MOTION',
+      status: 'LIVE',
+      shortDesc: 'Live bilingual portfolio for MadCat Studio (Yiğit Kayi · Defne Köksal), showcasing visual identity, concert posters, music videos, and film campaigns.',
+      fullDesc: 'Live studio showcase built with Next.js and high-impact editorial typography, spotlighting 5 flagship creative direction projects: Selam!Emre ("Bilmem Nasıl Yaşanır"), Kamufle & Genjah ("İsyan Et"), Soft Analog ("Gecenin Koynunda"), Berlin * İstanbul Portalı (Monarch Bar Berlin concert poster), and PASO XXV Film Festival.',
       structuralSpecs: [
-        { label: 'STATUS', value: 'WORK IN PROGRESS // SKELETON PHASE' },
-        { label: 'FRAMEWORK', value: 'NEXT.JS 16 + TYPESCRIPT' },
-        { label: 'MOTION ENGINE', value: 'GSAP SCROLLTRIGGER + LENIS' },
-        { label: 'LOCALIZATION', value: 'NEXT-INTL (TR/EN PARITY ENFORCED)' }
+        { label: 'STATUS', value: 'PRODUCTION LIVE' },
+        { label: 'STUDIO', value: 'MADCAT STUDIO // YİĞİT KAYI · DEFNE KÖKSAL' },
+        { label: 'DISCIPLINE', value: 'VISUAL IDENTITY & FILM DIRECTION' },
+        { label: 'SHOWCASE', value: '5 PROJECTS // BEHANCE PORTFOLIO' }
       ],
-      techStack: ['Next.js 16', 'TypeScript', 'GSAP', 'Lenis', 'next-intl'],
-      liveUrl: 'https://github.com',
-      repoUrl: 'https://github.com',
-      schematicType: 'MONOLITH GRID'
+      techStack: ['Next.js 16', 'TypeScript', 'Tailwind CSS', 'Editorial Typography', 'Motion Design'],
+      liveUrl: 'https://madcat-studio.vercel.app/',
+      repoUrl: 'https://github.com/EnverE/beton_portfolio',
+      schematicType: 'EDITORIAL',
+      visuals: [
+        {
+          title: 'PASO XXV',
+          subtitle: 'Film & Digital Media Festival Poster',
+          category: 'FESTIVAL POSTER // VISUAL IDENTITY',
+          image: '/showcase/madcat/paso-xxv.webp'
+        },
+        {
+          title: 'BERLIN * İSTANBUL PORTALI',
+          subtitle: 'Monarch Bar Berlin Concert & Motion Poster',
+          category: 'CONCERT POSTER // RAP NIGHT',
+          image: '/showcase/madcat/berlin-istanbul.webp'
+        },
+        {
+          title: 'SELAM!EMRE',
+          subtitle: 'Bilmem Nasıl Yaşanır — Music Video & Brand Campaign',
+          category: 'MUSIC VIDEO // ART DIRECTION',
+          image: '/showcase/madcat/selam-emre.webp'
+        },
+        {
+          title: 'KAMUFLE & GENJAH',
+          subtitle: 'İsyan Et — AI Digital Art & Music Video',
+          category: 'DIGITAL ART // NARRATIVE',
+          image: '/showcase/madcat/kamufle-isyan.webp'
+        },
+        {
+          title: 'SOFT ANALOG',
+          subtitle: 'Gecenin Koynunda — 9 Album Visualizers & Film',
+          category: 'ALBUM VISUALIZERS // FILM',
+          image: '/showcase/madcat/soft-analog.webp'
+        }
+      ]
     },
     {
       id: 'frutiger-aero',

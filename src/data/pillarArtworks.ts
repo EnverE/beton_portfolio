@@ -58,18 +58,19 @@ export const PILLAR_PROJECT_ARTWORKS: PillarArtworkConfig[] = [
   {
     id: 'art-aura',
     projectId: 'aura-flagship',
-    title: 'MADCAT // COLLECTIVE',
+    title: 'MADCAT STUDIO // VISUAL WORKS',
     code: 'MC-01',
     elevationY: 5.5,
     angleRad: 0.15,
     width: 2.1,
     height: 3.0,
-    primaryColor: '#fafafa',
-    accentColor: '#f59e0b',
-    tags: ['GRAPHIC COLLECTIVE', 'TOKEN MOTION', 'BILINGUAL PARITY'],
+    primaryColor: '#0c0c0e',
+    accentColor: '#f5534c',
+    tags: ['VISUAL IDENTITY', 'CONCERT POSTERS', 'FILM & MOTION'],
     stickers: [
-      { text: 'NEXT.JS 16', offsetX: 0.9, offsetY: 1.2, width: 0.75, height: 0.35, rotation: -0.12, bg: '#000000', fg: '#ffffff' },
-      { text: 'GSAP + LENIS', offsetX: -0.85, offsetY: -1.2, width: 0.8, height: 0.3, rotation: 0.08, bg: '#f59e0b', fg: '#000000' }
+      { text: 'MADCAT STUDIO', offsetX: 0.9, offsetY: 1.2, width: 0.85, height: 0.35, rotation: -0.10, bg: '#f5534c', fg: '#ffffff' },
+      { text: '5 PROJECTS // LIVE', offsetX: -0.85, offsetY: -1.2, width: 0.85, height: 0.3, rotation: 0.08, bg: '#f1ed6d', fg: '#000000' },
+      { text: 'YİĞİT KAYI · DEFNE KÖKSAL', offsetX: 0.05, offsetY: -1.35, width: 1.25, height: 0.28, rotation: -0.02, bg: '#000000', fg: '#ffffff' }
     ],
     graffitis: []
   },

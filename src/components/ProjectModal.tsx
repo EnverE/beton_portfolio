@@ -135,6 +135,52 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {fullDesc}
         </div>
 
+        {/* Visual Posters & Creative Works Gallery */}
+        {project.visuals && project.visuals.length > 0 && (
+          <div className="mb-8">
+            <div className="text-xs font-mono font-bold text-zinc-300 uppercase tracking-widest mb-4 flex items-center justify-between">
+              <span className="flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-[#f5534c]" />
+                {language === 'TR' ? 'ÖNE ÇIKAN AFİŞLER & GÖRSEL İŞLER' : 'FEATURED POSTERS & VISUAL WORKS'}
+              </span>
+              <span className="text-[10px] text-zinc-500 font-mono">
+                {project.visuals.length} {language === 'TR' ? 'ESER' : 'ARTIFACTS'}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+              {project.visuals.map((vis, vIdx) => (
+                <div
+                  key={vIdx}
+                  className="group relative bg-zinc-900 border border-zinc-800 hover:border-zinc-500 transition-all overflow-hidden flex flex-col shadow-[2px_2px_0_#000]"
+                >
+                  <div className="relative aspect-4/3 w-full bg-zinc-950 overflow-hidden">
+                    <img
+                      src={vis.image}
+                      alt={vis.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-2 left-2 px-2 py-0.5 bg-black/85 backdrop-blur-xs text-[9px] font-mono font-bold text-zinc-300 border border-white/10 uppercase">
+                      {vis.category}
+                    </div>
+                  </div>
+                  <div className="p-3 flex flex-col justify-between flex-1 bg-zinc-900/95">
+                    <div>
+                      <h4 className="font-display font-black text-xs sm:text-sm text-white group-hover:text-[#f5534c] transition-colors">
+                        {vis.title}
+                      </h4>
+                      <p className="text-[11px] text-zinc-400 mt-0.5 font-sans line-clamp-2">
+                        {vis.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Technology Stack Tags */}
         <div className="mb-8">
           <div className="text-xs font-mono font-bold text-zinc-400 uppercase tracking-wider mb-2">
@@ -169,6 +215,29 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                   <span>{t.works.launchShowcase}</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </button>
+                <a
+                  href="https://github.com/EnverE/beton_portfolio"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => brutalistAudio.playMechanicalClick()}
+                  className="flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white font-mono font-bold text-xs px-4 py-2.5 border border-zinc-700 hover:border-zinc-500 uppercase transition-all shadow-[2px_2px_0_#000] cursor-pointer"
+                >
+                  <Code2 className="w-3.5 h-3.5 text-zinc-400" />
+                  <span>{t.works.repoUrl}</span>
+                </a>
+              </>
+            ) : project.id === 'aura-flagship' ? (
+              <>
+                <a
+                  href={project.liveUrl || 'https://madcat-studio.vercel.app/'}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => brutalistAudio.playMechanicalClick()}
+                  className="flex items-center gap-2 bg-[#f5534c] hover:bg-white text-white hover:text-black font-display font-black text-xs sm:text-sm px-5 py-2.5 border border-[#f5534c] hover:border-white uppercase transition-all shadow-[2px_2px_0_#000] cursor-pointer"
+                >
+                  <span>{language === 'TR' ? 'MADCAT STUDIO\'YU ZİYARET ET' : 'VISIT MADCAT STUDIO'}</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
                 <a
                   href="https://github.com/EnverE/beton_portfolio"
                   target="_blank"

@@ -129,14 +129,14 @@ export const TRANSLATIONS = {
     },
     projects: {
       'aura-flagship': {
-        title: 'MADCAT COLLECTIVE // WORK IN PROGRESS',
-        shortDesc: 'Bilingual portfolio site in development for a graphic design collective, built around a single, deliberately-chosen motion language instead of a grab-bag of effects.',
-        fullDesc: 'Currently under active construction. Structural skeleton and routing are complete, visual design has not started yet. MadCat is architected around token-driven motion (every duration, easing curve, and transform value lives in one file) and a single site-wide animation verb, chosen only after comparing candidates side by side rather than assumed upfront. Full bilingual parity (Turkish/English) is enforced automatically at build time.',
+        title: 'MADCAT STUDIO // CREATIVE DIRECTION',
+        shortDesc: 'Live bilingual portfolio for MadCat Studio (Yiğit Kayi · Defne Köksal), showcasing visual identity, concert posters, music videos, and film campaigns.',
+        fullDesc: 'Live studio showcase built with Next.js and high-impact editorial typography, spotlighting 5 flagship creative direction projects: Selam!Emre ("Bilmem Nasıl Yaşanır"), Kamufle & Genjah ("İsyan Et"), Soft Analog ("Gecenin Koynunda"), Berlin * İstanbul Portalı (Monarch Bar Berlin concert poster), and PASO XXV Film Festival.',
         structuralSpecs: [
-          { label: 'STATUS', value: 'WORK IN PROGRESS // SKELETON PHASE' },
-          { label: 'FRAMEWORK', value: 'NEXT.JS 16 + TYPESCRIPT' },
-          { label: 'MOTION ENGINE', value: 'GSAP SCROLLTRIGGER + LENIS' },
-          { label: 'LOCALIZATION', value: 'NEXT-INTL (TR/EN PARITY ENFORCED)' }
+          { label: 'STATUS', value: 'PRODUCTION LIVE' },
+          { label: 'STUDIO', value: 'MADCAT STUDIO // YİĞİT KAYI · DEFNE KÖKSAL' },
+          { label: 'DISCIPLINE', value: 'VISUAL IDENTITY & FILM DIRECTION' },
+          { label: 'SHOWCASE', value: '5 PROJECTS // BEHANCE PORTFOLIO' }
         ]
       },
       'frutiger-aero': {
@@ -330,14 +330,14 @@ export const TRANSLATIONS = {
     },
     projects: {
       'aura-flagship': {
-        title: 'MADCAT KOLEKTİFİ // YAPIM AŞAMASINDA',
-        shortDesc: 'Bir grafik tasarım kolektifi için geliştirilmekte olan, bir dizi rastgele efekt yerine tek ve bilinçli seçilmiş bir hareket diline dayanan iki dilli portfolyo sitesi.',
-        fullDesc: 'Şu anda aktif geliştirme aşamasında. Yapısal iskelet ve yönlendirme tamamlandı, görsel tasarım henüz başlamadı. MadCat, belirteç tabanlı harekete (her süre, yumuşatma eğrisi ve dönüşüm değeri tek bir dosyada tutulur) ve baştan varsayılmak yerine adaylar birbiriyle karşılaştırılarak seçilen tek bir site geneli animasyon diline göre kurgulanmıştır. Türkçe/İngilizce tam çeviri eşleşmesi derleme sırasında otomatik olarak denetlenir.',
+        title: 'MADCAT STUDIO // YARATICI YÖNETİM',
+        shortDesc: 'MadCat Studio (Yiğit Kayi · Defne Köksal) için görsel kimlik, konser afişleri, müzik videoları ve festival kampanyalarını sergileyen canlı portfolyo.',
+        fullDesc: 'Next.js ve çarpıcı editoryal tipografiyle hayata geçirilen yaratıcı stüdyo vitrini; 5 amiral gemisi projeyi öne çıkarıyor: Selam!Emre ("Bilmem Nasıl Yaşanır"), Kamufle & Genjah ("İsyan Et"), Soft Analog ("Gecenin Koynunda"), Berlin * İstanbul Portalı (Monarch Bar Berlin konser afişi) ve PASO XXV Öğrenci Film Festivali.',
         structuralSpecs: [
-          { label: 'DURUM', value: 'YAPIM AŞAMASINDA // İSKELET SÜRECİ' },
-          { label: 'ALTYAPI', value: 'NEXT.JS 16 + TYPESCRIPT' },
-          { label: 'HAREKET MOTORU', value: 'GSAP SCROLLTRIGGER + LENIS' },
-          { label: 'YERELLEŞTİRME', value: 'NEXT-INTL (TR/EN EŞLEŞMESİ ZORUNLU)' }
+          { label: 'STATUS', value: 'CANLI YAYINDA' },
+          { label: 'STUDIO', value: 'MADCAT STUDIO // YİĞİT KAYI · DEFNE KÖKSAL' },
+          { label: 'DISCIPLINE', value: 'GÖRSEL KİMLİK & FİLM YÖNETİMİ' },
+          { label: 'SHOWCASE', value: '5 PROJE // BEHANCE PORTFOLYOSU' }
         ]
       },
       'frutiger-aero': {
