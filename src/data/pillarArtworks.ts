@@ -64,7 +64,7 @@ export const PILLAR_PROJECT_ARTWORKS: PillarArtworkConfig[] = [
     angleRad: 0.15,
     width: 1.75,
     height: 2.5,
-    customImageUrl: '/showcase/madcat/main-menu.jpg',
+    customImageUrl: '/showcase/madcat/starting-screen.jpg',
     primaryColor: '#0a0a0c',
     accentColor: '#f5534c',
     tags: ['MAIN MENU', 'BRUTALIST WEB', 'CREATIVE WORKS'],

@@ -95,161 +95,75 @@ export class PillarTextureFactory {
 
     if (config.id === 'art-aura') {
       // =========================================================================
-      // MADCAT STUDIO // POSTER 01: WEB PLATFORM & MAIN MENU
+      // MADCAT STUDIO // POSTER 01: STARTING SCREEN (FULL BLEED, NO CONTAINER)
       // =========================================================================
-      ctx.fillStyle = '#0c0c0e';
+      ctx.fillStyle = '#141416';
       ctx.fillRect(0, 0, w, h);
 
-      // Grid
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+      // Subtle atmospheric line grid
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
       ctx.lineWidth = 1;
-      for (let x = 0; x < w; x += 36) {
+      for (let x = 0; x < w; x += 48) {
         ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
       }
-      for (let y = 0; y < h; y += 36) {
-        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
-      }
 
-      // Top Editorial Header
-      ctx.fillStyle = '#f5534c';
-      ctx.fillRect(55, 60, w - 110, 4);
+      // 1. Top Navigation Bar (matching live site header)
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 32px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('MadCat Studio', 60, 95);
 
-      ctx.font = '800 22px "JetBrains Mono", monospace';
-      ctx.fillStyle = '#f5534c';
-      ctx.fillText('MADCAT STUDIO // WEB ARCHITECTURE', 55, 98);
-
-      ctx.font = '700 18px "JetBrains Mono", monospace';
+      ctx.font = '700 22px "JetBrains Mono", monospace';
       ctx.fillStyle = '#a1a1aa';
-      ctx.fillText('YİĞİT KAYI · DEFNE KÖKSAL', w - 380, 98);
+      ctx.fillText('İşler', w - 560, 95);
+      ctx.fillText('Hakkımızda', w - 460, 95);
+      ctx.fillText('İletişim', w - 270, 95);
 
-      // Giant Studio Wordmark
-      ctx.font = '900 118px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('TR', w - 120, 95);
+      ctx.fillStyle = '#52525b';
+      ctx.fillText('/', w - 82, 95);
+      ctx.fillStyle = '#a1a1aa';
+      ctx.fillText('EN', w - 62, 95);
+
+      // 2. Subtitle: Yaratıcı işler
+      ctx.fillStyle = '#a1a1aa';
+      ctx.font = '700 24px "JetBrains Mono", monospace';
+      ctx.fillText('YARATICI İŞLER', 60, 240);
+
+      // 3. Monumental Wordmark (matches the 19vw hero title on live site)
       ctx.fillStyle = '#fafafa';
-      ctx.fillText('MadCat', 55, 215);
+      ctx.font = '900 170px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('MadCat', 55, 520);
+      ctx.fillText('Studio', 55, 820);
 
-      ctx.font = '900 118px "Plus Jakarta Sans", sans-serif';
-      ctx.fillStyle = '#f5534c';
-      ctx.fillText('Studio.', 510, 215);
-
-      // Status Bar: WIP
-      ctx.fillStyle = '#f59e0b';
-      ctx.fillRect(55, 250, 420, 38);
-      ctx.fillStyle = '#0c0c0e';
-      ctx.font = '900 17px "JetBrains Mono", monospace';
-      ctx.fillText('STATUS // WORK IN PROGRESS (WIP)', 70, 275);
-
-      // Main Menu UI Preview Window Mockup
-      const winX = 55;
-      const winY = 320;
-      const winW = w - 110;
-      const winH = 760;
-
-      ctx.fillStyle = '#18181b';
-      ctx.fillRect(winX, winY, winW, winH);
+      // 4. Bottom Information Bar (5 proje / Yiğit Kayi · Defne Köksal / Kaydır)
+      const botY = h - 160;
       ctx.strokeStyle = '#27272a';
-      ctx.lineWidth = 3;
-      ctx.strokeRect(winX, winY, winW, winH);
-
-      // Window title bar
-      ctx.fillStyle = '#27272a';
-      ctx.fillRect(winX, winY, winW, 46);
-
-      // Browser dots
-      ctx.fillStyle = '#ef4444';
-      ctx.beginPath(); ctx.arc(winX + 25, winY + 23, 7, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = '#eab308';
-      ctx.beginPath(); ctx.arc(winX + 48, winY + 23, 7, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = '#22c55e';
-      ctx.beginPath(); ctx.arc(winX + 71, winY + 23, 7, 0, Math.PI * 2); ctx.fill();
-
-      // Navigation URL
-      ctx.fillStyle = '#a1a1aa';
-      ctx.font = '700 16px "JetBrains Mono", monospace';
-      ctx.fillText('https://madcat-studio.vercel.app/ — MAIN MENU', winX + 105, winY + 29);
-
-      // Main Menu Top Bar Preview inside window
-      ctx.fillStyle = '#0f0f12';
-      ctx.fillRect(winX + 15, winY + 60, winW - 30, 60);
-      ctx.fillStyle = '#ffffff';
-      ctx.font = '800 20px "Plus Jakarta Sans", sans-serif';
-      ctx.fillText('MADCAT STUDIO', winX + 35, winY + 98);
-
-      const navItems = ['İŞLER', 'HAKKIMIZDA', 'İLETİŞİM', 'TR / EN'];
-      ctx.font = '700 15px "JetBrains Mono", monospace';
-      ctx.fillStyle = '#a1a1aa';
-      navItems.forEach((item, idx) => {
-        ctx.fillText(item, winX + 380 + idx * 140, winY + 97);
-      });
-
-      // Hero Body preview inside window
-      const previewAreaY = winY + 135;
-      const previewAreaH = winH - 150;
-      ctx.fillStyle = '#0a0a0c';
-      ctx.fillRect(winX + 15, previewAreaY, winW - 30, previewAreaH);
-
-      // Placeholder content inside window
-      ctx.fillStyle = '#f5534c';
-      ctx.font = '800 28px "JetBrains Mono", monospace';
-      ctx.fillText('YARATICI İŞLER // 5 PROJE', winX + 45, previewAreaY + 70);
-
-      ctx.fillStyle = '#f4f4f5';
-      ctx.font = '900 68px "Plus Jakarta Sans", sans-serif';
-      ctx.fillText('MadCat Studio', winX + 45, previewAreaY + 160);
-
-      ctx.fillStyle = '#71717a';
-      ctx.font = '600 18px "JetBrains Mono", monospace';
-      ctx.fillText('PROTOTİP: FAZ 1 SKELETON → FAZ 7 YOL HARİTASI', winX + 45, previewAreaY + 220);
-      ctx.fillText('Yazı tipleri ve projeler Behance portfolyosu ile senkronizedir.', winX + 45, previewAreaY + 255);
-
-      // Mini cards preview
-      const cardW = (winW - 90) / 2;
-      ctx.fillStyle = '#1c1917';
-      ctx.fillRect(winX + 45, previewAreaY + 310, cardW, 230);
-      ctx.strokeStyle = '#f5534c';
       ctx.lineWidth = 2;
-      ctx.strokeRect(winX + 45, previewAreaY + 310, cardW, 230);
-      ctx.fillStyle = '#f5534c';
-      ctx.font = '800 20px "JetBrains Mono", monospace';
-      ctx.fillText('01 // SELAM!EMRE', winX + 65, previewAreaY + 355);
-      ctx.fillStyle = '#a8a29e';
-      ctx.font = '600 16px "Plus Jakarta Sans", sans-serif';
-      ctx.fillText('Müzik Videosu & Marka Kampanyası', winX + 65, previewAreaY + 395);
+      ctx.beginPath();
+      ctx.moveTo(55, botY - 30);
+      ctx.lineTo(w - 55, botY - 30);
+      ctx.stroke();
 
-      ctx.fillStyle = '#1c1917';
-      ctx.fillRect(winX + 65 + cardW, previewAreaY + 310, cardW, 230);
-      ctx.strokeStyle = '#f1ed6d';
-      ctx.strokeRect(winX + 65 + cardW, previewAreaY + 310, cardW, 230);
-      ctx.fillStyle = '#f1ed6d';
-      ctx.font = '800 20px "JetBrains Mono", monospace';
-      ctx.fillText('02 // KAMUFLE & GENJAH', winX + 85 + cardW, previewAreaY + 355);
-      ctx.fillStyle = '#a8a29e';
-      ctx.font = '600 16px "Plus Jakarta Sans", sans-serif';
-      ctx.fillText('İsyan Et — AI Dijital Sanat & Video', winX + 85 + cardW, previewAreaY + 395);
-
-      // Bottom Bar
-      const botY = winY + winH + 40;
-      ctx.fillStyle = '#f5534c';
-      ctx.fillRect(55, botY, w - 110, 48);
       ctx.fillStyle = '#ffffff';
-      ctx.font = '900 18px "JetBrains Mono", monospace';
+      ctx.font = '800 26px "JetBrains Mono", monospace';
+      ctx.fillText('5 PROJE', 60, botY + 25);
+
+      ctx.fillStyle = '#d4d4d8';
+      ctx.font = '700 24px "Plus Jakarta Sans", sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('MADCAT-STUDIO.VERCEL.APP // CLICK TO EXPAND WORK VAULT', w / 2, botY + 31);
+      ctx.fillText('Yiğit Kayi · Defne Köksal', w / 2, botY + 25);
       ctx.textAlign = 'left';
 
-      // Rubber stamp
-      ctx.save();
-      ctx.translate(w - 180, 1340);
-      ctx.rotate(-0.08);
-      ctx.strokeStyle = '#f59e0b';
-      ctx.lineWidth = 4;
-      ctx.strokeRect(-110, -35, 220, 70);
-      ctx.fillStyle = '#f59e0b';
-      ctx.font = '900 18px "JetBrains Mono", monospace';
-      ctx.textAlign = 'center';
-      ctx.fillText('WIP // SPRINT ACTIVE', 0, -4);
-      ctx.font = '700 13px "JetBrains Mono", monospace';
-      ctx.fillText('PHASE 1-2 LIVE', 0, 18);
-      ctx.restore();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 24px "JetBrains Mono", monospace';
+      ctx.textAlign = 'right';
+      ctx.fillText('KAYDIR ↓', w - 60, botY + 25);
+      ctx.textAlign = 'left';
+
+      ctx.fillStyle = '#71717a';
+      ctx.font = '500 18px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('Prototip. Projeler gerçek, Behance\'ten.', 60, botY + 80);
     } else if (config.id === 'art-aura-paso') {
       // =========================================================================
       // MADCAT STUDIO // POSTER 02: PASO XXV 25. YIL FİLM FESTİVALİ
@@ -575,16 +489,8 @@ export class PillarTextureFactory {
       img.src = config.customImageUrl;
       img.onload = () => {
         try {
-          if (config.id === 'art-aura') {
-            ctx.drawImage(img, 70, 455, w - 140, 580);
-            texture.needsUpdate = true;
-          } else if (config.id === 'art-aura-paso') {
-            ctx.drawImage(img, 65, 520, w - 130, 420);
-            texture.needsUpdate = true;
-          } else if (config.id === 'art-aura-berlin') {
-            ctx.drawImage(img, 65, 560, w - 130, 460);
-            texture.needsUpdate = true;
-          }
+          ctx.drawImage(img, 0, 0, w, h);
+          texture.needsUpdate = true;
         } catch {
           // Fallback gracefully to procedural drawing
         }
