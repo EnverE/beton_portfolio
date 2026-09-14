@@ -139,17 +139,6 @@ export const TRANSLATIONS = {
           { label: 'SHOWCASE', value: '5 PROJECTS // BEHANCE PORTFOLIO' }
         ]
       },
-      'frutiger-aero': {
-        title: 'ECO-SPHERE // FRUTIGER AERO & FISHBOWL',
-        shortDesc: 'An inside-a-fishbowl web experience looking out at Windows XP Bliss hills, with a cursor-chasing clownfish, interactive popping bubbles, and rich blue-green glass.',
-        fullDesc: 'Built directly within this domain to demonstrate dynamic aesthetic range. Contrasting the rugged monolithic concrete of the main portfolio, Eco-Sphere reconstructs authentic 2000s Frutiger Aero and Windows XP design craft: curved fishbowl glass optics, an animated clownfish chasing the cursor, tactile popping bubbles with droplet sound synthesis, and a skeuomorphic XP Media Player.',
-        structuralSpecs: [
-          { label: 'STATUS', value: 'INTERACTIVE PRODUCTION PROTOTYPE' },
-          { label: 'VANTAGE', value: 'FISHBOWL SPHERE // XP BLISS HORIZON' },
-          { label: 'COMPANION', value: 'CURSOR-PURSUING CLOWNFISH' },
-          { label: 'ROUTING', value: 'SAME-DOMAIN SPA SHOWCASE' }
-        ]
-      },
       'next-project': {
         title: 'YOU COULD BE NEXT',
         shortDesc: "Have an ambitious idea, a portfolio, or a product that deserves distinct motion and brutalist craft? Let's build it together.",
@@ -338,17 +327,6 @@ export const TRANSLATIONS = {
           { label: 'STUDIO', value: 'MADCAT STUDIO // YİĞİT KAYI · DEFNE KÖKSAL' },
           { label: 'DISCIPLINE', value: 'GÖRSEL KİMLİK & FİLM YÖNETİMİ' },
           { label: 'SHOWCASE', value: '5 PROJE // BEHANCE PORTFOLYOSU' }
-        ]
-      },
-      'frutiger-aero': {
-        title: 'ECO-SPHERE // FRUTIGER AERO & FANUS',
-        shortDesc: 'İçeriden Windows XP Bliss tepelerine bakan kristal bir fanus, imleci takip eden palyaço balığı ve patlatılabilir baloncuklarla nostaljik bir web deneyimi.',
-        fullDesc: 'Tasarım vizyonumun ve uygulama gücümün genişliğini kanıtlamak amacıyla doğrudan bu alan adı içinde geliştirildi. Ana portfolyonun monolitik brüt beton estetiğine tezat oluşturan Eco-Sphere; kavisli cam fanus optikleri, imleci kovalayan hareketli palyaço balığı, damlacık ses efektli patlatılabilir baloncuklar ve skeuomorfik XP Media Player ile otantik 2000’ler Frutiger Aero ve Windows XP tasarım ustalığını yeniden canlandırır.',
-        structuralSpecs: [
-          { label: 'DURUM', value: 'ETKİLEŞİMLİ CANLI PROTOTİP' },
-          { label: 'BAKIŞ AÇISI', value: 'CAM FANUS // XP BLISS UFUK ÇİZGİSİ' },
-          { label: 'YOLDAŞ', value: 'İMLECİ TAKİP EDEN PALYAÇO BALIĞI' },
-          { label: 'YÖNLENDİRME', value: 'AYNI ALAN ADINDA SPA DENEYİMİ' }
         ]
       },
       'next-project': {

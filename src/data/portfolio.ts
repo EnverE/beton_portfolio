@@ -238,34 +238,12 @@ export const PORTFOLIO_DATA = {
       ]
     },
     {
-      id: 'frutiger-aero',
-      code: 'AERO // 02',
-      title: 'ECO-SPHERE // FRUTIGER AERO & FISHBOWL',
-      sector: 'DESIGN CAPABILITY',
-      year: '2026',
-      elevation: 'ELEVATION 02',
-      renderMetric: 'AERO GLASS & FISHBOWL COMPANION',
-      status: 'INTERACTIVE LIVE',
-      shortDesc: 'An inside-a-fishbowl web experience looking out at Windows XP Bliss hills, with a cursor-chasing clownfish, interactive popping bubbles, and rich blue-green glass.',
-      fullDesc: 'Built directly within this domain to prove dynamic aesthetic range. Contrasting the rugged monolithic concrete of the main portfolio, Eco-Sphere demonstrates authentic 2000s Frutiger Aero and Windows XP design craft: curved fishbowl glass optics, an animated clownfish chasing the cursor, tactile popping bubbles with droplet sound synthesis, and a skeuomorphic XP Media Player.',
-      structuralSpecs: [
-        { label: 'STATUS', value: 'INTERACTIVE PRODUCTION PROTOTYPE' },
-        { label: 'VANTAGE', value: 'FISHBOWL SPHERE // XP BLISS HORIZON' },
-        { label: 'COMPANION', value: 'CURSOR-PURSUING CLOWNFISH' },
-        { label: 'ROUTING', value: 'SAME-DOMAIN SPA SHOWCASE' }
-      ],
-      techStack: ['React 19', 'Tailwind CSS', 'Web Audio API', 'TypeScript', 'Vector Physics'],
-      liveUrl: '/showcase/frutiger-aero',
-      repoUrl: 'https://github.com/EnverE/beton_portfolio',
-      schematicType: 'AERO SKEUOMORPHISM'
-    },
-    {
       id: 'next-project',
-      code: 'NEXT // 03',
+      code: 'NEXT // 02',
       title: 'YOU COULD BE NEXT',
       sector: 'WEB DESIGN',
       year: '2026',
-      elevation: 'ELEVATION 03',
+      elevation: 'ELEVATION 02',
       renderMetric: 'DIRECT INQUIRIES OPEN',
       status: 'COMMISSIONED',
       shortDesc: "Have an ambitious idea, a portfolio, or a product that deserves distinct motion and brutalist craft? Let's build it together.",
