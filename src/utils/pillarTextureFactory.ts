@@ -93,272 +93,371 @@ export class PillarTextureFactory {
     ctx.lineWidth = 16;
     ctx.stroke();
 
-    if (config.projectId === 'aura-flagship') {
+    if (config.id === 'art-aura') {
       // =========================================================================
-      // MADCAT STUDIO // VISUAL DIRECTION & POSTERS SHOWCASE
+      // MADCAT STUDIO // POSTER 01: WEB PLATFORM & MAIN MENU
       // =========================================================================
-      // 1. Dark Ink Brutalist Editorial Canvas with Poster Bleed
-      ctx.fillStyle = '#0a0a0c';
+      ctx.fillStyle = '#0c0c0e';
       ctx.fillRect(0, 0, w, h);
 
-      // Distressed Paper Grain & Halftone Grid
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+      // Grid
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
       ctx.lineWidth = 1;
-      for (let x = 0; x < w; x += 32) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, h);
-        ctx.stroke();
+      for (let x = 0; x < w; x += 36) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
       }
-      for (let y = 0; y < h; y += 32) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(w, y);
-        ctx.stroke();
+      for (let y = 0; y < h; y += 36) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
       }
 
-      // Top Editorial Header Strip
+      // Top Editorial Header
       ctx.fillStyle = '#f5534c';
-      ctx.fillRect(50, 60, w - 100, 4);
+      ctx.fillRect(55, 60, w - 110, 4);
 
-      ctx.font = '800 24px "JetBrains Mono", monospace';
+      ctx.font = '800 22px "JetBrains Mono", monospace';
       ctx.fillStyle = '#f5534c';
-      ctx.fillText('MADCAT STUDIO // YARATICI İŞLER', 55, 100);
+      ctx.fillText('MADCAT STUDIO // WEB ARCHITECTURE', 55, 98);
 
-      ctx.font = '700 20px "JetBrains Mono", monospace';
+      ctx.font = '700 18px "JetBrains Mono", monospace';
       ctx.fillStyle = '#a1a1aa';
-      ctx.fillText('YİĞİT KAYI · DEFNE KÖKSAL', w - 420, 100);
+      ctx.fillText('YİĞİT KAYI · DEFNE KÖKSAL', w - 380, 98);
 
       // Giant Studio Wordmark
-      ctx.font = '900 132px "Plus Jakarta Sans", sans-serif';
-      ctx.fillStyle = '#f4f4f5';
-      ctx.fillText('MadCat', 55, 230);
+      ctx.font = '900 118px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#fafafa';
+      ctx.fillText('MadCat', 55, 215);
 
-      ctx.font = '900 132px "Plus Jakarta Sans", sans-serif';
+      ctx.font = '900 118px "Plus Jakarta Sans", sans-serif';
       ctx.fillStyle = '#f5534c';
-      ctx.fillText('Studio.', 560, 230);
+      ctx.fillText('Studio.', 510, 215);
 
-      // Studio Sub-bar
-      ctx.font = '700 24px "JetBrains Mono", monospace';
-      ctx.fillStyle = '#d4d4d8';
-      ctx.fillText('5 FLAGSHIP CAMPAIGNS // BEHANCE SHOWCASE', 55, 280);
+      // Status Bar: WIP
+      ctx.fillStyle = '#f59e0b';
+      ctx.fillRect(55, 250, 420, 38);
+      ctx.fillStyle = '#0c0c0e';
+      ctx.font = '900 17px "JetBrains Mono", monospace';
+      ctx.fillText('STATUS // WORK IN PROGRESS (WIP)', 70, 275);
 
-      // Accent pill tag
-      ctx.fillStyle = '#f1ed6d';
-      ctx.fillRect(55, 305, 340, 36);
-      ctx.fillStyle = '#0a0a0c';
-      ctx.font = '900 18px "JetBrains Mono", monospace';
-      ctx.fillText('madcat-studio.vercel.app', 70, 329);
+      // Main Menu UI Preview Window Mockup
+      const winX = 55;
+      const winY = 320;
+      const winW = w - 110;
+      const winH = 760;
 
-      // =========================================================================
-      // DUAL POSTER SHOWCASE PANELS (PASO XXV & BERLIN-ISTANBUL)
-      // =========================================================================
-      
-      // LEFT POSTER: PASO XXV (Ticket Stub Film Festival Poster)
-      const p1x = 55;
-      const p1y = 370;
-      const p1w = (w - 140) / 2;
-      const p1h = 580;
-
-      // Card paper background
-      ctx.fillStyle = '#e6f1e3'; // signature PASO pale pistachio
-      ctx.fillRect(p1x, p1y, p1w, p1h);
-
-      // Ticket Stub Jagged Notch at top & bottom
-      ctx.fillStyle = '#0a0a0c';
-      ctx.beginPath();
-      ctx.arc(p1x, p1y + 120, 18, -Math.PI / 2, Math.PI / 2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.arc(p1x + p1w, p1y + 120, 18, Math.PI / 2, -Math.PI / 2);
-      ctx.fill();
-
-      // Perforated line across ticket
-      ctx.strokeStyle = 'rgba(46, 46, 46, 0.4)';
-      ctx.lineWidth = 2;
-      ctx.setLineDash([6, 6]);
-      ctx.beginPath();
-      ctx.moveTo(p1x + 20, p1y + 120);
-      ctx.lineTo(p1x + p1w - 20, p1y + 120);
-      ctx.stroke();
-      ctx.setLineDash([]);
-
-      // PASO XXV Header & Type
-      ctx.fillStyle = '#2e2e2e';
-      ctx.font = '900 18px "JetBrains Mono", monospace';
-      ctx.fillText('ANKARA // 25. YIL', p1x + 25, p1y + 50);
-
-      ctx.font = '700 14px "JetBrains Mono", monospace';
-      ctx.fillStyle = '#4f5752';
-      ctx.fillText('FİLM & DİJİTAL MEDYA', p1x + 25, p1y + 80);
-
-      // Giant PASO XXV Title
-      ctx.font = '900 68px "Plus Jakarta Sans", sans-serif';
-      ctx.fillStyle = '#c81e74'; // signature magenta
-      ctx.fillText('PASO', p1x + 25, p1y + 220);
-      ctx.font = '900 68px "Plus Jakarta Sans", sans-serif';
-      ctx.fillStyle = '#2e2e2e';
-      ctx.fillText('XXV', p1x + 215, p1y + 220);
-
-      // Graphic Badge inside PASO poster
-      ctx.fillStyle = '#c81e74';
-      ctx.beginPath();
-      ctx.arc(p1x + p1w / 2, p1y + 340, 75, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = '#e6f1e3';
-      ctx.font = '900 24px "JetBrains Mono", monospace';
-      ctx.textAlign = 'center';
-      ctx.fillText('FESTİVAL', p1x + p1w / 2, p1y + 335);
-      ctx.font = '700 16px "JetBrains Mono", monospace';
-      ctx.fillText('BİLETİ', p1x + p1w / 2, p1y + 360);
-      ctx.textAlign = 'left';
-
-      // Barcode on ticket stub
-      ctx.fillStyle = '#2e2e2e';
-      for (let bx = p1x + 30; bx < p1x + p1w - 30; bx += 8) {
-        ctx.fillRect(bx, p1y + 460, (bx % 3 === 0 ? 5 : 2), 65);
-      }
-      ctx.font = '700 14px "JetBrains Mono", monospace';
-      ctx.fillText('NO: 0025-PASO-ANKARA', p1x + 30, p1y + 550);
-
-      // RIGHT POSTER: BERLIN * İSTANBUL PORTALI (Concert Poster)
-      const p2x = p1x + p1w + 30;
-      const p2y = p1y;
-      const p2w = p1w;
-      const p2h = p1h;
-
-      // Card paper background
-      ctx.fillStyle = '#f5534c'; // signature concert coral red
-      ctx.fillRect(p2x, p2y, p2w, p2h);
-
-      // Top venue header
-      ctx.fillStyle = '#140707';
-      ctx.font = '900 18px "JetBrains Mono", monospace';
-      ctx.fillText('MONARCH BAR // BERLIN', p2x + 25, p2y + 50);
-
-      ctx.font = '700 14px "JetBrains Mono", monospace';
-      ctx.fillStyle = '#ebea8e';
-      ctx.fillText('RAP GECESİ & HAREKETLİ AFİŞ', p2x + 25, p2y + 80);
-
-      // Bold Portal Title
-      ctx.font = '900 52px "Plus Jakarta Sans", sans-serif';
-      ctx.fillStyle = '#140707';
-      ctx.fillText('BERLIN *', p2x + 25, p2y + 160);
-      ctx.fillText('İSTANBUL', p2x + 25, p2y + 225);
-      ctx.fillStyle = '#ebea8e';
-      ctx.fillText('PORTALI', p2x + 25, p2y + 290);
-
-      // Artist line-up block
-      ctx.fillStyle = '#140707';
-      ctx.fillRect(p2x + 25, p2y + 325, p2w - 50, 160);
-
-      ctx.fillStyle = '#ffffff';
-      ctx.font = '900 22px "JetBrains Mono", monospace';
-      ctx.fillText('SHAO // GRi', p2x + 45, p2y + 375);
-      ctx.fillText('MARDA // NARDiS', p2x + 45, p2y + 420);
-      ctx.fillStyle = '#f5534c';
-      ctx.font = '700 16px "JetBrains Mono", monospace';
-      ctx.fillText('LIVE AT KREUZBERG', p2x + 45, p2y + 460);
-
-      ctx.font = '700 14px "JetBrains Mono", monospace';
-      ctx.fillStyle = '#140707';
-      ctx.fillText('KREATİF: YİĞİT KAYI · DEFNE KÖKSAL', p2x + 25, p2y + 550);
-
-      // =========================================================================
-      // BOTTOM MARQUEE: OTHER PROJECTS (Selam!Emre, Kamufle, Soft Analog)
-      // =========================================================================
-      const bCardY = p1y + p1h + 30;
-      const bCardH = 260;
       ctx.fillStyle = '#18181b';
+      ctx.fillRect(winX, winY, winW, winH);
       ctx.strokeStyle = '#27272a';
-      ctx.lineWidth = 2;
-      ctx.strokeRect(55, bCardY, w - 110, bCardH);
-      ctx.fillRect(55, bCardY, w - 110, bCardH);
+      ctx.lineWidth = 3;
+      ctx.strokeRect(winX, winY, winW, winH);
 
-      // Sub-cards
-      const subCols = [
-        {
-          num: '01',
-          name: 'SELAM!EMRE',
-          sub: 'Bilmem Nasıl Yaşanır',
-          tag: 'Müzik Videosu',
-          col: '#f1ed6d',
-          fg: '#0a0a0c'
-        },
-        {
-          num: '02',
-          name: 'KAMUFLE & GENJAH',
-          sub: 'İsyan Et // Yalaz Albümü',
-          tag: 'AI Dijital Sanat',
-          col: '#ff2b1c',
-          fg: '#ffffff'
-        },
-        {
-          num: '03',
-          name: 'SOFT ANALOG',
-          sub: 'Gecenin Koynunda',
-          tag: 'Albüm Görselleştirici',
-          col: '#e0a458',
-          fg: '#0a0a0c'
-        }
-      ];
+      // Window title bar
+      ctx.fillStyle = '#27272a';
+      ctx.fillRect(winX, winY, winW, 46);
 
-      const colW = (w - 150) / 3;
-      subCols.forEach((sc, i) => {
-        const cx = 75 + i * (colW + 10);
-        ctx.fillStyle = '#27272a';
-        ctx.fillRect(cx, bCardY + 20, colW, bCardH - 40);
+      // Browser dots
+      ctx.fillStyle = '#ef4444';
+      ctx.beginPath(); ctx.arc(winX + 25, winY + 23, 7, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#eab308';
+      ctx.beginPath(); ctx.arc(winX + 48, winY + 23, 7, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#22c55e';
+      ctx.beginPath(); ctx.arc(winX + 71, winY + 23, 7, 0, Math.PI * 2); ctx.fill();
 
-        // Badge
-        ctx.fillStyle = sc.col;
-        ctx.fillRect(cx + 15, bCardY + 35, 45, 26);
-        ctx.fillStyle = sc.fg;
-        ctx.font = '900 16px "JetBrains Mono", monospace';
-        ctx.fillText(sc.num, cx + 24, bCardY + 54);
+      // Navigation URL
+      ctx.fillStyle = '#a1a1aa';
+      ctx.font = '700 16px "JetBrains Mono", monospace';
+      ctx.fillText('https://madcat-studio.vercel.app/ — MAIN MENU', winX + 105, winY + 29);
 
-        ctx.fillStyle = '#fafafa';
-        ctx.font = '800 20px "Plus Jakarta Sans", sans-serif';
-        ctx.fillText(sc.name, cx + 15, bCardY + 100);
+      // Main Menu Top Bar Preview inside window
+      ctx.fillStyle = '#0f0f12';
+      ctx.fillRect(winX + 15, winY + 60, winW - 30, 60);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 20px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('MADCAT STUDIO', winX + 35, winY + 98);
 
-        ctx.font = '600 16px "Plus Jakarta Sans", sans-serif';
-        ctx.fillStyle = '#a1a1aa';
-        ctx.fillText(sc.sub, cx + 15, bCardY + 135);
-
-        ctx.font = '700 14px "JetBrains Mono", monospace';
-        ctx.fillStyle = sc.col;
-        ctx.fillText(`• ${sc.tag}`, cx + 15, bCardY + 185);
+      const navItems = ['İŞLER', 'HAKKIMIZDA', 'İLETİŞİM', 'TR / EN'];
+      ctx.font = '700 15px "JetBrains Mono", monospace';
+      ctx.fillStyle = '#a1a1aa';
+      navItems.forEach((item, idx) => {
+        ctx.fillText(item, winX + 380 + idx * 140, winY + 97);
       });
 
-      // Bottom Call-To-Action Pill
-      const ctaW = 540;
-      const ctaH = 75;
-      const ctaX = (w - ctaW) / 2;
-      const ctaY = bCardY + bCardH + 30;
+      // Hero Body preview inside window
+      const previewAreaY = winY + 135;
+      const previewAreaH = winH - 150;
+      ctx.fillStyle = '#0a0a0c';
+      ctx.fillRect(winX + 15, previewAreaY, winW - 30, previewAreaH);
 
+      // Placeholder content inside window
       ctx.fillStyle = '#f5534c';
-      ctx.beginPath();
-      ctx.roundRect(ctaX, ctaY, ctaW, ctaH, 38);
-      ctx.fill();
+      ctx.font = '800 28px "JetBrains Mono", monospace';
+      ctx.fillText('YARATICI İŞLER // 5 PROJE', winX + 45, previewAreaY + 70);
 
+      ctx.fillStyle = '#f4f4f5';
+      ctx.font = '900 68px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('MadCat Studio', winX + 45, previewAreaY + 160);
+
+      ctx.fillStyle = '#71717a';
+      ctx.font = '600 18px "JetBrains Mono", monospace';
+      ctx.fillText('PROTOTİP: FAZ 1 SKELETON → FAZ 7 YOL HARİTASI', winX + 45, previewAreaY + 220);
+      ctx.fillText('Yazı tipleri ve projeler Behance portfolyosu ile senkronizedir.', winX + 45, previewAreaY + 255);
+
+      // Mini cards preview
+      const cardW = (winW - 90) / 2;
+      ctx.fillStyle = '#1c1917';
+      ctx.fillRect(winX + 45, previewAreaY + 310, cardW, 230);
+      ctx.strokeStyle = '#f5534c';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(winX + 45, previewAreaY + 310, cardW, 230);
+      ctx.fillStyle = '#f5534c';
+      ctx.font = '800 20px "JetBrains Mono", monospace';
+      ctx.fillText('01 // SELAM!EMRE', winX + 65, previewAreaY + 355);
+      ctx.fillStyle = '#a8a29e';
+      ctx.font = '600 16px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('Müzik Videosu & Marka Kampanyası', winX + 65, previewAreaY + 395);
+
+      ctx.fillStyle = '#1c1917';
+      ctx.fillRect(winX + 65 + cardW, previewAreaY + 310, cardW, 230);
+      ctx.strokeStyle = '#f1ed6d';
+      ctx.strokeRect(winX + 65 + cardW, previewAreaY + 310, cardW, 230);
+      ctx.fillStyle = '#f1ed6d';
+      ctx.font = '800 20px "JetBrains Mono", monospace';
+      ctx.fillText('02 // KAMUFLE & GENJAH', winX + 85 + cardW, previewAreaY + 355);
+      ctx.fillStyle = '#a8a29e';
+      ctx.font = '600 16px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('İsyan Et — AI Dijital Sanat & Video', winX + 85 + cardW, previewAreaY + 395);
+
+      // Bottom Bar
+      const botY = winY + winH + 40;
+      ctx.fillStyle = '#f5534c';
+      ctx.fillRect(55, botY, w - 110, 48);
       ctx.fillStyle = '#ffffff';
-      ctx.font = '900 22px "Plus Jakarta Sans", sans-serif';
+      ctx.font = '900 18px "JetBrains Mono", monospace';
       ctx.textAlign = 'center';
-      ctx.fillText('MADCAT STUDIO // EXPLORE LIVE PORTFOLIO', ctaX + ctaW / 2, ctaY + 46);
+      ctx.fillText('MADCAT-STUDIO.VERCEL.APP // CLICK TO EXPAND WORK VAULT', w / 2, botY + 31);
       ctx.textAlign = 'left';
 
-      // Authentic Rubber Stamp
+      // Rubber stamp
       ctx.save();
       ctx.translate(w - 180, 1340);
       ctx.rotate(-0.08);
-      ctx.strokeStyle = '#f1ed6d';
+      ctx.strokeStyle = '#f59e0b';
       ctx.lineWidth = 4;
       ctx.strokeRect(-110, -35, 220, 70);
-      ctx.fillStyle = '#f1ed6d';
+      ctx.fillStyle = '#f59e0b';
       ctx.font = '900 18px "JetBrains Mono", monospace';
       ctx.textAlign = 'center';
-      ctx.fillText('MADCAT // VERIFIED', 0, -4);
+      ctx.fillText('WIP // SPRINT ACTIVE', 0, -4);
       ctx.font = '700 13px "JetBrains Mono", monospace';
-      ctx.fillText('BEHANCE 2026', 0, 18);
+      ctx.fillText('PHASE 1-2 LIVE', 0, 18);
+      ctx.restore();
+    } else if (config.id === 'art-aura-paso') {
+      // =========================================================================
+      // MADCAT STUDIO // POSTER 02: PASO XXV 25. YIL FİLM FESTİVALİ
+      // =========================================================================
+      ctx.fillStyle = '#e6f1e3'; // Pale pistachio
+      ctx.fillRect(0, 0, w, h);
+
+      // Distressed Paper Grain & Halftone Grid
+      ctx.strokeStyle = 'rgba(46, 46, 46, 0.08)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < w; x += 32) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+      }
+      for (let y = 0; y < h; y += 32) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+      }
+
+      // Ticket Stub Jagged Notch at left & right
+      ctx.fillStyle = '#0a0a0c';
+      ctx.beginPath();
+      ctx.arc(0, 240, 42, -Math.PI / 2, Math.PI / 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(w, 240, 42, Math.PI / 2, -Math.PI / 2);
+      ctx.fill();
+
+      // Perforated line
+      ctx.strokeStyle = 'rgba(46, 46, 46, 0.5)';
+      ctx.lineWidth = 3;
+      ctx.setLineDash([10, 10]);
+      ctx.beginPath();
+      ctx.moveTo(50, 240);
+      ctx.lineTo(w - 50, 240);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Top Header
+      ctx.fillStyle = '#2e2e2e';
+      ctx.font = '900 28px "JetBrains Mono", monospace';
+      ctx.fillText('ANKARA // 25. YIL ÖĞRENCİ FİLM FESTİVALİ', 60, 110);
+
+      ctx.font = '700 20px "JetBrains Mono", monospace';
+      ctx.fillStyle = '#4f5752';
+      ctx.fillText('FİLM & DİJİTAL MEDYA // MADCAT STUDIO', 60, 155);
+
+      ctx.font = '900 22px "JetBrains Mono", monospace';
+      ctx.fillStyle = '#c81e74';
+      ctx.fillText('ADMISSION // FESTİVAL BİLETİ', 60, 205);
+
+      // Giant PASO XXV Title
+      ctx.font = '900 160px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#c81e74';
+      ctx.fillText('PASO', 60, 440);
+
+      ctx.font = '900 160px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#2e2e2e';
+      ctx.fillText('XXV', 580, 440);
+
+      // Sub-bar
+      ctx.fillStyle = '#2e2e2e';
+      ctx.fillRect(60, 480, w - 120, 6);
+
+      // Graphic Round Badge
+      ctx.fillStyle = '#c81e74';
+      ctx.beginPath();
+      ctx.arc(w / 2, 700, 160, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#e6f1e3';
+      ctx.font = '900 48px "JetBrains Mono", monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('25. YIL', w / 2, 690);
+      ctx.font = '700 28px "JetBrains Mono", monospace';
+      ctx.fillText('FESTİVAL ROZETİ', w / 2, 740);
+      ctx.textAlign = 'left';
+
+      // Editorial description
+      ctx.fillStyle = '#2e2e2e';
+      ctx.font = '700 24px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('Bilet koçanı biçiminde afişler, rozet ve sosyal medya kimliği.', 60, 960);
+      ctx.font = '600 20px "JetBrains Mono", monospace';
+      ctx.fillStyle = '#4f5752';
+      ctx.fillText('Yaratıcı Ekip: Yiğit Kayi · Defne Köksal // MadCat Studio', 60, 1010);
+
+      // Barcode
+      ctx.fillStyle = '#2e2e2e';
+      for (let bx = 60; bx < w - 60; bx += 14) {
+        ctx.fillRect(bx, 1070, (bx % 3 === 0 ? 8 : 4), 110);
+      }
+      ctx.font = '700 20px "JetBrains Mono", monospace';
+      ctx.fillText('BARCODE: 0025-PASO-ANKARA-MADCAT-STUDIO', 60, 1220);
+
+      // Stamp
+      ctx.save();
+      ctx.translate(w - 200, 1330);
+      ctx.rotate(-0.06);
+      ctx.strokeStyle = '#c81e74';
+      ctx.lineWidth = 5;
+      ctx.strokeRect(-120, -40, 240, 80);
+      ctx.fillStyle = '#c81e74';
+      ctx.font = '900 20px "JetBrains Mono", monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('PASO // 25. YIL', 0, -4);
+      ctx.font = '700 14px "JetBrains Mono", monospace';
+      ctx.fillText('ANKARA ARCHIVE', 0, 20);
+      ctx.restore();
+    } else if (config.id === 'art-aura-berlin') {
+      // =========================================================================
+      // MADCAT STUDIO // POSTER 03: BERLIN * İSTANBUL PORTALI CONCERT POSTER
+      // =========================================================================
+      ctx.fillStyle = '#f5534c'; // Signature concert coral red
+      ctx.fillRect(0, 0, w, h);
+
+      // Halftone diagonal scanlines
+      ctx.strokeStyle = 'rgba(20, 7, 7, 0.08)';
+      ctx.lineWidth = 2;
+      for (let x = -h; x < w; x += 28) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x + h, h); ctx.stroke();
+      }
+
+      // Top Venue Strip
+      ctx.fillStyle = '#140707';
+      ctx.fillRect(55, 60, w - 110, 60);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 26px "JetBrains Mono", monospace';
+      ctx.fillText('MONARCH BAR // BERLIN KREUZBERG', 75, 102);
+
+      ctx.font = '700 20px "JetBrains Mono", monospace';
+      ctx.fillStyle = '#ebea8e';
+      ctx.fillText('RAP GECESİ & MOTION POSTER', w - 410, 102);
+
+      // Giant Typography Title
+      ctx.font = '900 102px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#140707';
+      ctx.fillText('BERLIN *', 55, 230);
+      ctx.fillText('İSTANBUL', 55, 335);
+
+      ctx.fillStyle = '#ebea8e';
+      ctx.fillText('PORTALI', 55, 440);
+
+      // Event Badge Pill
+      ctx.fillStyle = '#140707';
+      ctx.fillRect(55, 480, 480, 48);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 20px "JetBrains Mono", monospace';
+      ctx.fillText('HYBRID MOTION POSTER // LIVE EVENT', 75, 512);
+
+      // Lineup Box
+      const lineX = 55;
+      const lineY = 560;
+      const lineW = w - 110;
+      const lineH = 460;
+
+      ctx.fillStyle = '#140707';
+      ctx.fillRect(lineX, lineY, lineW, lineH);
+
+      ctx.fillStyle = '#ebea8e';
+      ctx.font = '900 32px "JetBrains Mono", monospace';
+      ctx.fillText('LINE-UP // RAP & BEAT ARCHITECTURE', lineX + 35, lineY + 65);
+
+      const artists = [
+        { name: 'SHAO', role: 'HEADLINER // RAP PERFORMANCE' },
+        { name: 'GRi', role: 'ELECTRONIC & HIP-HOP SET' },
+        { name: 'MARDA', role: 'ANATOLIAN BASS & VOCAL' },
+        { name: 'NARDiS', role: 'LIVE SOUNDSCAPES' }
+      ];
+
+      artists.forEach((art, idx) => {
+        const ay = lineY + 130 + idx * 75;
+        ctx.fillStyle = '#f5534c';
+        ctx.fillRect(lineX + 35, ay - 24, 8, 38);
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '900 30px "Plus Jakarta Sans", sans-serif';
+        ctx.fillText(art.name, lineX + 55, ay + 6);
+
+        ctx.fillStyle = '#a1a1aa';
+        ctx.font = '600 18px "JetBrains Mono", monospace';
+        ctx.fillText(`— ${art.role}`, lineX + 220, ay + 5);
+      });
+
+      // Bottom Bar
+      const botY = 1060;
+      ctx.fillStyle = '#140707';
+      ctx.fillRect(55, botY, w - 110, 160);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 26px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('KREATİF YÖNETİM: YİĞİT KAYI · DEFNE KÖKSAL', 85, botY + 55);
+
+      ctx.font = '700 18px "JetBrains Mono", monospace';
+      ctx.fillStyle = '#ebea8e';
+      ctx.fillText('MADCAT STUDIO // MONARCH BERLIN MOTION CAMPAIGN', 85, botY + 100);
+
+      // Stamp
+      ctx.save();
+      ctx.translate(w - 200, 1340);
+      ctx.rotate(-0.07);
+      ctx.strokeStyle = '#140707';
+      ctx.lineWidth = 5;
+      ctx.strokeRect(-120, -40, 240, 80);
+      ctx.fillStyle = '#140707';
+      ctx.font = '900 20px "JetBrains Mono", monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('BERLIN PORTAL', 0, -4);
+      ctx.font = '700 14px "JetBrains Mono", monospace';
+      ctx.fillText('MONARCH KREUZBERG', 0, 20);
       ctx.restore();
     } else {
       // 3. Brutalist Poster Content & Typography
@@ -469,6 +568,29 @@ export class PillarTextureFactory {
 
     const texture = new THREE.CanvasTexture(canvas);
     texture.anisotropy = 8;
+
+    if (typeof window !== 'undefined' && typeof Image !== 'undefined' && config.customImageUrl) {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.src = config.customImageUrl;
+      img.onload = () => {
+        try {
+          if (config.id === 'art-aura') {
+            ctx.drawImage(img, 70, 455, w - 140, 580);
+            texture.needsUpdate = true;
+          } else if (config.id === 'art-aura-paso') {
+            ctx.drawImage(img, 65, 520, w - 130, 420);
+            texture.needsUpdate = true;
+          } else if (config.id === 'art-aura-berlin') {
+            ctx.drawImage(img, 65, 560, w - 130, 460);
+            texture.needsUpdate = true;
+          }
+        } catch {
+          // Fallback gracefully to procedural drawing
+        }
+      };
+    }
+
     return texture;
   }
 

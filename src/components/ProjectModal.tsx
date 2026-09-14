@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { X, ExternalLink, Layers, Activity, Code2, Sparkles } from 'lucide-react';
+import { X, ExternalLink, Layers, Activity, Code2, Sparkles, Clock, AlertTriangle } from 'lucide-react';
 import type { Project } from '../data/portfolio';
 import { brutalistAudio } from '../utils/audio';
 import { useLanguage } from '../context/LanguageContext';
@@ -90,6 +90,32 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </h3>
         </div>
 
+        {/* WIP Notice Banner for Active Projects */}
+        {project.id === 'aura-flagship' && (
+          <div className="mb-6 p-4 bg-amber-950/30 border-l-4 border-amber-500 border-t border-r border-b border-amber-900/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-[2px_2px_0_#000]">
+            <div className="flex items-start sm:items-center gap-3">
+              <span className="relative flex h-3 w-3 mt-0.5 sm:mt-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+              </span>
+              <div>
+                <div className="font-mono font-black text-xs text-amber-300 tracking-wider uppercase flex items-center gap-2">
+                  <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
+                  <span>{language === 'TR' ? 'DURUM: GELİŞTİRME AŞAMASINDA // WORK IN PROGRESS (WIP)' : 'STATUS: WORK IN PROGRESS (WIP) // ACTIVE SPRINT'}</span>
+                </div>
+                <div className="text-[11px] text-amber-200/80 font-mono mt-1 leading-relaxed">
+                  {language === 'TR' 
+                    ? 'Bu web platformu şu anda aktif olarak geliştirilmektedir. Faz 1-2 yayında olup, yeni müşteri vitrinleri ve Faz 7 yol haritası devam etmektedir.' 
+                    : 'This web platform is currently under active development. Phase 1–2 skeleton is live, with ongoing iterations toward Phase 7 roadmap.'}
+                </div>
+              </div>
+            </div>
+            <div className="text-[10px] font-mono px-3 py-1 bg-amber-500 text-black font-black uppercase tracking-widest shrink-0 shadow-[1px_1px_0_#000]">
+              {language === 'TR' ? 'AKTİF SPRINT' : 'ACTIVE SPRINT'}
+            </div>
+          </div>
+        )}
+
         {/* Blueprint Schematic Box */}
         <div className="bg-zinc-950 p-6 border border-zinc-800 mb-8 relative">
           <div className="flex items-center justify-between text-xs font-mono text-zinc-400 mb-4 pb-2 border-b border-zinc-800">
@@ -97,7 +123,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               <Layers className="w-3.5 h-3.5 text-zinc-400" />
               CASE STUDY SCHEMATIC // {t.works.typology}: {project.schematicType}
             </span>
-            <span className="text-emerald-400 font-bold">{t.works.status}: {project.status}</span>
+            <span className={project.id === 'aura-flagship' ? 'text-amber-400 font-bold' : 'text-emerald-400 font-bold'}>
+              {t.works.status}: {project.status}
+            </span>
           </div>
 
           <div className="h-32 sm:h-36 w-full flex items-center justify-center border border-dashed border-zinc-800 bg-[#0e0e11] relative overflow-hidden">
@@ -135,6 +163,81 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {fullDesc}
         </div>
 
+        {/* What We Did & Sprint Timeline Matrix */}
+        {project.id === 'aura-flagship' && (
+          <div className="mb-8 p-5 bg-zinc-950 border border-zinc-800 shadow-[2px_2px_0_#000]">
+            <div className="text-xs font-mono font-bold text-zinc-300 uppercase tracking-widest mb-4 flex items-center justify-between border-b border-zinc-800 pb-2">
+              <span className="text-[#f5534c] flex items-center gap-1.5">
+                <Activity className="w-3.5 h-3.5" />
+                {language === 'TR' ? 'GÖREVİMİZ VE SÜREÇ ANALİZİ' : 'WHAT WE DID & SPRINT ANALYSIS'}
+              </span>
+              <span className="text-[10px] font-mono text-zinc-500 flex items-center gap-1">
+                <Clock className="w-3 h-3 text-amber-400" />
+                {language === 'TR' ? '4 HAFTALIK AKTİF SPRINT' : '4-WEEK ACTIVE SPRINT'}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
+              <div className="p-4 bg-zinc-900/80 border border-zinc-800 flex flex-col justify-between">
+                <div>
+                  <div className="text-[#f5534c] font-black tracking-wider uppercase mb-2.5 flex items-center gap-1.5">
+                    <Code2 className="w-3.5 h-3.5 text-[#f5534c]" />
+                    <span>{language === 'TR' ? 'NE YAPTIK // MİMARİ & UYGULAMA' : 'WHAT WE DID // SCOPE & ARCHITECTURE'}</span>
+                  </div>
+                  <ul className="space-y-2 text-zinc-300 text-[11px] leading-relaxed">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#f5534c] font-bold">▪</span>
+                      <span>{language === 'TR' ? 'Next.js 16, TypeScript & Tailwind CSS ile sıfırdan modern web mimarisi' : 'Full-stack web architecture using Next.js 16, TypeScript & Tailwind CSS'}</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#f5534c] font-bold">▪</span>
+                      <span>{language === 'TR' ? 'Özel brutalist editoryal tipografi & dinamik iki dilli yönlendirme (TR / EN)' : 'Bespoke brutalist typographic system & dynamic bilingual routing (TR / EN)'}</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#f5534c] font-bold">▪</span>
+                      <span>{language === 'TR' ? 'Etkileşimli portfolyo ızgarası, yapışkan katmanlar (sticky stack) ve akıcı kaydırma' : 'Interactive portfolio grid, sticky-stacked layers & fluid scroll dynamics'}</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#f5534c] font-bold">▪</span>
+                      <span>{language === 'TR' ? 'Behance CDN ile yüksek çözünürlüklü medya, hareketli afişler & video akış hattı' : 'High-fidelity asset streaming pipelines, motion posters & video visualizers'}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="p-4 bg-zinc-900/80 border border-zinc-800 flex flex-col justify-between">
+                <div>
+                  <div className="text-amber-400 font-black tracking-wider uppercase mb-2.5 flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-amber-400" />
+                    <span>{language === 'TR' ? 'NE KADAR SÜRDÜ // ZAMAN ÇİZELGESİ' : 'TIMELINE // SPRINT DURATION'}</span>
+                  </div>
+                  <ul className="space-y-2 text-zinc-300 text-[11px] leading-relaxed font-mono">
+                    <li className="flex items-start justify-between border-b border-zinc-800/80 pb-1.5">
+                      <span className="text-zinc-400">{language === 'TR' ? 'Aktif Sprint:' : 'Active Sprint:'}</span>
+                      <span className="text-white font-bold">{language === 'TR' ? '4 Hafta (Yoğun Geliştirme)' : '4 Weeks (Intensive Sprint)'}</span>
+                    </li>
+                    <li className="flex items-start justify-between border-b border-zinc-800/80 pb-1.5">
+                      <span className="text-zinc-400">{language === 'TR' ? 'Zaman Dilimi:' : 'Timeline:'}</span>
+                      <span className="text-white font-bold">Ağustos 2026 – Güncel</span>
+                    </li>
+                    <li className="flex items-start justify-between border-b border-zinc-800/80 pb-1.5">
+                      <span className="text-zinc-400">{language === 'TR' ? 'Mevcut Durum:' : 'Production State:'}</span>
+                      <span className="text-amber-400 font-black flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block animate-pulse"></span>
+                        {language === 'TR' ? 'Aktif Geliştirme (WIP)' : 'Active Development (WIP)'}
+                      </span>
+                    </li>
+                    <li className="flex items-start justify-between">
+                      <span className="text-zinc-400">{language === 'TR' ? 'Yol Haritası:' : 'Roadmap:'}</span>
+                      <span className="text-emerald-400 font-bold">{language === 'TR' ? 'Faz 1-2 Yayında → Faz 7 Hedefi' : 'Phase 1-2 Live → Phase 7 Target'}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Visual Posters & Creative Works Gallery */}
         {project.visuals && project.visuals.length > 0 && (
           <div className="mb-8">
@@ -149,34 +252,39 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-              {project.visuals.map((vis, vIdx) => (
-                <div
-                  key={vIdx}
-                  className="group relative bg-zinc-900 border border-zinc-800 hover:border-zinc-500 transition-all overflow-hidden flex flex-col shadow-[2px_2px_0_#000]"
-                >
-                  <div className="relative aspect-4/3 w-full bg-zinc-950 overflow-hidden">
-                    <img
-                      src={vis.image}
-                      alt={vis.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute top-2 left-2 px-2 py-0.5 bg-black/85 backdrop-blur-xs text-[9px] font-mono font-bold text-zinc-300 border border-white/10 uppercase">
-                      {vis.category}
+              {project.visuals.map((vis, vIdx) => {
+                const isHero = vIdx === 0;
+                return (
+                  <div
+                    key={vIdx}
+                    className={`group relative bg-zinc-900 border border-zinc-800 hover:border-zinc-500 transition-all overflow-hidden flex flex-col shadow-[2px_2px_0_#000] ${
+                      isHero ? 'sm:col-span-2 lg:col-span-2' : ''
+                    }`}
+                  >
+                    <div className={`relative w-full bg-zinc-950 overflow-hidden ${isHero ? 'aspect-16/9' : 'aspect-4/3'}`}>
+                      <img
+                        src={vis.image}
+                        alt={vis.title}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-2 left-2 px-2 py-0.5 bg-black/85 backdrop-blur-xs text-[9px] font-mono font-bold text-zinc-300 border border-white/10 uppercase">
+                        {vis.category}
+                      </div>
+                    </div>
+                    <div className="p-3 flex flex-col justify-between flex-1 bg-zinc-900/95">
+                      <div>
+                        <h4 className="font-display font-black text-xs sm:text-sm text-white group-hover:text-[#f5534c] transition-colors">
+                          {vis.title}
+                        </h4>
+                        <p className="text-[11px] text-zinc-400 mt-0.5 font-sans line-clamp-2">
+                          {vis.subtitle}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  <div className="p-3 flex flex-col justify-between flex-1 bg-zinc-900/95">
-                    <div>
-                      <h4 className="font-display font-black text-xs sm:text-sm text-white group-hover:text-[#f5534c] transition-colors">
-                        {vis.title}
-                      </h4>
-                      <p className="text-[11px] text-zinc-400 mt-0.5 font-sans line-clamp-2">
-                        {vis.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}

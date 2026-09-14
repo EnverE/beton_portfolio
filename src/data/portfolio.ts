@@ -190,15 +190,15 @@ export const PORTFOLIO_DATA = {
       sector: 'WEB DESIGN',
       year: '2026',
       elevation: 'ELEVATION 01',
-      renderMetric: 'NEXT.JS 16 + EDITORIAL MOTION',
-      status: 'LIVE',
-      shortDesc: 'Live bilingual portfolio for MadCat Studio (Yiğit Kayi · Defne Köksal), showcasing visual identity, concert posters, music videos, and film campaigns.',
-      fullDesc: 'Live studio showcase built with Next.js and high-impact editorial typography, spotlighting 5 flagship creative direction projects: Selam!Emre ("Bilmem Nasıl Yaşanır"), Kamufle & Genjah ("İsyan Et"), Soft Analog ("Gecenin Koynunda"), Berlin * İstanbul Portalı (Monarch Bar Berlin concert poster), and PASO XXV Film Festival.',
+      renderMetric: '4 WEEKS SPRINT // PHASE 1–2 LIVE (WIP)',
+      status: 'WIP // ACTIVE',
+      shortDesc: 'Live bilingual creative direction platform for MadCat Studio (Yiğit Kayi · Defne Köksal) — currently in active development (WIP). Features brutalist web architecture, motion design, and a curated project vault.',
+      fullDesc: 'Currently in active development (Work In Progress / WIP) — a bespoke bilingual creative direction platform for MadCat Studio (Yiğit Kayi · Defne Köksal). Developed over a focused 4-week active sprint, the project encompasses full-stack web architecture (Next.js, TypeScript, Tailwind CSS), responsive motion design, and an interactive portfolio grid spotlighting 5 flagship creative direction projects: Selam!Emre ("Bilmem Nasıl Yaşanır"), Kamufle & Genjah ("İsyan Et"), Soft Analog ("Gecenin Koynunda"), Berlin * İstanbul Portalı (Monarch Bar Berlin concert poster), and PASO XXV Film Festival. Currently at Phase 1-2 with Phase 7 roadmap underway.',
       structuralSpecs: [
-        { label: 'STATUS', value: 'PRODUCTION LIVE' },
-        { label: 'STUDIO', value: 'MADCAT STUDIO // YİĞİT KAYI · DEFNE KÖKSAL' },
-        { label: 'DISCIPLINE', value: 'VISUAL IDENTITY & FILM DIRECTION' },
-        { label: 'SHOWCASE', value: '5 PROJECTS // BEHANCE PORTFOLIO' }
+        { label: 'STATUS', value: 'WORK IN PROGRESS (WIP) // ACTIVE SPRINT' },
+        { label: 'TIMELINE', value: '4 WEEKS ACTIVE SPRINT (AUG 2026 – PRESENT)' },
+        { label: 'WHAT WE DID', value: 'WEB ARCHITECTURE, MOTION SYSTEM & ART DIRECTION' },
+        { label: 'ROADMAP', value: 'PHASE 1–2 SKELETON LIVE → EXPANDING TO PHASE 7' }
       ],
       techStack: ['Next.js 16', 'TypeScript', 'Tailwind CSS', 'Editorial Typography', 'Motion Design'],
       liveUrl: 'https://madcat-studio.vercel.app/',
@@ -206,32 +206,44 @@ export const PORTFOLIO_DATA = {
       schematicType: 'EDITORIAL',
       visuals: [
         {
-          title: 'PASO XXV',
-          subtitle: 'Film & Digital Media Festival Poster',
+          title: 'MAIN PLATFORM & NAVIGATION MENU',
+          subtitle: 'Brutalist web architecture, responsive top navigation, and studio manifesto credits',
+          category: 'WEB PLATFORM // MAIN MENU',
+          image: '/showcase/madcat/main-menu.jpg'
+        },
+        {
+          title: 'INTERACTIVE PORTFOLIO GRID',
+          subtitle: 'Curated editorial archive indexing Film, Motion Posters, and Visual Campaigns',
+          category: 'UI / UX // PORTFOLIO GRID',
+          image: '/showcase/madcat/portfolio-grid.jpg'
+        },
+        {
+          title: 'PASO XXV // ANKARA FILM FESTIVAL',
+          subtitle: '25th Year Student Film & Digital Media Festival Ticket-Stub Poster & Badges',
           category: 'FESTIVAL POSTER // VISUAL IDENTITY',
           image: '/showcase/madcat/paso-xxv.webp'
         },
         {
           title: 'BERLIN * İSTANBUL PORTALI',
-          subtitle: 'Monarch Bar Berlin Concert & Motion Poster',
+          subtitle: 'Monarch Bar Berlin Concert Poster & Hybrid Motion Poster for Rap Night',
           category: 'CONCERT POSTER // RAP NIGHT',
           image: '/showcase/madcat/berlin-istanbul.webp'
         },
         {
-          title: 'SELAM!EMRE',
-          subtitle: 'Bilmem Nasıl Yaşanır — Music Video & Brand Campaign',
+          title: 'SELAM!EMRE // BİLMEM NASIL YAŞANIR',
+          subtitle: 'Music Video, Brand Campaign & Art Direction filmed across Ankara',
           category: 'MUSIC VIDEO // ART DIRECTION',
           image: '/showcase/madcat/selam-emre.webp'
         },
         {
-          title: 'KAMUFLE & GENJAH',
-          subtitle: 'İsyan Et — AI Digital Art & Music Video',
+          title: 'KAMUFLE & GENJAH // İSYAN ET',
+          subtitle: 'AI Digital Art & Narrative Video for Yalaz Album',
           category: 'DIGITAL ART // NARRATIVE',
           image: '/showcase/madcat/kamufle-isyan.webp'
         },
         {
-          title: 'SOFT ANALOG',
-          subtitle: 'Gecenin Koynunda — 9 Album Visualizers & Film',
+          title: 'SOFT ANALOG // GECENİN KOYNUNDA',
+          subtitle: '9 Album Visualizers & Film rotating seamlessly like a vinyl record',
           category: 'ALBUM VISUALIZERS // FILM',
           image: '/showcase/madcat/soft-analog.webp'
         }

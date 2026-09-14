@@ -629,11 +629,12 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
 
       const posterMesh = new THREE.Mesh(posterGeo, posterMat);
       posterMesh.position.y = art.elevationY;
+      posterMesh.renderOrder = 10;
       posterMesh.userData = { projectId: art.projectId, isPoster: true };
       pillarGroup.add(posterMesh);
       posterMeshes.push(posterMesh);
 
-      // 2. Vinyl Stickers (Offset above poster with 2D rotated texture)
+      // 2. Vinyl Stickers (Offset above poster with 2D rotated texture, guaranteed zero clipping)
       art.stickers.forEach((stk) => {
         const stkTex = PillarTextureFactory.createStickerTexture(stk.text, stk.bg, stk.fg, stk.rotation);
         const stkDeltaTheta = stk.width / columnRadius;
@@ -650,7 +651,8 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
           stkThetaStart,
           stkDeltaTheta
         );
-        conformToPillarSurface(stkGeo, art.elevationY + stk.offsetY, 0.145, false);
+        // Conforms with positive radial clearance (0.165) and follows identical joint groove deformation
+        conformToPillarSurface(stkGeo, art.elevationY + stk.offsetY, 0.165, true);
 
         const stkMat = new THREE.MeshStandardMaterial({
           map: stkTex,
@@ -660,13 +662,14 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
           depthWrite: false,
           depthTest: true,
           polygonOffset: true,
-          polygonOffsetFactor: -8,
-          polygonOffsetUnits: -16,
+          polygonOffsetFactor: -12,
+          polygonOffsetUnits: -24,
           side: THREE.FrontSide,
         });
 
         const stkMesh = new THREE.Mesh(stkGeo, stkMat);
         stkMesh.position.y = art.elevationY + stk.offsetY;
+        stkMesh.renderOrder = 20; // Always rendered over poster to prevent depth buffer clipping
         stkMesh.userData = { projectId: art.projectId };
         pillarGroup.add(stkMesh);
       });
@@ -718,6 +721,7 @@ export const PillarCanvas: React.FC<PillarCanvasProps> = ({
 
       const grafMesh = new THREE.Mesh(grafGeo, grafMat);
       grafMesh.position.y = graf.elevationY;
+      grafMesh.renderOrder = 5;
       pillarGroup.add(grafMesh);
     });
 

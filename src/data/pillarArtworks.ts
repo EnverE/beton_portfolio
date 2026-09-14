@@ -58,19 +58,58 @@ export const PILLAR_PROJECT_ARTWORKS: PillarArtworkConfig[] = [
   {
     id: 'art-aura',
     projectId: 'aura-flagship',
-    title: 'MADCAT STUDIO // VISUAL WORKS',
+    title: 'MADCAT STUDIO // WEB PLATFORM',
     code: 'MC-01',
     elevationY: 5.5,
     angleRad: 0.15,
-    width: 2.1,
-    height: 3.0,
-    primaryColor: '#0c0c0e',
+    width: 1.75,
+    height: 2.5,
+    customImageUrl: '/showcase/madcat/main-menu.jpg',
+    primaryColor: '#0a0a0c',
     accentColor: '#f5534c',
-    tags: ['VISUAL IDENTITY', 'CONCERT POSTERS', 'FILM & MOTION'],
+    tags: ['MAIN MENU', 'BRUTALIST WEB', 'CREATIVE WORKS'],
     stickers: [
-      { text: 'MADCAT STUDIO', offsetX: 0.9, offsetY: 1.2, width: 0.85, height: 0.35, rotation: -0.10, bg: '#f5534c', fg: '#ffffff' },
-      { text: '5 PROJECTS // LIVE', offsetX: -0.85, offsetY: -1.2, width: 0.85, height: 0.3, rotation: 0.08, bg: '#f1ed6d', fg: '#000000' },
-      { text: 'YİĞİT KAYI · DEFNE KÖKSAL', offsetX: 0.05, offsetY: -1.35, width: 1.25, height: 0.28, rotation: -0.02, bg: '#000000', fg: '#ffffff' }
+      { text: 'MADCAT STUDIO', offsetX: 0.65, offsetY: 1.05, width: 0.80, height: 0.30, rotation: -0.08, bg: '#f5534c', fg: '#ffffff' },
+      { text: 'STATUS // WIP', offsetX: -0.60, offsetY: -1.05, width: 0.75, height: 0.28, rotation: 0.07, bg: '#f59e0b', fg: '#000000' },
+      { text: 'YİĞİT · DEFNE', offsetX: 0.15, offsetY: -1.15, width: 0.85, height: 0.26, rotation: -0.02, bg: '#000000', fg: '#ffffff' }
+    ],
+    graffitis: []
+  },
+  {
+    id: 'art-aura-paso',
+    projectId: 'aura-flagship',
+    title: 'PASO XXV // FILM FESTIVAL',
+    code: 'MC-02',
+    elevationY: 5.1,
+    angleRad: -0.72,
+    width: 1.45,
+    height: 2.1,
+    customImageUrl: '/showcase/madcat/paso-xxv.webp',
+    primaryColor: '#e6f1e3',
+    accentColor: '#c81e74',
+    tags: ['PASO XXV', 'ANKARA FILM FEST', 'TICKET STUB'],
+    stickers: [
+      { text: 'PASO XXV // ANKARA', offsetX: 0.45, offsetY: 0.90, width: 0.82, height: 0.28, rotation: -0.06, bg: '#c81e74', fg: '#e6f1e3' },
+      { text: '25TH YR BADGE', offsetX: -0.40, offsetY: -0.90, width: 0.75, height: 0.26, rotation: 0.05, bg: '#2e2e2e', fg: '#e6f1e3' }
+    ],
+    graffitis: []
+  },
+  {
+    id: 'art-aura-berlin',
+    projectId: 'aura-flagship',
+    title: 'BERLIN * İSTANBUL // CONCERT',
+    code: 'MC-03',
+    elevationY: 5.9,
+    angleRad: 1.02,
+    width: 1.45,
+    height: 2.1,
+    customImageUrl: '/showcase/madcat/berlin-istanbul.webp',
+    primaryColor: '#f5534c',
+    accentColor: '#ebea8e',
+    tags: ['MONARCH BERLIN', 'MOTION POSTER', 'RAP NIGHT'],
+    stickers: [
+      { text: 'MONARCH BAR BERLIN', offsetX: 0.42, offsetY: 0.90, width: 0.88, height: 0.28, rotation: 0.06, bg: '#140707', fg: '#f5534c' },
+      { text: 'SHAO · GRi · MARDA', offsetX: -0.38, offsetY: -0.90, width: 0.82, height: 0.26, rotation: -0.05, bg: '#ebea8e', fg: '#140707' }
     ],
     graffitis: []
   },

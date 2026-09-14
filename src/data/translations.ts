@@ -130,13 +130,13 @@ export const TRANSLATIONS = {
     projects: {
       'aura-flagship': {
         title: 'MADCAT STUDIO // CREATIVE DIRECTION',
-        shortDesc: 'Live bilingual portfolio for MadCat Studio (Yiğit Kayi · Defne Köksal), showcasing visual identity, concert posters, music videos, and film campaigns.',
-        fullDesc: 'Live studio showcase built with Next.js and high-impact editorial typography, spotlighting 5 flagship creative direction projects: Selam!Emre ("Bilmem Nasıl Yaşanır"), Kamufle & Genjah ("İsyan Et"), Soft Analog ("Gecenin Koynunda"), Berlin * İstanbul Portalı (Monarch Bar Berlin concert poster), and PASO XXV Film Festival.',
+        shortDesc: 'Live bilingual creative direction platform for MadCat Studio (Yiğit Kayi · Defne Köksal) — currently in active development (WIP). Features brutalist web architecture, motion design, and a curated project vault.',
+        fullDesc: 'Currently in active development (Work In Progress / WIP) — a bespoke bilingual creative direction platform for MadCat Studio (Yiğit Kayi · Defne Köksal). Developed over a focused 4-week active sprint, the project encompasses full-stack web architecture (Next.js, TypeScript, Tailwind CSS), responsive motion design, and an interactive portfolio grid spotlighting 5 flagship creative direction projects: Selam!Emre ("Bilmem Nasıl Yaşanır"), Kamufle & Genjah ("İsyan Et"), Soft Analog ("Gecenin Koynunda"), Berlin * İstanbul Portalı (Monarch Bar Berlin concert poster), and PASO XXV Film Festival. Currently at Phase 1-2 with Phase 7 roadmap underway.',
         structuralSpecs: [
-          { label: 'STATUS', value: 'PRODUCTION LIVE' },
-          { label: 'STUDIO', value: 'MADCAT STUDIO // YİĞİT KAYI · DEFNE KÖKSAL' },
-          { label: 'DISCIPLINE', value: 'VISUAL IDENTITY & FILM DIRECTION' },
-          { label: 'SHOWCASE', value: '5 PROJECTS // BEHANCE PORTFOLIO' }
+          { label: 'STATUS', value: 'WORK IN PROGRESS (WIP) // ACTIVE SPRINT' },
+          { label: 'TIMELINE', value: '4 WEEKS ACTIVE SPRINT (AUG 2026 – PRESENT)' },
+          { label: 'WHAT WE DID', value: 'WEB ARCHITECTURE, MOTION SYSTEM & ART DIRECTION' },
+          { label: 'ROADMAP', value: 'PHASE 1–2 SKELETON LIVE → EXPANDING TO PHASE 7' }
         ]
       },
       'next-project': {
@@ -320,13 +320,13 @@ export const TRANSLATIONS = {
     projects: {
       'aura-flagship': {
         title: 'MADCAT STUDIO // YARATICI YÖNETİM',
-        shortDesc: 'MadCat Studio (Yiğit Kayi · Defne Köksal) için görsel kimlik, konser afişleri, müzik videoları ve festival kampanyalarını sergileyen canlı portfolyo.',
-        fullDesc: 'Next.js ve çarpıcı editoryal tipografiyle hayata geçirilen yaratıcı stüdyo vitrini; 5 amiral gemisi projeyi öne çıkarıyor: Selam!Emre ("Bilmem Nasıl Yaşanır"), Kamufle & Genjah ("İsyan Et"), Soft Analog ("Gecenin Koynunda"), Berlin * İstanbul Portalı (Monarch Bar Berlin konser afişi) ve PASO XXV Öğrenci Film Festivali.',
+        shortDesc: 'MadCat Studio (Yiğit Kayi · Defne Köksal) için şu anda geliştirilme aşamasında (WIP) olan canlı, iki dilli yaratıcı yönetim platformu. Brutalist web mimarisi, hareket dili ve seçkin bir iş arşivi sunar.',
+        fullDesc: 'Şu anda aktif geliştirme aşamasında (Work In Progress / WIP) — MadCat Studio (Yiğit Kayi · Defne Köksal) için tasarlanan iki dilli yaratıcı yönetim platformu. 4 haftalık yoğun bir sprint sürecinde hayata geçirilen proje; uçtan uca web mimarisi (Next.js, TypeScript, Tailwind CSS), akıcı hareket tasarımı ve stüdyonun 5 amiral gemisi işini (Selam!Emre "Bilmem Nasıl Yaşanır", Kamufle & Genjah "İsyan Et", Soft Analog "Gecenin Koynunda", Berlin * İstanbul Portalı ve PASO XXV Öğrenci Film Festivali) sergileyen etkileşimli portfolyo ızgarasını kapsar. Şu an Faz 1-2 yayında olup Faz 7 yol haritası devam etmektedir.',
         structuralSpecs: [
-          { label: 'STATUS', value: 'CANLI YAYINDA' },
-          { label: 'STUDIO', value: 'MADCAT STUDIO // YİĞİT KAYI · DEFNE KÖKSAL' },
-          { label: 'DISCIPLINE', value: 'GÖRSEL KİMLİK & FİLM YÖNETİMİ' },
-          { label: 'SHOWCASE', value: '5 PROJE // BEHANCE PORTFOLYOSU' }
+          { label: 'STATUS', value: 'GELİŞTİRME AŞAMASINDA (WIP) // AKTİF SPRINT' },
+          { label: 'ZAMAN ÇİZELGESİ', value: '4 HAFTALIK AKTİF SPRINT (AĞU 2026 – GÜNCEL)' },
+          { label: 'NE YAPTIK', value: 'WEB MİMARİSİ, HAREKET DİLİ & SANAT YÖNETİMİ' },
+          { label: 'YOL HARİTASI', value: 'FAZ 1–2 İSKELET YAYINDA → FAZ 7 HEDEFİ' }
         ]
       },
       'next-project': {
